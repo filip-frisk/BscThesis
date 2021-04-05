@@ -3,7 +3,10 @@
 */
 !.gitignore
 !main.py
+!main.ipynb
 !parseData.py
+!parseData.ipynb
 !run_model.py
+!run_model.ipynb
 
 
