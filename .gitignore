@@ -1,6 +1,9 @@
 ###Ignores all files except !###
+# Ignore all files
 *
+# Ignore all subdirectories
 */
+# Files to not ignore
 !.gitignore
 !main.py
 !main.ipynb
@@ -8,7 +11,12 @@
 !parseData.ipynb
 !run_model.py
 !run_model.ipynb
+# Directories to not ignore
 !/Output_Macenko/
+!Output_Macenko/*
 !/Output_SCD/
+!Output_SCD/*
 !/Output_No_filter/
+!Output_No_filter/*
 !/Output_Reinhard/
+!Output_Reinhard/*
