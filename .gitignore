@@ -20,3 +20,6 @@
 !Output_No_filter/*
 !/Output_Reinhard/
 !Output_Reinhard/*
+!/Slurm_and_log_files/
+!Slurm_and_log_files/*
+!*.out
