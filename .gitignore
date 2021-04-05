@@ -8,7 +8,7 @@
 !parseData.ipynb
 !run_model.py
 !run_model.ipynb
-!Output_Macenko/
-!Output_SCD/
-!Output_No_filter/
-!Output_Reinhard/
+!/Output_Macenko
+!/Output_SCD
+!/Output_No_filter
+!/Output_Reinhard
