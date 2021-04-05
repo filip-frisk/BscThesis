@@ -21,7 +21,6 @@ import torchvision.models as models
 
 from sklearn.metrics import classification_report
 
-
 from efficientnet_pytorch import EfficientNet
 from CellDataset import CellDataset
 
@@ -29,15 +28,11 @@ best_acc1 = 0
 
 # Static config
 num_classes = 4
-class_names = ['inflammatory', 'lymphocyte', 'fibroblast and endothelial',
-               'epithelial', 'apoptosis / civiatte body']
-shuffle = True
-k = 10  # Cross-validation splits
 
 '''
 Train/validate an EfficentNet model
 '''
-def run_model(loaders, split, args):
+def run_model(loaders, split, args, class_names):
     if args.seed is not None:
         random.seed(args.seed)
         torch.manual_seed(args.seed)
@@ -60,6 +55,7 @@ def run_model(loaders, split, args):
 def main_worker(loaders, split, gpu, ngpus, args):
     global best_acc1
     args.gpu = gpu
+    output_destination = args.outdest
 
     if args.gpu is not None:
         print("Use GPU: {} for training".format(args.gpu))
@@ -156,17 +152,17 @@ def main_worker(loaders, split, gpu, ngpus, args):
             'state_dict': model.state_dict(),
             'best_acc1': best_acc1,
             'optimizer': optimizer.state_dict(),
-        }, is_best, split)
+        }, is_best, split,output_destination)
 
     if args.validate:
         res, classification = validate(loaders['val'], model, criterion, args)
-        with open('res_val_{}.txt'.format(split), 'w') as f:
+        with open(output_destination + '/res_val_{}.txt'.format(split), 'w') as f:
             print(res, file=f)
             print(classification, file=f)
 
     if args.evaluate:
         res, classification = validate(loaders['test'], model, criterion, args)
-        with open('res_test_{}.txt'.format(split), 'w') as f:
+        with open(output_destination + '/res_test_{}.txt'.format(split), 'w') as f:
             print(res, file=f)
             print(classification, file=f)
 
@@ -290,11 +286,11 @@ def validate(val_loader, model, criterion, args):
     print(report)
     return top1.avg, report
 
-
-def save_checkpoint(state, is_best, split, filename='checkpoint.pth.tar'):
+# TODO Albert Filip have main checkpoint in folder
+def save_checkpoint(state, is_best, split, destination ,filename='checkpoint.pth.tar'):
     torch.save(state, filename)
     if is_best:
-        shutil.copyfile(filename, 'model_best_{}.pth.tar'.format(split))
+        shutil.copyfile(filename, destination + '/model_best_{}.pth.tar'.format(split))
 
 
 class AverageMeter(object):
@@ -336,7 +332,6 @@ class ProgressMeter(object):
         num_digits = len(str(num_batches // 1))
         fmt = '{:' + str(num_digits) + 'd}'
         return '[' + fmt + '/' + fmt.format(num_batches) + ']'
-
 
 def adjust_learning_rate(optimizer, epoch, args):
     """Sets the learning rate to the initial LR decayed by 3% every 2.4 epochs"""

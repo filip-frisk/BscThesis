@@ -2,72 +2,12 @@ from PIL import Image
 import numpy as np
 import xml.etree.ElementTree as ET
 
-label_paths = [
-    'KI-Dataset/Training LabelIMG/For KTH/Helena/Helena_P7/P7_HE_Default_Extended_1_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Helena/Helena_P7/P7_HE_Default_Extended_2_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Helena/Helena_P7/P7_HE_Default_Extended_2_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Helena/Helena_P7/P7_HE_Default_Extended_3_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Helena/N10/N10_1_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Helena/N10/N10_1_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Helena/N10/N10_1_3',
-    'KI-Dataset/Training LabelIMG/For KTH/Helena/N10/N10_2_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Helena/N10/N10_1_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Helena/N10/N10_2_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Nikolce/N10_1_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Nikolce/N10_1_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P9/P9_1_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P9/P9_2_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P9/P9_2_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P9/P9_3_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P9/P9_3_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P9/P9_4_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P9/P9_4_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P13/P13_1_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P13/P13_1_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P13/P13_2_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P13/P13_2_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P19/P19_1_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P19/P19_1_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P19/P19_2_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P19/P19_2_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P19/P19_3_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P19/P19_3_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_1_3',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_1_4',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_2_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_2_3',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_2_4',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_3_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_3_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_3_3',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_4_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_4_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_4_3',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_5_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_5_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_6_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_6_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_7_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_7_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_8_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_8_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_9_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P20/P20_9_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P25/P25_2_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P25/P25_3_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P25/P25_3_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P25/P25_4_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P25/P25_5_1',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P25/P25_8_2',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P28/P28_10_4',
-    'KI-Dataset/Training LabelIMG/For KTH/Rachael/Rach_P28/P28_10_5',
-]
+# Taking in TIF, normalize the Image without taking white parts into account
+# Cropping 32x32 images around the center of the cells
+# All images are stored in the array "images "and the labels are stored in array labels
 
-class_names = ['inflammatory', 'lymphocyte', 'fibroblast and endothelial',
-               'epithelial', 'apoptosis / civiatte body']
-
-
-def parseData(basePath="", fileCount=len(label_paths)):
+def parseData(basePath="KI-dataset-4-types/All_Slices/", filter_name= "", label_paths, class_names):
+    fileCount = len(label_paths)
     labels = []
     images = []
 
@@ -77,7 +17,7 @@ def parseData(basePath="", fileCount=len(label_paths)):
         root = tree.getroot()
 
         # Parse full image to nparray
-        image = basePath+label_paths[path]+'.tif'
+        image = basePath+label_paths[path]+filter_name+'.tif'
         im = Image.open(image)
         imarray = np.array(im, dtype=np.double)/255
         B = imarray.copy()

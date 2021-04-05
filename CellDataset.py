@@ -20,13 +20,11 @@ class CellDataset(Dataset):
 
     def __getitem__(self, index):
         x = self.tensors[0][index]
-
         if self.transform:
             x = self.transform(x.cpu())
             if torch.cuda.is_available():
-                x = x.to(device=torch.device('cuda') )
+                x = x.to(device=torch.device('cuda'))
         y = self.tensors[1][index]
-
         return x, y
 
     def __len__(self):

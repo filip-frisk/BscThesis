@@ -30,7 +30,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 parser = argparse.ArgumentParser(description='PyTorch EfficientNet Training')
-parser.add_argument('--data', metavar='DIR', default="",
+parser.add_argument('--data', metavar='DIR', default="KI-dataset-4-types/All_Slices/",
                     help='path to KI-Dataset folder')
 parser.add_argument('-a', '--arch', metavar='ARCH', default='efficientnet-b0',
                     help='model architecture (default: efficientnet-b0)')
@@ -40,9 +40,9 @@ parser.add_argument('--epochs', default=15, type=int, metavar='N',
                     help='number of total epochs to run')
 parser.add_argument('--start-epoch', default=0, type=int, metavar='N',
                     help='manual epoch number (useful on restarts)')
-parser.add_argument('-b', '--batch-size', default=64, type=int,
+parser.add_argument('-b', '--batch-size', default=8, type=int,
                     metavar='N',
-                    help='mini-batch size (default: 64), this is the total '
+                    help='mini-batch size (default:8), this is the total '
                          'batch size of all GPUs on the current node when '
                          'using Data Parallel or Distributed Data Parallel')
 parser.add_argument('--lr', '--learning-rate', default=0.1, type=float,
@@ -73,13 +73,71 @@ parser.add_argument('--image_size', default=32, type=int,
                     help='image size')
 parser.add_argument('--advprop', default=False, action='store_true',
                     help='use advprop or not')
-parser.add_argument('--upsample', default=False, action='store_true',
+parser.add_argument('--upsample', default=True, action='store_true',
                     help='upsample, else use class weights')
+parser.add_argument('--filter', default="",
+                    help='filter we want to use for training the model')
+parser.add_argument('--outdest', default="",
+                    help='where we want to save our output data')
 
 # Static config
 num_classes = 4
 class_names = ['inflammatory', 'lymphocyte', 'fibroblast and endothelial',
                'epithelial', 'apoptosis / civiatte body']
+
+train_label_paths = [
+    "P19_1_1",
+    "P19_1_2",
+    "P19_2_1",
+    "P19_2_2",
+    "P19_3_1",
+    "P19_3_2",
+    "P20_1_3",
+    "P20_1_4",
+    "P20_2_2",
+    "P20_2_3",
+    "P20_2_4",
+    "P20_3_1",
+    "P20_3_2",
+    "P20_3_3",
+    "P20_4_1",
+    "P20_4_2",
+    "P20_4_3",
+    "P20_5_1",
+    "P20_5_2",
+    "P20_6_1",
+    "P20_6_2",
+    "P20_7_1",
+    "P20_7_2",
+    "P20_8_1",
+    "P20_8_2",
+    "P20_9_1",
+    "P20_9_2",
+    "P9_1_1",
+    "P9_2_1",
+    "P9_2_2",
+    "P9_3_1",
+    "P9_3_2",
+    "P9_4_1",
+    "P9_4_2"
+]
+
+test_label_paths = [
+    "N10_1_1",
+    "N10_1_2",
+    "N10_1_3",
+    "N10_2_1",
+    "N10_2_2",
+    "P13_1_1",
+    "P13_1_2",
+    "P13_2_1",
+    "P13_2_2",
+    "P28_7_5",
+    "P28_8_5",
+    "P28_10_4",
+    "P28_10_5",
+]
+
 shuffle = True
 k = 5 # Cross-validation splits
 
@@ -103,15 +161,11 @@ def main():
     print(torch.version.cuda)
     a = torch.cuda.FloatTensor([1.])
     print(a)
-    # Normalize using dataset mean + std or advprop settings
-    #if args.advprop:
-    #    normalize = transforms.Lambda(lambdaTransform)
-    #else:
-    #    normalize = transforms.Normalize(mean=[0.72482513, 0.59128926, 0.76370454],
-    #                                     std=[0.18745105, 0.2514997,  0.15264913])
 
     image_size = args.image_size
-    print('Using image size', image_size)
+    print('Using image size: ', image_size)
+    filter = args.filter
+    print('Using filter ', filter)
 
     train_tsfm = transforms.Compose([
         transforms.ToPILImage(),
@@ -134,18 +188,23 @@ def main():
 
     # Load and split datasets and convert to tensor
     # Test images from different slices than train
-    images, labels = parseData(basePath=args.data)
 
-    for i in range(len(labels)-1, -1, -1):
-        if(labels[i] == 4):
-            labels.pop(i)
-            images.pop(i)
+    train_images, train_labels = parseData(basePath=args.data,filter_name=filter, label_paths=train_label_paths, class_names=class_names)
 
-    train_images = images[:min(20390, len(images)-20)]
-    train_labels = labels[:min(20390, len(images)-20)]
-    test_images = images[min(20390, len(images)-20):]
-    test_labels = labels[min(20390, len(images)-20):]
+    # remove all images in training set with labels 4
+    for i in range(len(train_labels)-1, -1, -1):
+        if(train_labels[i] == 4):
+            train_labels.pop(i)
+            train_images.pop(i)
 
+    test_images, test_labels = parseData(basePath=args.data, filter_name=filter, label_paths=test_label_paths, class_names=class_names)
+
+    for i in range(len(test_labels)-1, -1, -1):
+        if(test_labels[i] == 4):
+            test_labels.pop(i)
+            test_images.pop(i)
+
+    # Upsamples the training data if args.upsample = True
     if args.upsample:
         c0_ind = [i for i, x in enumerate(train_labels) if x == 0]
         c1_ind = [i for i, x in enumerate(train_labels) if x == 1]
@@ -169,9 +228,9 @@ def main():
             if idx < 2000:
                 train_labels.append(train_labels[val])
                 train_images.append(train_images[val])
-    
-    temp = list(zip(train_labels, train_images)) 
-    random.shuffle(temp)  
+
+    temp = list(zip(train_labels, train_images))
+    random.shuffle(temp)
     train_labels, train_images = zip(*temp)
 
     skf = StratifiedKFold(n_splits=k, shuffle=shuffle, random_state=args.seed)
@@ -232,7 +291,7 @@ def main():
             "test": test_loader
         }
 
-        model = run_model(loaders, split, args)
+        model = run_model(loaders, split, args, class_names)
         split += 1
 
     # View results of model
@@ -243,7 +302,6 @@ def main():
     # crop = Image.fromarray(images[5814])
     # crop.show()
     # print(labels[5814])
-
 
 if __name__ == '__main__':
     main()

@@ -6,43 +6,23 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision import transforms
 import json
+from collections import OrderedDict
 
+import PIL
+from PIL import Image
+
+
+from efficientnet_pytorch import EfficientNet
+
+from datasets.visual_aug import visualize, compare
 from datasets import (Augmenter, Normalizer,
                       Resizer, collater, detection_collate,
                       get_augumentation)
-from datasets.ki import KiDataset
+from datasets.parseOneKI import KiDataset, translate_boxes
 from models.efficientdet import EfficientDet
 from utils import EFFICIENTDET, get_state_dict
-
-
-def compute_overlap(a, b):
-    """
-    Parameters
-    ----------
-    a: (N, 4) ndarray of float
-    b: (K, 4) ndarray of float
-    Returns
-    -------
-    overlaps: (N, K) ndarray of overlap between boxes and query_boxes
-    """
-    area = (b[:, 2] - b[:, 0]) * (b[:, 3] - b[:, 1])
-
-    iw = np.minimum(np.expand_dims(
-        a[:, 2], axis=1), b[:, 2]) - np.maximum(np.expand_dims(a[:, 0], 1), b[:, 0])
-    ih = np.minimum(np.expand_dims(
-        a[:, 3], axis=1), b[:, 3]) - np.maximum(np.expand_dims(a[:, 1], 1), b[:, 1])
-
-    iw = np.maximum(iw, 0)
-    ih = np.maximum(ih, 0)
-
-    ua = np.expand_dims((a[:, 2] - a[:, 0]) *
-                        (a[:, 3] - a[:, 1]), axis=1) + area - iw * ih
-
-    ua = np.maximum(ua, np.finfo(float).eps)
-
-    intersection = iw * ih
-
-    return intersection / ua
+from neoExport import save_results, generate_graph
+from create_labelimg_xml import create_labelimg
 
 
 def _compute_ap(recall, precision):
@@ -71,8 +51,10 @@ def _compute_ap(recall, precision):
     ap = np.sum((mrec[i + 1] - mrec[i]) * mpre[i + 1])
     return ap
 
+def lambdaTransform(image):
+    return image * 2.0 - 1.0
 
-def _get_detections(dataset, retinanet, score_threshold=0.05, max_detections=1000, save_path=None):
+def _get_detections(dataset, retinanet, effNet, score_threshold=0.05, max_detections=1000, save_path=None, eval_threshold=0.25):
     """ Get the detections from the retinanet using the generator.
     The result is a list of lists such that the size is:
         all_detections[num_images][num_classes] = detections[num_detections, 4 + num_classes]
@@ -87,11 +69,32 @@ def _get_detections(dataset, retinanet, score_threshold=0.05, max_detections=100
     """
     all_detections = [[None for i in range(
         dataset.num_classes())] for j in range(len(dataset))]
-
     retinanet.eval()
+    effNet.eval()
+
+
+    all_boxes = []
+    all_labels = []
+    all_label_scores = []
+
+
+    # Efficientnet
+    mean = np.mean(dataset.image)
+    std = np.std(dataset.image)
+    normalize = transforms.Normalize(mean=[0.72482513, 0.59128926, 0.76370454],
+                                     std=[0.18745105, 0.2514997,  0.15264913])
+    #normalize = transforms.Lambda(lambdaTransform) # advprop
+
+    image_size = 64
+    val_tsfm = transforms.Compose([
+        transforms.ToPILImage(),
+        transforms.Resize(image_size, interpolation=PIL.Image.BICUBIC),
+        transforms.CenterCrop(image_size),
+        transforms.ToTensor(),
+        normalize,
+    ])
 
     with torch.no_grad():
-
         for index in range(len(dataset)):
             data = dataset[index]
 
@@ -99,51 +102,112 @@ def _get_detections(dataset, retinanet, score_threshold=0.05, max_detections=100
             data['img'] = torch.from_numpy(data['img'])
             #print(data['img'])
             if torch.cuda.is_available():
-                scores, labels, boxes = retinanet(data['img'].permute(
+                scores, labels, boxes, all_scores = retinanet(data['img'].permute(
                     2, 0, 1).cuda().float().unsqueeze(dim=0))
             else:
-                scores, labels, boxes = retinanet(data['img'].permute(
+                scores, labels, boxes, all_scores = retinanet(data['img'].permute(
                     2, 0, 1).float().unsqueeze(dim=0))
             scores = scores.cpu().numpy()
             labels = labels.cpu().numpy()
             boxes = boxes.cpu().numpy()
-
+            all_scores = all_scores.cpu().numpy()
 
             # select indices which have a score above the threshold
             indices = np.where(scores > score_threshold)[0]
-            if indices.shape[0] > 0:
+            eval_indices = np.where((scores > eval_threshold) & (scores < score_threshold))[0]
+            if indices.shape[0] > 0 or eval_indices.shape[0] > 0:
                 # select those scores
-                scores = scores[indices]
+                cert_scores = scores[indices]
 
                 # find the order with which to sort the scores
-                scores_sort = np.argsort(-scores)[:max_detections]
+                scores_sort = np.argsort(-cert_scores)[:max_detections]
 
                 # select detections
                 image_boxes = boxes[indices[scores_sort], :]
-                image_scores = scores[scores_sort]
+                image_scores = cert_scores[scores_sort]
                 image_labels = labels[indices[scores_sort]]
+                image_label_scores = all_scores[indices[scores_sort], :]
                 image_detections = np.concatenate([image_boxes, np.expand_dims(
                     image_scores, axis=1), np.expand_dims(image_labels, axis=1)], axis=1)
 
-                #print(image_boxes)
-                #print(image_labels)
-                #vis = visualize(dataset.get_original_image(index), image_boxes, image_labels)
-                #print(dataset.load_annotations(index))
-                #vis = compare(dataset.get_original_image(index), image_boxes, dataset.load_annotations(index))
-                #if index == 0:
-                #cv2.imshow('image', vis)
-                #cv2.waitKey(0)
-                #cv2.destroyAllWindows()
 
-                # copy detections to all_detections
-                for label in range(dataset.num_classes()):
-                    all_detections[index][label] = image_detections[image_detections[:, -1] == label, :-1]
+
+                if eval_indices.shape[0] > 0:
+                    # run EfficientNet to decide uncertain scores
+                    eval_boxes = boxes[eval_indices, :]
+                    cell_imgs = np.zeros((eval_boxes.shape[0], 32, 32, 3))
+                    for i in range(eval_boxes.shape[0]):
+                        xmin = int(max(min((eval_boxes[i][0]+eval_boxes[i][2])/2-16, 512-32),0))
+                        xmax = int(max(min((eval_boxes[i][0]+eval_boxes[i][2])/2+16, 512),32))
+                        ymin = int(max(min((eval_boxes[i][1]+eval_boxes[i][3])/2-16, 512-32),0))
+                        ymax = int(max(min((eval_boxes[i][1]+eval_boxes[i][3])/2+16, 512),32))
+                        cell_imgs[i,:,:,:] = dataset.image[xmin:xmax, ymin:ymax, :]
+
+                    tensor_train_x = torch.from_numpy(cell_imgs).float().to('cpu')
+                    tensor_train_x = tensor_train_x.permute(0, 3, 1, 2)
+                    input_tensor = torch.empty(eval_boxes.shape[0], 3, image_size, image_size)
+                    for i in range(tensor_train_x.size(0)):
+                        input_tensor[i,:,:,:] = val_tsfm(tensor_train_x[i,:,:,:])
+
+                    out = effNet(input_tensor)
+                    #m = torch.nn.Sigmoid()
+                    #out = m(out)
+
+
+                    eval_scores = out.cpu().numpy()
+                    eval_label_scores = eval_scores
+
+                    eval_labels = np.argmax(eval_scores, axis=1)
+                    eval_scores = np.amax(eval_scores, axis=1)
+                    eval_detections = np.concatenate([eval_boxes, np.expand_dims(
+                        eval_scores, axis=1), np.expand_dims(eval_labels, axis=1)], axis=1)
+                    all_labels.extend(eval_labels.tolist())
+                    all_boxes.append(np.vstack((image_boxes, eval_boxes)).tolist())
+                    all_label_scores.extend(np.vstack((image_label_scores, eval_label_scores)).tolist())
+                    # copy detections to all_detections
+                    for label in range(dataset.num_classes()):
+                        all_detections[index][label] = np.vstack((eval_detections[eval_detections[:, -1] == label, :-1], image_detections[image_detections[:, -1] == label, :-1]))
+
+                else:
+                    all_boxes.append(image_boxes.tolist())
+                    all_label_scores.extend(image_label_scores.tolist())
+                    # copy detections to all_detections
+                    for label in range(dataset.num_classes()):
+                        all_detections[index][label] = image_detections[image_detections[:, -1] == label, :-1]
+
+
+                all_labels.extend(image_labels.tolist())
+
+
+
+
             else:
                 # copy detections to all_detections
+                all_boxes.append([])
                 for label in range(dataset.num_classes()):
                     all_detections[index][label] = np.zeros((0, 5))
 
             print('{}/{}'.format(index + 1, len(dataset)), end='\r')
+
+    # Export result to Neo4j and generate neighbors
+    #save_results(translate_boxes(all_boxes), all_labels, dataset.filename+"_final", all_label_scores)
+    #generate_graph(dataset.filename+"_final")
+
+    # Visualize results and save images
+    imarray = dataset.normal_image
+    imarray[:,:,[0,2]] = imarray[:,:,[2,0]]
+    all_boxes = translate_boxes(all_boxes)
+    vis = visualize(imarray, all_boxes, all_labels)
+    #create_labelimg(all_boxes, all_labels, dataset.filePath+'.tif')
+    #vis2 = compare(dataset.image, translate_boxes(all_boxes), dataset.targets)
+
+    cv2.imshow('image', vis)
+    cv2.waitKey(0)
+    #cv2.imshow('image', vis2)
+    #cv2.waitKey(0)
+    #cv2.imwrite('visualize_final_{}.png'.format(dataset.filename),vis*255)
+    #cv2.imwrite('compare_{}.png'.format(dataset.filename),vis2*255)
+    cv2.destroyAllWindows()
 
     return all_detections
 
@@ -165,8 +229,13 @@ def _get_annotations(generator):
         annotations = generator.load_annotations(i)
 
         # copy detections to all_annotations
-        for label in range(generator.num_classes()):
-            all_annotations[i][label] = annotations[annotations[:, 4] == label, :4].copy()
+        if len(annotations) > 0:
+            for label in range(generator.num_classes()):
+                all_annotations[i][label] = annotations[annotations[:, 4] == label, :4].copy()
+
+        else:
+            for label in range(generator.num_classes()):
+                all_annotations[i][label] = np.empty((0, 4), dtype=np.int64)
 
         print('{}/{}'.format(i + 1, len(generator)), end='\r')
 
@@ -176,10 +245,12 @@ def _get_annotations(generator):
 def evaluate(
     generator,
     retinanet,
+    effNet,
     iou_threshold=0.5,
-    score_threshold=0.05,
-    max_detections=100,
-    save_path=None
+    score_threshold=0.45,
+    max_detections=1000,
+    save_path=None,
+    eval_threshold=0.45
 ):
     """ Evaluate a given dataset using a given retinanet.
     # Arguments
@@ -196,7 +267,7 @@ def evaluate(
     # gather all detections and annotations
 
     all_detections = _get_detections(
-        generator, retinanet, score_threshold=score_threshold, max_detections=max_detections, save_path=save_path)
+        generator, retinanet, effNet, score_threshold=score_threshold, max_detections=max_detections, save_path=save_path, eval_threshold=eval_threshold)
     all_annotations = _get_annotations(generator)
 
     average_precisions = {}
@@ -233,13 +304,12 @@ def evaluate(
                 else:
                     false_positives = np.append(false_positives, 1)
                     true_positives = np.append(true_positives, 0)
-        print('Label {}: {}'.format(label, scores))
+        #print('Label {}: {}'.format(label, scores))
 
         # no annotations -> AP for this class is 0 (is this correct?)
         if num_annotations == 0:
             average_precisions[label] = 0, 0
             continue
-
         # sort by score
         indices = np.argsort(-scores)
         false_positives = false_positives[indices]
@@ -259,6 +329,8 @@ def evaluate(
         average_precision = _compute_ap(recall, precision)
         average_precisions[label] = average_precision, num_annotations
 
+
+
     print('\nmAP:')
     avg_mAP = []
     for label in range(generator.num_classes()):
@@ -275,13 +347,21 @@ if __name__ == '__main__':
     train_set = parser.add_mutually_exclusive_group()
     parser.add_argument('--dataset_root', default='datasets/',
                         help='Dataset root directory path')
-    parser.add_argument('-t', '--threshold', default=0.3,
+    parser.add_argument('--filepath', default='KI-dataset/For KTH/Rachael/Rach_P13/P13_2_2',
+                        help='Dataset root directory path')
+    parser.add_argument('-t', '--threshold', default=0.25,
                         type=float, help='Visualization threshold')
-    parser.add_argument('-it', '--iou_threshold', default=0.20,
+    parser.add_argument('-it', '--iou_threshold', default=0.5,
                         type=float, help='Visualization threshold')
-    parser.add_argument('--weight', default='./saved/weights/kebnekaise/checkpoint_15.pth', type=str,
+    parser.add_argument('--weight', default='./saved/weights/kebnekaise/checkpoint_54.pth', type=str,
                         help='Checkpoint state_dict file to resume training from')
     args = parser.parse_args()
+    # N10 and P19 and P7
+    # KI-dataset/For KTH/Helena/Helena_P7/P7_HE_Default_Extended_1_1
+    # KI-dataset/For KTH/Nikolce/N10_1_2
+    # KI-dataset/For KTH/Rachael/Rach_P19/P19_2_1
+
+
 
     if(args.weight is not None):
         resume_path = str(args.weight)
@@ -301,10 +381,32 @@ if __name__ == '__main__':
             threshold=args.threshold,
             iou_threshold=args.iou_threshold)
         model.load_state_dict(checkpoint['state_dict'])
+
+
+        effNet = EfficientNet.from_pretarained('efficientnet-b0', advprop=False, num_classes=4)
+        checkpoint = torch.load('./models/model_kebnekaise.pth.tar', map_location=torch.device('cpu'))
+        state_dict = checkpoint['state_dict']
+        new_state_dict = OrderedDict()
+        for k, v in state_dict.items():
+            if k.startswith('module.'):
+                k = k[7:]
+            new_state_dict[k] = v
+        checkpoint['state_dict'] = new_state_dict
+
+        effNet.load_state_dict(new_state_dict)
+
     if torch.cuda.is_available():
         model = model.cuda()
 
+    '''
     test_dataset = KiDataset(
         root=args.dataset_root,
-        set_name='test')
-    evaluate(test_dataset, model)
+        filePath=args.filepath)
+    evaluate(test_dataset, model, effNet)
+
+    '''
+    for i in range(len(label_paths)):
+        test_dataset = KiDataset(
+            root=args.dataset_root,
+            filePath=label_paths[i])
+        evaluate(test_dataset, model, effNet)
