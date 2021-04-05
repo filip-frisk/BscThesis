@@ -1,0 +1,17 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=60074&from=1617636137000
+/tmp/slurmd/job60074/slurm_script: line 10: deactivate: command not found
+Starting at Mon Apr  5 17:22:17 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis1-02
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+Traceback (most recent call last):
+  File "main.py", line 21, in <module>
+    from parseData import parseData
+  File "/cephyr/users/filipfri/Alvis/BscProject/parseData.py", line 9
+    def parseData(basePath="KI-dataset-4-types/All_Slices/", filter_name= "", label_paths, class_names):
+                 ^
+SyntaxError: non-default argument follows default argument
+Program finished with exit code 1 at: Mon Apr  5 17:22:18 CEST 2021
+git in 60 seconds

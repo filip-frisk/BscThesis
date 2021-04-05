@@ -1,0 +1,65 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=60094&from=1617640102000
+/tmp/slurmd/job60094/slurm_script: line 10: deactivate: command not found
+Starting at Mon Apr  5 18:28:22 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis1-10
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+10.2
+tensor([1.], device='cuda:0')
+Using image size:  224
+Using filter  
+P19_1_1
+P19_1_2
+P19_2_1
+P19_2_2
+P19_3_1
+P19_3_2
+P20_1_3
+P20_1_4
+P20_2_2
+P20_2_3
+P20_2_4
+P20_3_1
+P20_3_2
+P20_3_3
+P20_4_1
+P20_4_2
+P20_4_3
+P20_5_1
+P20_5_2
+P20_6_1
+P20_6_2
+P20_7_1
+P20_7_2
+P20_8_1
+P20_8_2
+P20_9_1
+P20_9_2
+P9_1_1
+P9_2_1
+P9_2_2
+P9_3_1
+P9_3_2
+P9_4_1
+P9_4_2
+N10_1_1
+N10_1_2
+N10_1_3
+N10_2_1
+N10_2_2
+P13_1_1
+P13_1_2
+P13_2_1
+P13_2_2
+P28_7_5
+P28_8_5
+P28_10_4
+P28_10_5
+train size: 28345
+val size: 7087
+test size: 11318
+Available GPUs: 1
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
