@@ -5,7 +5,6 @@ import shutil
 import time
 import warnings
 import PIL
-
 import torch
 import torch.nn as nn
 import torch.nn.parallel
@@ -18,15 +17,16 @@ import torch.utils.data.distributed
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 import torchvision.models as models
-
 from sklearn.metrics import classification_report
-
 from efficientnet_pytorch import EfficientNet
 from CellDataset import CellDataset
 
 best_acc1 = 0
 
-# Static config
+# LOL config
+## HIHI config
+### Static config
+# ## Statiscalksdjalskdhakljsha
 num_classes = 4
 
 '''
