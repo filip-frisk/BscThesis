@@ -189,7 +189,7 @@ def main():
     # Load and split datasets and convert to tensor
     # Test images from different slices than train
 
-    train_images, train_labels = parseData(basePath=args.data,filter_name=filter, label_paths=train_label_paths, class_names=class_names)
+    train_images, train_labels = parseData(basePath=args.data,filter_name=filter, label_paths=train_label_paths, class_names=class_names,et_name="Training set")
 
     # remove all images in training set with labels 4
     for i in range(len(train_labels)-1, -1, -1):
@@ -197,7 +197,7 @@ def main():
             train_labels.pop(i)
             train_images.pop(i)
 
-    test_images, test_labels = parseData(basePath=args.data, filter_name=filter, label_paths=test_label_paths, class_names=class_names)
+    test_images, test_labels = parseData(basePath=args.data, filter_name=filter, label_paths=test_label_paths, class_names=class_names,et_name="Testing set")
 
     for i in range(len(test_labels)-1, -1, -1):
         if(test_labels[i] == 4):

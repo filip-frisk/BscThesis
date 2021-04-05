@@ -6,10 +6,11 @@ import xml.etree.ElementTree as ET
 # Cropping 32x32 images around the center of the cells
 # All images are stored in the array "images "and the labels are stored in array labels
 
-def parseData(basePath="KI-dataset-4-types/All_Slices/", filter_name= "", label_paths="", class_names=[]):
+def parseData(basePath="KI-dataset-4-types/All_Slices/", filter_name= "", label_paths="", class_names=[],set_name="No input name"):
     fileCount = len(label_paths)
     labels = []
     images = []
+    print(set_name,": ")
 
     for path in range(fileCount):
         # Parse xml tree

@@ -23,10 +23,13 @@ from CellDataset import CellDataset
 
 best_acc1 = 0
 
-# LOL config
-## HIHI config
-### Static config
-# ## Statiscalksdjalskdhakljsha
+# Static config
+"""
+Name: Test
+Function: Test 
+Input: Test
+Output: Test
+"""
 num_classes = 4
 
 '''
