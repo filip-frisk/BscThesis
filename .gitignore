@@ -11,6 +11,7 @@
 !parseData.ipynb
 !run_model.py
 !run_model.ipynb
+!CellDataset.py
 # Directories to not ignore
 !/Output_Macenko/
 !Output_Macenko/*

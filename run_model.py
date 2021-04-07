@@ -31,7 +31,6 @@ Input: Test
 Output: Test
 """
 num_classes = 4
-
 '''
 Train/validate an EfficentNet model
 '''
