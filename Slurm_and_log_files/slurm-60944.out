@@ -1,0 +1,28 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=60944&from=1617895954000
+/tmp/slurmd/job60944/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job60944/slurm_script: line 17: start: command not found
+Starting at Thu Apr  8 17:32:34 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis2-21
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+10.2
+Traceback (most recent call last):
+  File "main.py", line 347, in <module>
+    main()
+  File "main.py", line 177, in main
+    print(torch.cuda.FloatTensor([1.]))
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/torch/tensor.py", line 179, in __repr__
+    return torch._tensor_str._str(self)
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/torch/_tensor_str.py", line 372, in _str
+    return _str_intern(self)
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/torch/_tensor_str.py", line 352, in _str_intern
+    tensor_str = _tensor_str(self, indent)
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/torch/_tensor_str.py", line 241, in _tensor_str
+    formatter = _Formatter(get_summarized_data(self) if summarize else self)
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/torch/_tensor_str.py", line 89, in __init__
+    nonzero_finite_vals = torch.masked_select(tensor_view, torch.isfinite(tensor_view) & tensor_view.ne(0))
+RuntimeError: CUDA error: no kernel image is available for execution on the device
+Program finished with exit code 1 at: Thu Apr  8 17:33:17 CEST 2021
+glad pask

@@ -21,14 +21,13 @@ import random
 from parseData import parseData
 from efficientnet_pytorch import EfficientNet
 from visualize_model import visualize_model
-from train_valid_split import train_valid_split
 from run_model import run_model
-from CellDataset import CellDataset
+from CustomDataset import CustomDataset
 import warnings
 warnings.filterwarnings("ignore")
 
 """
-Here every type on argument that the user can send in is declared
+Here every type on argument that the user can send in is declared. Configurations ranging from hyperparamters in the model to location of outputfiles. 
 """
 
 parser = argparse.ArgumentParser(description='PyTorch EfficientNet Training')
@@ -88,7 +87,7 @@ We also define the amount of number k-fold validation.
 """
 num_classes = 4
 class_names = ['inflammatory', 'lymphocyte', 'fibroblast and endothelial',
-               'epithelial', 'apoptosis / civiatte body']
+               'epithelial', 'apoptosis / civiatte body'] #'apoptosis / civiatte body' is not used throughout the project
 shuffle = True
 k = 5 # Cross-validation splits
 train_label_paths = [
@@ -162,13 +161,6 @@ class AddGaussianNoise(object):
         return self.__class__.__name__ + '(mean={0}, std={1})'.format(self.mean, self.std)
 
 
-"""
-Name: Main
-Function: Test 
-Input: Test
-Output: Test
-"""
-
 def main():
     # gets arguments
     args = parser.parse_args()
@@ -204,20 +196,8 @@ def main():
     # Load training images and corresponding labels
     train_images, train_labels = parseData(basePath=args.data,filter_name=args.filter, label_paths=train_label_paths, class_names=class_names,set_name="Training set")
 
-    # Remove all images in training set with labels 4 ('apoptosis / civiatte body')
-    for i in range(len(train_labels)-1, -1, -1):
-        if(train_labels[i] == 4):
-            train_labels.pop(i)
-            train_images.pop(i)
-
     # Load testing images and corresponding labels
     test_images, test_labels = parseData(basePath=args.data, filter_name=args.filter, label_paths=test_label_paths, class_names=class_names,set_name="Testing set")
-
-    # Remove all images in training set with labels 4 ('apoptosis / civiatte body')
-    for i in range(len(test_labels)-1, -1, -1):
-        if(test_labels[i] == 4):
-            test_labels.pop(i)
-            test_images.pop(i)
 
     # Upsamples the training data if args.upsample = True
     # adds all images in class 0, 8 times in total it appears in the dataset 9 times
@@ -248,14 +228,14 @@ def main():
                 train_labels.append(train_labels[val])
                 train_images.append(train_images[val])
 
-        print(class_names[0], "appears", len(c0_ind), "times in the non augmented training set")
-        print(class_names[0], "appears", len([i for i, x in enumerate(train_labels) if x == 0]), "times in the augmented training set")
-        print(class_names[1], "appears", len(c1_ind), "times in the non augmented training set")
-        print(class_names[1], "appears", len([i for i, x in enumerate(train_labels) if x == 1]), "times in the augmented training set")
-        print(class_names[2], "appears", len(c2_ind), "times in the non augmented training set")
-        print(class_names[2], "appears", len([i for i, x in enumerate(train_labels) if x == 2]), "times in the augmented training set")
-        print(class_names[3], "appears", len(c3_ind), "times in the non augmented training set")
-        print(class_names[3], "appears", len([i for i, x in enumerate(train_labels) if x == 3]), "times in the augmented training set")
+        print(class_names[0], "appears", len(c0_ind), "times in the non augmented training and validation set")
+        print(class_names[0], "appears", len([i for i, x in enumerate(train_labels) if x == 0]), "times in the augmented training and validation set")
+        print(class_names[1], "appears", len(c1_ind), "times in the non augmented training and validation set")
+        print(class_names[1], "appears", len([i for i, x in enumerate(train_labels) if x == 1]), "times in the augmented training and validation set")
+        print(class_names[2], "appears", len(c2_ind), "times in the non augmented training and validation set")
+        print(class_names[2], "appears", len([i for i, x in enumerate(train_labels) if x == 2]), "times in the augmented training and validation set")
+        print(class_names[3], "appears", len(c3_ind), "times in the non augmented training and validation set")
+        print(class_names[3], "appears", len([i for i, x in enumerate(train_labels) if x == 3]), "times in the augmented training and validation set")
 
     # Shuffles the training set
     temp = list(zip(train_labels, train_images))
@@ -277,6 +257,11 @@ def main():
     split_counter = 0
     # Generates indices and data split into training and test set
     for train, val in skf.split(train_images, train_labels):
+        print("split: ",split_counter)
+        # Creates weights for run_model
+        num_item_per_class = [len([i for i, x in enumerate([train_labels[j] for j in train]) if x == n]) for n in range(num_classes)]
+        print(num_item_per_class)
+
         # Transform the training and validation dataset to torch tensors, according to current split
         # x is images and y is labels
         tensor_train_images = torch.tensor([train_images[i] for i in train], dtype=torch.float32, device=device)
@@ -290,12 +275,12 @@ def main():
         tensor_train_images = tensor_train_images.permute(0, 3, 1, 2)
         tensor_val_images = tensor_val_images.permute(0, 3, 1, 2)
 
-        # Creates 3 CellDataset Objects with the corresponding transform and image- and label tensors, to be able to use DataLoader
-        train_dataset = CellDataset(tensors=(tensor_train_images, tensor_train_labels),
+        # Creates 3 CustomDataset Objects with the corresponding transform and image- and label tensors, to be able to use DataLoader
+        train_dataset = CustomDataset(tensors=(tensor_train_images, tensor_train_labels),
                                     transform=train_tsfm)
-        val_dataset = CellDataset(tensors=(tensor_val_images, tensor_val_labels),
+        val_dataset = CustomDataset(tensors=(tensor_val_images, tensor_val_labels),
                                   transform=val_test_tsfm)
-        test_dataset = CellDataset(tensors=(tensor_test_images, tensor_test_labels),
+        test_dataset = CustomDataset(tensors=(tensor_test_images, tensor_test_labels),
                                    transform=val_test_tsfm)
 
         # Prints the sizes of the three datasets
@@ -324,8 +309,10 @@ def main():
             "val": val_loader,
             "test": test_loader
         }
+
+
         #Sarts training for each k-fold and saves it in model
-        model = run_model(loaders, split_counter, args, class_names)
+        model = run_model(loaders, split_counter, args, class_names,num_item_per_class)
         split_counter += 1
 
     # View results of model

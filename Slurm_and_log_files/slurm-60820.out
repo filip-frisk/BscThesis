@@ -1,0 +1,10 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=60820&from=1617875037000
+/tmp/slurmd/job60820/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job60820/slurm_script: line 17: start: command not found
+Starting at Thu Apr  8 11:43:57 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis1-04
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+slurmstepd: error: *** JOB 60820 ON alvis1-04 CANCELLED AT 2021-04-08T11:44:15 ***

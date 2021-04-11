@@ -1,0 +1,89 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=60743&from=1617866506000
+/tmp/slurmd/job60743/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job60743/slurm_script: line 17: start: command not found
+Starting at Thu Apr  8 09:21:46 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis1-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+10.2
+tensor([1.], device='cuda:0')
+Using image size:  224
+Using filter:  _Macenko
+Training set : 
+P19_1_1
+P19_1_2
+P19_2_1
+P19_2_2
+P19_3_1
+P19_3_2
+P20_1_3
+P20_1_4
+P20_2_2
+P20_2_3
+P20_2_4
+P20_3_1
+P20_3_2
+P20_3_3
+P20_4_1
+P20_4_2
+P20_4_3
+P20_5_1
+P20_5_2
+P20_6_1
+P20_6_2
+P20_7_1
+P20_7_2
+P20_8_1
+P20_8_2
+P20_9_1
+P20_9_2
+P9_1_1
+P9_2_1
+P9_2_2
+P9_3_1
+P9_3_2
+P9_4_1
+P9_4_2
+Testing set : 
+N10_1_1
+N10_1_2
+N10_1_3
+N10_2_1
+N10_2_2
+P13_1_1
+P13_1_2
+P13_2_1
+P13_2_2
+P28_7_5
+P28_8_5
+P28_10_4
+P28_10_5
+inflammatory appears 715 times in the non augmented training and validation set
+inflammatory appears 6435 times in the augmented training and validation set
+lymphocyte appears 1967 times in the non augmented training and validation set
+lymphocyte appears 9835 times in the augmented training and validation set
+fibroblast and endothelial appears 4228 times in the non augmented training and validation set
+fibroblast and endothelial appears 8456 times in the augmented training and validation set
+epithelial appears 8706 times in the non augmented training and validation set
+epithelial appears 10706 times in the augmented training and validation set
+[5148, 7868, 6765, 8564]
+train size: 28345
+val size: 7087
+test size: 11318
+Available GPUs: 1
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+Traceback (most recent call last):
+  File "main.py", line 347, in <module>
+    main()
+  File "main.py", line 334, in main
+    model = run_model(loaders, split_counter, args, class_names,num_item_per_class)
+  File "/cephyr/users/filipfri/Alvis/BscProject/run_model.py", line 56, in run_model
+    return main_worker(loaders, split, args.gpu, ngpus, args)
+  File "/cephyr/users/filipfri/Alvis/BscProject/run_model.py", line 105, in main_worker
+    total_num_train = sum(num_item_per_class)
+NameError: name 'num_item_per_class' is not defined
+Program finished with exit code 1 at: Thu Apr  8 09:22:57 CEST 2021
+glad pask

@@ -1,0 +1,223 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=60745&from=1617866690000
+/tmp/slurmd/job60745/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job60745/slurm_script: line 17: start: command not found
+Starting at Thu Apr  8 09:24:50 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis1-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+10.2
+tensor([1.], device='cuda:0')
+Using image size:  224
+Using filter:  _Macenko
+Training set : 
+P19_1_1
+P19_1_2
+P19_2_1
+P19_2_2
+P19_3_1
+P19_3_2
+P20_1_3
+P20_1_4
+P20_2_2
+P20_2_3
+P20_2_4
+P20_3_1
+P20_3_2
+P20_3_3
+P20_4_1
+P20_4_2
+P20_4_3
+P20_5_1
+P20_5_2
+P20_6_1
+P20_6_2
+P20_7_1
+P20_7_2
+P20_8_1
+P20_8_2
+P20_9_1
+P20_9_2
+P9_1_1
+P9_2_1
+P9_2_2
+P9_3_1
+P9_3_2
+P9_4_1
+P9_4_2
+Testing set : 
+N10_1_1
+N10_1_2
+N10_1_3
+N10_2_1
+N10_2_2
+P13_1_1
+P13_1_2
+P13_2_1
+P13_2_2
+P28_7_5
+P28_8_5
+P28_10_4
+P28_10_5
+inflammatory appears 715 times in the non augmented training and validation set
+inflammatory appears 6435 times in the augmented training and validation set
+lymphocyte appears 1967 times in the non augmented training and validation set
+lymphocyte appears 9835 times in the augmented training and validation set
+fibroblast and endothelial appears 4228 times in the non augmented training and validation set
+fibroblast and endothelial appears 8456 times in the augmented training and validation set
+epithelial appears 8706 times in the non augmented training and validation set
+epithelial appears 10706 times in the augmented training and validation set
+[5148, 7868, 6765, 8564]
+train size: 28345
+val size: 7087
+test size: 11318
+Available GPUs: 1
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [0][  0/886]	Time  4.015 ( 4.015)	Data  3.674 ( 3.674)	Loss 1.3848e+00 (1.3848e+00)	Acc@1  12.50 ( 12.50)
+Epoch: [0][ 10/886]	Time  0.082 ( 0.442)	Data  0.002 ( 0.336)	Loss 1.3809e+00 (1.3931e+00)	Acc@1  31.25 ( 25.85)
+Epoch: [0][ 20/886]	Time  0.091 ( 0.274)	Data  0.011 ( 0.180)	Loss 1.3790e+00 (1.3917e+00)	Acc@1  25.00 ( 27.08)
+Epoch: [0][ 30/886]	Time  0.091 ( 0.215)	Data  0.011 ( 0.126)	Loss 1.3810e+00 (1.3764e+00)	Acc@1  40.62 ( 28.93)
+Epoch: [0][ 40/886]	Time  0.090 ( 0.185)	Data  0.010 ( 0.098)	Loss 1.4033e+00 (1.3689e+00)	Acc@1  25.00 ( 31.17)
+Epoch: [0][ 50/886]	Time  0.091 ( 0.166)	Data  0.011 ( 0.081)	Loss 1.6016e+00 (1.3531e+00)	Acc@1  25.00 ( 32.78)
+Epoch: [0][ 60/886]	Time  0.091 ( 0.154)	Data  0.011 ( 0.069)	Loss 1.2596e+00 (1.3388e+00)	Acc@1  34.38 ( 33.91)
+Epoch: [0][ 70/886]	Time  0.090 ( 0.145)	Data  0.010 ( 0.061)	Loss 1.2449e+00 (1.3368e+00)	Acc@1  43.75 ( 34.33)
+Epoch: [0][ 80/886]	Time  0.091 ( 0.138)	Data  0.011 ( 0.055)	Loss 1.2612e+00 (1.3278e+00)	Acc@1  50.00 ( 35.38)
+Epoch: [0][ 90/886]	Time  0.091 ( 0.133)	Data  0.011 ( 0.050)	Loss 1.4079e+00 (1.3253e+00)	Acc@1  34.38 ( 35.95)
+Epoch: [0][100/886]	Time  0.090 ( 0.129)	Data  0.010 ( 0.046)	Loss 1.2873e+00 (1.3231e+00)	Acc@1  40.62 ( 36.36)
+Epoch: [0][110/886]	Time  0.090 ( 0.125)	Data  0.011 ( 0.043)	Loss 1.2277e+00 (1.3191e+00)	Acc@1  37.50 ( 36.57)
+Epoch: [0][120/886]	Time  0.089 ( 0.122)	Data  0.009 ( 0.040)	Loss 1.1590e+00 (1.3104e+00)	Acc@1  50.00 ( 37.29)
+Epoch: [0][130/886]	Time  0.091 ( 0.120)	Data  0.011 ( 0.038)	Loss 1.0825e+00 (1.3065e+00)	Acc@1  50.00 ( 37.62)
+Epoch: [0][140/886]	Time  0.090 ( 0.118)	Data  0.010 ( 0.036)	Loss 1.2959e+00 (1.2982e+00)	Acc@1  37.50 ( 38.12)
+Epoch: [0][150/886]	Time  0.091 ( 0.116)	Data  0.011 ( 0.034)	Loss 1.5209e+00 (1.2943e+00)	Acc@1  25.00 ( 38.66)
+Epoch: [0][160/886]	Time  0.091 ( 0.115)	Data  0.011 ( 0.033)	Loss 1.1415e+00 (1.2940e+00)	Acc@1  46.88 ( 38.90)
+Epoch: [0][170/886]	Time  0.091 ( 0.113)	Data  0.011 ( 0.032)	Loss 1.1818e+00 (1.2890e+00)	Acc@1  46.88 ( 39.36)
+Epoch: [0][180/886]	Time  0.090 ( 0.112)	Data  0.011 ( 0.030)	Loss 1.2026e+00 (1.2847e+00)	Acc@1  53.12 ( 39.66)
+Epoch: [0][190/886]	Time  0.090 ( 0.111)	Data  0.011 ( 0.029)	Loss 1.5586e+00 (1.2851e+00)	Acc@1  31.25 ( 39.91)
+Epoch: [0][200/886]	Time  0.091 ( 0.110)	Data  0.011 ( 0.029)	Loss 1.1958e+00 (1.2811e+00)	Acc@1  40.62 ( 40.19)
+Epoch: [0][210/886]	Time  0.091 ( 0.109)	Data  0.011 ( 0.028)	Loss 1.2423e+00 (1.2767e+00)	Acc@1  43.75 ( 40.52)
+Epoch: [0][220/886]	Time  0.093 ( 0.108)	Data  0.013 ( 0.027)	Loss 1.1562e+00 (1.2740e+00)	Acc@1  43.75 ( 40.70)
+Epoch: [0][230/886]	Time  0.090 ( 0.107)	Data  0.011 ( 0.026)	Loss 1.1042e+00 (1.2668e+00)	Acc@1  43.75 ( 41.19)
+Epoch: [0][240/886]	Time  0.091 ( 0.107)	Data  0.011 ( 0.026)	Loss 1.3404e+00 (1.2648e+00)	Acc@1  43.75 ( 41.44)
+Epoch: [0][250/886]	Time  0.091 ( 0.106)	Data  0.011 ( 0.025)	Loss 9.3245e-01 (1.2617e+00)	Acc@1  65.62 ( 41.67)
+Epoch: [0][260/886]	Time  0.091 ( 0.105)	Data  0.011 ( 0.024)	Loss 1.1627e+00 (1.2578e+00)	Acc@1  43.75 ( 41.80)
+Epoch: [0][270/886]	Time  0.090 ( 0.105)	Data  0.010 ( 0.024)	Loss 1.1384e+00 (1.2574e+00)	Acc@1  56.25 ( 41.97)
+Epoch: [0][280/886]	Time  0.091 ( 0.104)	Data  0.011 ( 0.024)	Loss 9.7757e-01 (1.2550e+00)	Acc@1  56.25 ( 42.18)
+Epoch: [0][290/886]	Time  0.090 ( 0.104)	Data  0.011 ( 0.023)	Loss 1.1472e+00 (1.2520e+00)	Acc@1  46.88 ( 42.35)
+Epoch: [0][300/886]	Time  0.090 ( 0.103)	Data  0.011 ( 0.023)	Loss 1.0281e+00 (1.2505e+00)	Acc@1  59.38 ( 42.52)
+Epoch: [0][310/886]	Time  0.090 ( 0.103)	Data  0.010 ( 0.022)	Loss 1.1656e+00 (1.2478e+00)	Acc@1  53.12 ( 42.69)
+Epoch: [0][320/886]	Time  0.090 ( 0.103)	Data  0.010 ( 0.022)	Loss 1.3167e+00 (1.2443e+00)	Acc@1  43.75 ( 43.04)
+Epoch: [0][330/886]	Time  0.090 ( 0.102)	Data  0.010 ( 0.022)	Loss 1.3343e+00 (1.2404e+00)	Acc@1  34.38 ( 43.32)
+Epoch: [0][340/886]	Time  0.090 ( 0.102)	Data  0.010 ( 0.021)	Loss 9.4631e-01 (1.2369e+00)	Acc@1  62.50 ( 43.61)
+Epoch: [0][350/886]	Time  0.091 ( 0.102)	Data  0.011 ( 0.021)	Loss 1.1468e+00 (1.2346e+00)	Acc@1  50.00 ( 43.81)
+Epoch: [0][360/886]	Time  0.091 ( 0.101)	Data  0.011 ( 0.021)	Loss 1.1648e+00 (1.2318e+00)	Acc@1  50.00 ( 44.00)
+Epoch: [0][370/886]	Time  0.091 ( 0.101)	Data  0.011 ( 0.020)	Loss 1.2313e+00 (1.2293e+00)	Acc@1  31.25 ( 44.14)
+Epoch: [0][380/886]	Time  0.090 ( 0.101)	Data  0.010 ( 0.020)	Loss 1.0333e+00 (1.2277e+00)	Acc@1  53.12 ( 44.27)
+Epoch: [0][390/886]	Time  0.091 ( 0.100)	Data  0.011 ( 0.020)	Loss 1.0131e+00 (1.2244e+00)	Acc@1  62.50 ( 44.52)
+Epoch: [0][400/886]	Time  0.090 ( 0.100)	Data  0.011 ( 0.020)	Loss 1.0223e+00 (1.2213e+00)	Acc@1  59.38 ( 44.69)
+Epoch: [0][410/886]	Time  0.091 ( 0.100)	Data  0.011 ( 0.019)	Loss 1.1135e+00 (1.2192e+00)	Acc@1  46.88 ( 44.82)
+Epoch: [0][420/886]	Time  0.090 ( 0.100)	Data  0.010 ( 0.019)	Loss 1.1655e+00 (1.2185e+00)	Acc@1  43.75 ( 44.92)
+Epoch: [0][430/886]	Time  0.091 ( 0.099)	Data  0.011 ( 0.019)	Loss 1.2069e+00 (1.2183e+00)	Acc@1  43.75 ( 44.89)
+Epoch: [0][440/886]	Time  0.090 ( 0.099)	Data  0.010 ( 0.019)	Loss 1.4103e+00 (1.2170e+00)	Acc@1  34.38 ( 44.97)
+Epoch: [0][450/886]	Time  0.091 ( 0.099)	Data  0.011 ( 0.019)	Loss 1.1112e+00 (1.2168e+00)	Acc@1  46.88 ( 45.03)
+Epoch: [0][460/886]	Time  0.090 ( 0.099)	Data  0.011 ( 0.019)	Loss 1.1600e+00 (1.2144e+00)	Acc@1  50.00 ( 45.15)
+Epoch: [0][470/886]	Time  0.091 ( 0.099)	Data  0.011 ( 0.018)	Loss 8.3848e-01 (1.2098e+00)	Acc@1  59.38 ( 45.38)
+Epoch: [0][480/886]	Time  0.090 ( 0.099)	Data  0.010 ( 0.018)	Loss 1.1035e+00 (1.2081e+00)	Acc@1  53.12 ( 45.51)
+Epoch: [0][490/886]	Time  0.091 ( 0.098)	Data  0.011 ( 0.018)	Loss 1.1746e+00 (1.2084e+00)	Acc@1  34.38 ( 45.54)
+Epoch: [0][500/886]	Time  0.092 ( 0.098)	Data  0.012 ( 0.018)	Loss 1.0907e+00 (1.2078e+00)	Acc@1  46.88 ( 45.52)
+Epoch: [0][510/886]	Time  0.090 ( 0.098)	Data  0.011 ( 0.018)	Loss 1.1164e+00 (1.2059e+00)	Acc@1  46.88 ( 45.61)
+Epoch: [0][520/886]	Time  0.090 ( 0.098)	Data  0.010 ( 0.018)	Loss 1.0879e+00 (1.2026e+00)	Acc@1  50.00 ( 45.80)
+Epoch: [0][530/886]	Time  0.090 ( 0.098)	Data  0.011 ( 0.017)	Loss 1.0988e+00 (1.2013e+00)	Acc@1  53.12 ( 45.90)
+Epoch: [0][540/886]	Time  0.090 ( 0.098)	Data  0.011 ( 0.017)	Loss 1.0103e+00 (1.1993e+00)	Acc@1  59.38 ( 46.05)
+Epoch: [0][550/886]	Time  0.090 ( 0.098)	Data  0.010 ( 0.017)	Loss 1.0700e+00 (1.1984e+00)	Acc@1  56.25 ( 46.13)
+Epoch: [0][560/886]	Time  0.090 ( 0.097)	Data  0.011 ( 0.017)	Loss 1.2462e+00 (1.1979e+00)	Acc@1  37.50 ( 46.16)
+Epoch: [0][570/886]	Time  0.091 ( 0.097)	Data  0.011 ( 0.017)	Loss 9.8649e-01 (1.1965e+00)	Acc@1  56.25 ( 46.20)
+Epoch: [0][580/886]	Time  0.090 ( 0.097)	Data  0.010 ( 0.017)	Loss 1.1876e+00 (1.1953e+00)	Acc@1  34.38 ( 46.25)
+Epoch: [0][590/886]	Time  0.090 ( 0.097)	Data  0.011 ( 0.017)	Loss 1.1546e+00 (1.1927e+00)	Acc@1  50.00 ( 46.38)
+Epoch: [0][600/886]	Time  0.091 ( 0.097)	Data  0.011 ( 0.017)	Loss 1.4905e+00 (1.1909e+00)	Acc@1  31.25 ( 46.45)
+Epoch: [0][610/886]	Time  0.088 ( 0.097)	Data  0.009 ( 0.017)	Loss 1.2047e+00 (1.1900e+00)	Acc@1  37.50 ( 46.49)
+Epoch: [0][620/886]	Time  0.088 ( 0.097)	Data  0.008 ( 0.017)	Loss 1.1742e+00 (1.1878e+00)	Acc@1  43.75 ( 46.62)
+Epoch: [0][630/886]	Time  0.091 ( 0.097)	Data  0.011 ( 0.016)	Loss 1.0793e+00 (1.1862e+00)	Acc@1  56.25 ( 46.71)
+Epoch: [0][640/886]	Time  0.091 ( 0.097)	Data  0.011 ( 0.016)	Loss 1.1653e+00 (1.1843e+00)	Acc@1  53.12 ( 46.83)
+Epoch: [0][650/886]	Time  0.091 ( 0.096)	Data  0.012 ( 0.016)	Loss 9.8092e-01 (1.1835e+00)	Acc@1  56.25 ( 46.92)
+Epoch: [0][660/886]	Time  0.090 ( 0.096)	Data  0.011 ( 0.016)	Loss 1.2717e+00 (1.1817e+00)	Acc@1  34.38 ( 46.93)
+Epoch: [0][670/886]	Time  0.090 ( 0.096)	Data  0.011 ( 0.016)	Loss 1.0108e+00 (1.1801e+00)	Acc@1  50.00 ( 47.04)
+Epoch: [0][680/886]	Time  0.091 ( 0.096)	Data  0.011 ( 0.016)	Loss 1.1390e+00 (1.1788e+00)	Acc@1  43.75 ( 47.12)
+Epoch: [0][690/886]	Time  0.090 ( 0.096)	Data  0.011 ( 0.016)	Loss 1.2191e+00 (1.1774e+00)	Acc@1  46.88 ( 47.19)
+Epoch: [0][700/886]	Time  0.090 ( 0.096)	Data  0.011 ( 0.016)	Loss 9.1976e-01 (1.1752e+00)	Acc@1  56.25 ( 47.26)
+Epoch: [0][710/886]	Time  0.082 ( 0.096)	Data  0.002 ( 0.016)	Loss 1.1125e+00 (1.1740e+00)	Acc@1  40.62 ( 47.31)
+Epoch: [0][720/886]	Time  0.091 ( 0.096)	Data  0.011 ( 0.016)	Loss 1.0745e+00 (1.1731e+00)	Acc@1  43.75 ( 47.34)
+Epoch: [0][730/886]	Time  0.090 ( 0.096)	Data  0.010 ( 0.016)	Loss 8.6430e-01 (1.1715e+00)	Acc@1  71.88 ( 47.43)
+Epoch: [0][740/886]	Time  0.091 ( 0.096)	Data  0.011 ( 0.016)	Loss 9.3349e-01 (1.1690e+00)	Acc@1  65.62 ( 47.60)
+Epoch: [0][750/886]	Time  0.091 ( 0.096)	Data  0.012 ( 0.016)	Loss 9.5300e-01 (1.1673e+00)	Acc@1  56.25 ( 47.69)
+Epoch: [0][760/886]	Time  0.091 ( 0.096)	Data  0.011 ( 0.015)	Loss 1.1832e+00 (1.1650e+00)	Acc@1  43.75 ( 47.84)
+Epoch: [0][770/886]	Time  0.090 ( 0.096)	Data  0.011 ( 0.015)	Loss 9.2496e-01 (1.1637e+00)	Acc@1  62.50 ( 47.96)
+Epoch: [0][780/886]	Time  0.093 ( 0.095)	Data  0.013 ( 0.015)	Loss 1.1177e+00 (1.1630e+00)	Acc@1  59.38 ( 47.99)
+Epoch: [0][790/886]	Time  0.091 ( 0.095)	Data  0.011 ( 0.015)	Loss 9.2091e-01 (1.1616e+00)	Acc@1  65.62 ( 48.05)
+Epoch: [0][800/886]	Time  0.090 ( 0.095)	Data  0.010 ( 0.015)	Loss 1.0887e+00 (1.1605e+00)	Acc@1  50.00 ( 48.09)
+Epoch: [0][810/886]	Time  0.091 ( 0.095)	Data  0.011 ( 0.015)	Loss 9.8483e-01 (1.1604e+00)	Acc@1  53.12 ( 48.08)
+Epoch: [0][820/886]	Time  0.091 ( 0.095)	Data  0.011 ( 0.015)	Loss 9.8936e-01 (1.1591e+00)	Acc@1  56.25 ( 48.16)
+Epoch: [0][830/886]	Time  0.091 ( 0.095)	Data  0.011 ( 0.015)	Loss 1.0454e+00 (1.1578e+00)	Acc@1  56.25 ( 48.22)
+Epoch: [0][840/886]	Time  0.091 ( 0.095)	Data  0.011 ( 0.015)	Loss 1.1410e+00 (1.1570e+00)	Acc@1  40.62 ( 48.28)
+Epoch: [0][850/886]	Time  0.091 ( 0.095)	Data  0.011 ( 0.015)	Loss 9.5892e-01 (1.1554e+00)	Acc@1  56.25 ( 48.36)
+Epoch: [0][860/886]	Time  0.082 ( 0.095)	Data  0.002 ( 0.015)	Loss 1.3552e+00 (1.1537e+00)	Acc@1  43.75 ( 48.45)
+Epoch: [0][870/886]	Time  0.091 ( 0.095)	Data  0.011 ( 0.015)	Loss 1.2334e+00 (1.1519e+00)	Acc@1  43.75 ( 48.52)
+Epoch: [0][880/886]	Time  0.091 ( 0.095)	Data  0.011 ( 0.015)	Loss 1.0742e+00 (1.1513e+00)	Acc@1  43.75 ( 48.53)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.552 ( 3.552)	Loss 4.0437e+00 (4.0437e+00)	Acc@1  21.88 ( 21.88)	Acc C1   0.00 (  0.00)	Acc C2  10.00 ( 10.00)	Acc C3  18.18 ( 18.18)	Acc C4  66.67 ( 66.67)
+Test: [ 10/222]	Time  0.036 ( 0.353)	Loss 3.1213e+00 (4.7216e+00)	Acc@1  34.38 ( 34.38)	Acc C1   0.00 (  4.00)	Acc C2   0.00 ( 15.05)	Acc C3  37.50 ( 30.86)	Acc C4  80.00 ( 76.70)
+Test: [ 20/222]	Time  0.034 ( 0.201)	Loss 2.1383e+00 (4.9997e+00)	Acc@1  28.12 ( 33.33)	Acc C1   0.00 (  2.99)	Acc C2  20.00 ( 14.44)	Acc C3  50.00 ( 30.82)	Acc C4  80.00 ( 75.00)
+Test: [ 30/222]	Time  0.034 ( 0.147)	Loss 1.5000e+00 (4.1165e+00)	Acc@1  34.38 ( 35.08)	Acc C1   0.00 (  3.55)	Acc C2   0.00 ( 13.72)	Acc C3  40.00 ( 35.11)	Acc C4  81.82 ( 76.45)
+Test: [ 40/222]	Time  0.033 ( 0.119)	Loss 5.6085e+00 (3.8189e+00)	Acc@1  37.50 ( 35.75)	Acc C1  20.00 (  3.98)	Acc C2  36.36 ( 13.52)	Acc C3   0.00 ( 33.88)	Acc C4  77.78 ( 76.94)
+Test: [ 50/222]	Time  0.033 ( 0.102)	Loss 1.4449e+00 (3.4473e+00)	Acc@1  34.38 ( 35.42)	Acc C1   0.00 (  3.82)	Acc C2   9.09 ( 13.18)	Acc C3  57.14 ( 34.03)	Acc C4  60.00 ( 76.47)
+Test: [ 60/222]	Time  0.033 ( 0.091)	Loss 5.1084e+00 (3.2045e+00)	Acc@1  37.50 ( 36.17)	Acc C1   0.00 (  3.23)	Acc C2  25.00 ( 13.57)	Acc C3  37.50 ( 33.91)	Acc C4  87.50 ( 77.57)
+Test: [ 70/222]	Time  0.033 ( 0.083)	Loss 1.2315e+00 (3.1660e+00)	Acc@1  40.62 ( 36.40)	Acc C1   0.00 (  3.54)	Acc C2  14.29 ( 13.58)	Acc C3  12.50 ( 32.95)	Acc C4  84.62 ( 78.28)
+Test: [ 80/222]	Time  0.033 ( 0.077)	Loss 2.1911e+00 (3.3571e+00)	Acc@1  25.00 ( 35.84)	Acc C1   0.00 (  3.49)	Acc C2   7.69 ( 13.64)	Acc C3   0.00 ( 32.56)	Acc C4  87.50 ( 78.16)
+Test: [ 90/222]	Time  0.033 ( 0.072)	Loss 4.8162e+00 (3.3337e+00)	Acc@1  34.38 ( 35.58)	Acc C1   0.00 (  3.42)	Acc C2  26.67 ( 13.78)	Acc C3  28.57 ( 31.23)	Acc C4  62.50 ( 77.87)
+Test: [100/222]	Time  0.033 ( 0.068)	Loss 1.8040e+00 (3.2769e+00)	Acc@1  43.75 ( 36.14)	Acc C1   0.00 (  3.74)	Acc C2  16.67 ( 13.95)	Acc C3  66.67 ( 31.67)	Acc C4  90.91 ( 78.66)
+Test: [110/222]	Time  0.033 ( 0.065)	Loss 7.5638e+00 (3.2305e+00)	Acc@1  37.50 ( 36.06)	Acc C1   0.00 (  3.46)	Acc C2  12.50 ( 14.05)	Acc C3  20.00 ( 31.57)	Acc C4  71.43 ( 78.63)
+Test: [120/222]	Time  0.033 ( 0.062)	Loss 1.4122e+00 (3.2813e+00)	Acc@1  34.38 ( 35.90)	Acc C1  10.00 (  3.76)	Acc C2  42.86 ( 14.10)	Acc C3  42.86 ( 31.21)	Acc C4  50.00 ( 77.72)
+Test: [130/222]	Time  0.033 ( 0.060)	Loss 5.3711e+00 (3.2102e+00)	Acc@1  31.25 ( 35.93)	Acc C1  14.29 (  3.95)	Acc C2  42.86 ( 14.35)	Acc C3  18.18 ( 31.07)	Acc C4  57.14 ( 77.64)
+Test: [140/222]	Time  0.033 ( 0.058)	Loss 1.4939e+00 (3.1281e+00)	Acc@1  31.25 ( 35.90)	Acc C1   0.00 (  3.91)	Acc C2  25.00 ( 14.44)	Acc C3  20.00 ( 31.03)	Acc C4  60.00 ( 77.38)
+Test: [150/222]	Time  0.033 ( 0.057)	Loss 1.3866e+00 (3.0197e+00)	Acc@1  50.00 ( 35.91)	Acc C1   0.00 (  3.76)	Acc C2  50.00 ( 14.43)	Acc C3  55.56 ( 31.80)	Acc C4  71.43 ( 77.04)
+Test: [160/222]	Time  0.033 ( 0.055)	Loss 1.5566e+00 (2.9885e+00)	Acc@1  31.25 ( 35.54)	Acc C1   0.00 (  3.51)	Acc C2  25.00 ( 14.55)	Acc C3  22.22 ( 31.19)	Acc C4  83.33 ( 76.95)
+Test: [170/222]	Time  0.033 ( 0.054)	Loss 1.2452e+00 (2.8970e+00)	Acc@1  37.50 ( 35.58)	Acc C1   0.00 (  3.52)	Acc C2  12.50 ( 14.45)	Acc C3  23.08 ( 30.54)	Acc C4  80.00 ( 77.26)
+Test: [180/222]	Time  0.033 ( 0.053)	Loss 1.5257e+00 (2.8496e+00)	Acc@1  31.25 ( 35.53)	Acc C1  14.29 (  3.47)	Acc C2   0.00 ( 14.56)	Acc C3  50.00 ( 30.98)	Acc C4  71.43 ( 77.28)
+Test: [190/222]	Time  0.031 ( 0.052)	Loss 8.1107e+00 (2.8914e+00)	Acc@1  34.38 ( 35.44)	Acc C1   0.00 (  3.48)	Acc C2  16.67 ( 14.64)	Acc C3   0.00 ( 30.71)	Acc C4 100.00 ( 77.38)
+Test: [200/222]	Time  0.033 ( 0.051)	Loss 1.4328e+00 (2.8748e+00)	Acc@1  46.88 ( 35.68)	Acc C1   0.00 (  3.58)	Acc C2  14.29 ( 14.61)	Acc C3  37.50 ( 30.74)	Acc C4  84.62 ( 77.94)
+Test: [210/222]	Time  0.033 ( 0.050)	Loss 2.5852e+00 (2.8612e+00)	Acc@1  40.62 ( 35.63)	Acc C1   0.00 (  3.66)	Acc C2  11.11 ( 14.39)	Acc C3  28.57 ( 30.59)	Acc C4  83.33 ( 78.07)
+Test: [220/222]	Time  0.033 ( 0.049)	Loss 1.6673e+00 (2.8937e+00)	Acc@1  37.50 ( 35.51)	Acc C1   0.00 (  3.81)	Acc C2   0.00 ( 14.16)	Acc C3  37.50 ( 30.50)	Acc C4  75.00 ( 78.11)
+ * Acc 35.530
+              precision    recall  f1-score   support
+
+           0       0.40      0.04      0.07      1287
+           1       0.35      0.14      0.20      1967
+           2       0.30      0.31      0.30      1691
+           3       0.38      0.78      0.51      2142
+
+    accuracy                           0.36      7087
+   macro avg       0.36      0.32      0.27      7087
+weighted avg       0.35      0.36      0.29      7087
+
+Traceback (most recent call last):
+  File "main.py", line 347, in <module>
+    main()
+  File "main.py", line 334, in main
+    model = run_model(loaders, split_counter, args, class_names,num_item_per_class)
+  File "/cephyr/users/filipfri/Alvis/BscProject/run_model.py", line 56, in run_model
+    return main_worker(loaders, split, args.gpu, ngpus, args,num_item_per_class)
+  File "/cephyr/users/filipfri/Alvis/BscProject/run_model.py", line 171, in main_worker
+    # remember best acc@1 and save checkpoint
+  File "/cephyr/users/filipfri/Alvis/BscProject/run_model.py", line 319, in validate
+    
+  File "/cephyr/users/filipfri/Alvis/BscProject/run_model.py", line 397, in print_cm
+    columnwidth = max([len(str(x)) for x in labels] + [5])  # 5 is value length
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/sklearn/metrics/_classification.py", line 310, in confusion_matrix
+    raise ValueError("At least one label specified must be in y_true")
+ValueError: At least one label specified must be in y_true
+Program finished with exit code 1 at: Thu Apr  8 09:27:36 CEST 2021
+glad pask

@@ -1,0 +1,1062 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=60952&from=1617900014000
+/tmp/slurmd/job60952/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job60952/slurm_script: line 17: start: command not found
+Starting at Thu Apr  8 18:40:14 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis2-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+10.2
+tensor([1.], device='cuda:0')
+Using image size:  32
+Using filter:  
+Training set : 
+P19_1_1
+P19_1_2
+P19_2_1
+P19_2_2
+P19_3_1
+P19_3_2
+P20_1_3
+P20_1_4
+P20_2_2
+P20_2_3
+P20_2_4
+P20_3_1
+P20_3_2
+P20_3_3
+P20_4_1
+P20_4_2
+P20_4_3
+P20_5_1
+P20_5_2
+P20_6_1
+P20_6_2
+P20_7_1
+P20_7_2
+P20_8_1
+P20_8_2
+P20_9_1
+P20_9_2
+P9_1_1
+P9_2_1
+P9_2_2
+P9_3_1
+P9_3_2
+P9_4_1
+P9_4_2
+Testing set : 
+N10_1_1
+N10_1_2
+N10_1_3
+N10_2_1
+N10_2_2
+P13_1_1
+P13_1_2
+P13_2_1
+P13_2_2
+P28_7_5
+P28_8_5
+P28_10_4
+P28_10_5
+inflammatory appears 715 times in the non augmented training and validation set
+inflammatory appears 6435 times in the augmented training and validation set
+lymphocyte appears 1967 times in the non augmented training and validation set
+lymphocyte appears 9835 times in the augmented training and validation set
+fibroblast and endothelial appears 4228 times in the non augmented training and validation set
+fibroblast and endothelial appears 8456 times in the augmented training and validation set
+epithelial appears 8706 times in the non augmented training and validation set
+epithelial appears 10706 times in the augmented training and validation set
+[5148, 7868, 6764, 8565]
+train size: 28345
+val size: 7087
+test size: 11318
+Available GPUs: 1
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [0][  0/886]	Time  4.564 ( 4.564)	Data loading time  4.141 ( 4.141)	Loss 1.4586e+00 (1.4586e+00)	Acc@1  28.12 ( 28.12)
+Epoch: [0][110/886]	Time  0.057 ( 0.093)	Data loading time  0.000 ( 0.038)	Loss 1.3507e+00 (1.6953e+00)	Acc@1  34.38 ( 29.17)
+Epoch: [0][220/886]	Time  0.058 ( 0.076)	Data loading time  0.000 ( 0.019)	Loss 2.5963e+00 (1.9249e+00)	Acc@1  18.75 ( 28.45)
+Epoch: [0][330/886]	Time  0.050 ( 0.070)	Data loading time  0.000 ( 0.013)	Loss 3.8709e+00 (2.0476e+00)	Acc@1  28.12 ( 28.04)
+Epoch: [0][440/886]	Time  0.074 ( 0.065)	Data loading time  0.000 ( 0.010)	Loss 3.1494e+00 (2.0932e+00)	Acc@1  46.88 ( 28.02)
+Epoch: [0][550/886]	Time  0.060 ( 0.065)	Data loading time  0.000 ( 0.008)	Loss 1.4190e+00 (2.1168e+00)	Acc@1  25.00 ( 28.02)
+Epoch: [0][660/886]	Time  0.064 ( 0.065)	Data loading time  0.000 ( 0.006)	Loss 1.7239e+00 (2.0989e+00)	Acc@1  25.00 ( 28.02)
+Epoch: [0][770/886]	Time  0.061 ( 0.065)	Data loading time  0.000 ( 0.006)	Loss 1.3329e+00 (2.0891e+00)	Acc@1  40.62 ( 27.96)
+Epoch: [0][880/886]	Time  0.052 ( 0.064)	Data loading time  0.000 ( 0.005)	Loss 1.5336e+00 (2.0512e+00)	Acc@1  12.50 ( 28.02)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  4.003 ( 4.003)	Loss 1.4117e+00 (1.4117e+00)	Acc@1   9.38 (  9.38)	Acc C1  16.67 ( 16.67)	Acc C2   0.00 (  0.00)	Acc C3  22.22 ( 22.22)	Acc C4   0.00 (  0.00)
+Test: [110/222]	Time  0.017 ( 0.054)	Loss 1.4462e+00 (1.4859e+00)	Acc@1  21.88 ( 18.16)	Acc C1  33.33 ( 41.22)	Acc C2   0.00 (  0.70)	Acc C3  40.00 ( 33.09)	Acc C4  12.50 (  9.04)
+Test: [220/222]	Time  0.016 ( 0.036)	Loss 1.5159e+00 (1.4859e+00)	Acc@1  12.50 ( 18.88)	Acc C1   0.00 ( 43.65)	Acc C2   0.00 (  0.66)	Acc C3  44.44 ( 33.79)	Acc C4   0.00 (  8.93)
+ * Acc 18.894
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.16      0.44      0.23      1287
+           1       0.28      0.01      0.01      1967
+           2       0.25      0.34      0.29      1692
+           3       0.16      0.09      0.12      2141
+
+    accuracy                           0.19      7087
+   macro avg       0.21      0.22      0.16      7087
+weighted avg       0.21      0.19      0.15      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0   562     9   407   309 
+        1   920    13   669   365 
+        2   810     5   572   305 
+        3  1269    20   660   192 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.580 ( 3.580)	Loss 1.4117e+00 (1.4117e+00)	Acc@1   9.38 (  9.38)	Acc C1  16.67 ( 16.67)	Acc C2   0.00 (  0.00)	Acc C3  22.22 ( 22.22)	Acc C4   0.00 (  0.00)
+Test: [110/222]	Time  0.017 ( 0.050)	Loss 1.4462e+00 (1.4859e+00)	Acc@1  21.88 ( 18.16)	Acc C1  33.33 ( 41.22)	Acc C2   0.00 (  0.70)	Acc C3  40.00 ( 33.09)	Acc C4  12.50 (  9.04)
+Test: [220/222]	Time  0.016 ( 0.034)	Loss 1.5159e+00 (1.4859e+00)	Acc@1  12.50 ( 18.88)	Acc C1   0.00 ( 43.65)	Acc C2   0.00 (  0.66)	Acc C3  44.44 ( 33.79)	Acc C4   0.00 (  8.93)
+ * Acc 18.894
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.16      0.44      0.23      1287
+           1       0.28      0.01      0.01      1967
+           2       0.25      0.34      0.29      1692
+           3       0.16      0.09      0.12      2141
+
+    accuracy                           0.19      7087
+   macro avg       0.21      0.22      0.16      7087
+weighted avg       0.21      0.19      0.15      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0   562     9   407   309 
+        1   920    13   669   365 
+        2   810     5   572   305 
+        3  1269    20   660   192 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.733 ( 3.733)	Loss 1.4506e+00 (1.4506e+00)	Acc@1  31.25 ( 31.25)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  31.25 ( 31.25)
+Test: [110/354]	Time  0.017 ( 0.051)	Loss 1.4322e+00 (1.6420e+00)	Acc@1  34.38 ( 27.53)	Acc C1  80.00 ( 54.14)	Acc C2   0.00 (  1.44)	Acc C3  70.00 ( 34.83)	Acc C4   0.00 ( 21.96)
+Test: [220/354]	Time  0.017 ( 0.034)	Loss 1.3132e+00 (1.6056e+00)	Acc@1  25.00 ( 20.22)	Acc C1  30.77 ( 46.53)	Acc C2   0.00 (  0.54)	Acc C3  21.05 ( 36.54)	Acc C4   0.00 ( 14.76)
+Test: [330/354]	Time  0.018 ( 0.028)	Loss 1.6037e+00 (1.5757e+00)	Acc@1  15.62 ( 19.16)	Acc C1  62.50 ( 45.13)	Acc C2   0.00 (  0.32)	Acc C3   0.00 ( 35.41)	Acc C4   0.00 ( 12.41)
+ * Acc 19.588
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.09      0.44      0.15      1141
+           1       0.11      0.00      0.01      2324
+           2       0.32      0.35      0.34      3196
+           3       0.29      0.12      0.17      4657
+
+    accuracy                           0.20     11318
+   macro avg       0.20      0.23      0.17     11318
+weighted avg       0.24      0.20      0.18     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0   507    10   408   216 
+        1  1047    10   809   458 
+        2  1296    19  1131   750 
+        3  2857    49  1182   569 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [1][  0/886]	Time  3.653 ( 3.653)	Data loading time  3.571 ( 3.571)	Loss 1.5899e+00 (1.5899e+00)	Acc@1  28.12 ( 28.12)
+Epoch: [1][110/886]	Time  0.061 ( 0.094)	Data loading time  0.000 ( 0.032)	Loss 1.4696e+00 (1.4852e+00)	Acc@1  28.12 ( 31.00)
+Epoch: [1][220/886]	Time  0.061 ( 0.078)	Data loading time  0.000 ( 0.016)	Loss 1.3728e+00 (1.4473e+00)	Acc@1  28.12 ( 30.87)
+Epoch: [1][330/886]	Time  0.061 ( 0.073)	Data loading time  0.000 ( 0.011)	Loss 1.4695e+00 (1.4305e+00)	Acc@1  15.62 ( 30.84)
+Epoch: [1][440/886]	Time  0.061 ( 0.070)	Data loading time  0.000 ( 0.008)	Loss 1.4110e+00 (1.4209e+00)	Acc@1  34.38 ( 31.07)
+Epoch: [1][550/886]	Time  0.062 ( 0.069)	Data loading time  0.000 ( 0.007)	Loss 1.4702e+00 (1.4115e+00)	Acc@1  28.12 ( 31.64)
+Epoch: [1][660/886]	Time  0.053 ( 0.067)	Data loading time  0.000 ( 0.006)	Loss 1.4094e+00 (1.4059e+00)	Acc@1  31.25 ( 31.77)
+Epoch: [1][770/886]	Time  0.058 ( 0.065)	Data loading time  0.000 ( 0.005)	Loss 1.2552e+00 (1.4025e+00)	Acc@1  46.88 ( 31.73)
+Epoch: [1][880/886]	Time  0.050 ( 0.063)	Data loading time  0.000 ( 0.004)	Loss 1.4267e+00 (1.3988e+00)	Acc@1  28.12 ( 31.80)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  4.120 ( 4.120)	Loss 1.3179e+00 (1.3179e+00)	Acc@1  25.00 ( 25.00)	Acc C1   0.00 (  0.00)	Acc C2  10.00 ( 10.00)	Acc C3  22.22 ( 22.22)	Acc C4  71.43 ( 71.43)
+Test: [110/222]	Time  0.017 ( 0.055)	Loss 1.3568e+00 (1.4904e+00)	Acc@1  21.88 ( 36.26)	Acc C1   0.00 (  0.00)	Acc C2   0.00 ( 20.95)	Acc C3  10.00 ( 27.00)	Acc C4  75.00 ( 78.78)
+Test: [220/222]	Time  0.016 ( 0.036)	Loss 1.3169e+00 (1.4727e+00)	Acc@1  50.00 ( 36.13)	Acc C1   0.00 (  0.23)	Acc C2  45.45 ( 21.26)	Acc C3  33.33 ( 28.28)	Acc C4  88.89 ( 77.50)
+ * Acc 36.094
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.14      0.00      0.00      1287
+           1       0.38      0.21      0.27      1967
+           2       0.29      0.28      0.29      1692
+           3       0.38      0.77      0.51      2141
+
+    accuracy                           0.36      7087
+   macro avg       0.30      0.32      0.27      7087
+weighted avg       0.32      0.36      0.30      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     3   251   353   680 
+        1    10   418   467  1072 
+        2     2   303   478   909 
+        3     7   133   342  1659 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.667 ( 3.667)	Loss 1.3179e+00 (1.3179e+00)	Acc@1  25.00 ( 25.00)	Acc C1   0.00 (  0.00)	Acc C2  10.00 ( 10.00)	Acc C3  22.22 ( 22.22)	Acc C4  71.43 ( 71.43)
+Test: [110/222]	Time  0.017 ( 0.051)	Loss 1.3568e+00 (1.4904e+00)	Acc@1  21.88 ( 36.26)	Acc C1   0.00 (  0.00)	Acc C2   0.00 ( 20.95)	Acc C3  10.00 ( 27.00)	Acc C4  75.00 ( 78.78)
+Test: [220/222]	Time  0.016 ( 0.034)	Loss 1.3169e+00 (1.4727e+00)	Acc@1  50.00 ( 36.13)	Acc C1   0.00 (  0.23)	Acc C2  45.45 ( 21.26)	Acc C3  33.33 ( 28.28)	Acc C4  88.89 ( 77.50)
+ * Acc 36.094
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.14      0.00      0.00      1287
+           1       0.38      0.21      0.27      1967
+           2       0.29      0.28      0.29      1692
+           3       0.38      0.77      0.51      2141
+
+    accuracy                           0.36      7087
+   macro avg       0.30      0.32      0.27      7087
+weighted avg       0.32      0.36      0.30      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     3   251   353   680 
+        1    10   418   467  1072 
+        2     2   303   478   909 
+        3     7   133   342  1659 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.659 ( 3.659)	Loss 1.5405e+00 (1.5405e+00)	Acc@1  46.88 ( 46.88)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  46.88 ( 46.88)
+Test: [110/354]	Time  0.017 ( 0.051)	Loss 1.3710e+00 (1.8890e+00)	Acc@1  25.00 ( 38.40)	Acc C1   0.00 (  2.37)	Acc C2   0.00 ( 19.78)	Acc C3  10.00 ( 30.87)	Acc C4  63.64 ( 52.81)
+Test: [220/354]	Time  0.017 ( 0.034)	Loss 1.4478e+00 (1.6474e+00)	Acc@1   9.38 ( 43.51)	Acc C1   0.00 (  1.58)	Acc C2  61.54 ( 18.60)	Acc C3  15.79 ( 29.26)	Acc C4 100.00 ( 67.21)
+Test: [330/354]	Time  0.017 ( 0.028)	Loss 3.3666e+00 (1.6258e+00)	Acc@1  46.88 ( 42.13)	Acc C1   0.00 (  0.93)	Acc C2   0.00 ( 19.93)	Acc C3  50.00 ( 26.20)	Acc C4  77.78 ( 71.45)
+ * Acc 40.926
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.13      0.01      0.02      1141
+           1       0.23      0.19      0.21      2324
+           2       0.35      0.26      0.30      3196
+           3       0.48      0.72      0.58      4657
+
+    accuracy                           0.41     11318
+   macro avg       0.30      0.29      0.28     11318
+weighted avg       0.36      0.41      0.37     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0    11   214   292   624 
+        1     7   442   531  1344 
+        2    12   751   834  1599 
+        3    56   517   739  3345 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [2][  0/886]	Time  3.637 ( 3.637)	Data loading time  3.561 ( 3.561)	Loss 1.3511e+00 (1.3511e+00)	Acc@1  34.38 ( 34.38)
+Epoch: [2][110/886]	Time  0.061 ( 0.093)	Data loading time  0.000 ( 0.032)	Loss 1.3892e+00 (1.3796e+00)	Acc@1  40.62 ( 32.97)
+Epoch: [2][220/886]	Time  0.064 ( 0.077)	Data loading time  0.000 ( 0.016)	Loss 1.3124e+00 (1.3728e+00)	Acc@1  34.38 ( 33.55)
+Epoch: [2][330/886]	Time  0.062 ( 0.072)	Data loading time  0.000 ( 0.011)	Loss 1.3854e+00 (1.3682e+00)	Acc@1  28.12 ( 33.94)
+Epoch: [2][440/886]	Time  0.062 ( 0.070)	Data loading time  0.000 ( 0.008)	Loss 1.3221e+00 (1.3687e+00)	Acc@1  40.62 ( 33.71)
+Epoch: [2][550/886]	Time  0.067 ( 0.069)	Data loading time  0.000 ( 0.007)	Loss 1.3499e+00 (1.3678e+00)	Acc@1  34.38 ( 33.61)
+Epoch: [2][660/886]	Time  0.062 ( 0.068)	Data loading time  0.000 ( 0.006)	Loss 1.2984e+00 (1.3662e+00)	Acc@1  40.62 ( 33.78)
+Epoch: [2][770/886]	Time  0.058 ( 0.067)	Data loading time  0.000 ( 0.005)	Loss 1.2753e+00 (1.3654e+00)	Acc@1  37.50 ( 33.97)
+Epoch: [2][880/886]	Time  0.050 ( 0.065)	Data loading time  0.000 ( 0.004)	Loss 1.3932e+00 (1.3649e+00)	Acc@1  25.00 ( 33.94)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.970 ( 3.970)	Loss 1.3730e+00 (1.3730e+00)	Acc@1  25.00 ( 25.00)	Acc C1   0.00 (  0.00)	Acc C2  30.00 ( 30.00)	Acc C3   0.00 (  0.00)	Acc C4  71.43 ( 71.43)
+Test: [110/222]	Time  0.017 ( 0.054)	Loss 1.4308e+00 (1.3465e+00)	Acc@1  18.75 ( 37.05)	Acc C1   0.00 (  0.00)	Acc C2   0.00 ( 46.12)	Acc C3   0.00 (  0.00)	Acc C4  75.00 ( 79.15)
+Test: [220/222]	Time  0.016 ( 0.036)	Loss 1.2598e+00 (1.3517e+00)	Acc@1  43.75 ( 36.69)	Acc C1   0.00 (  0.00)	Acc C2  45.45 ( 46.46)	Acc C3   0.00 (  0.00)	Acc C4 100.00 ( 78.77)
+ * Acc 36.673
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.33      0.46      0.39      1967
+           2       0.00      0.00      0.00      1692
+           3       0.39      0.79      0.52      2141
+
+    accuracy                           0.37      7087
+   macro avg       0.18      0.31      0.23      7087
+weighted avg       0.21      0.37      0.27      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   598     0   689 
+        1     5   912     0  1050 
+        2     1   810     0   881 
+        3     7   447     0  1687 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.587 ( 3.587)	Loss 1.3730e+00 (1.3730e+00)	Acc@1  25.00 ( 25.00)	Acc C1   0.00 (  0.00)	Acc C2  30.00 ( 30.00)	Acc C3   0.00 (  0.00)	Acc C4  71.43 ( 71.43)
+Test: [110/222]	Time  0.019 ( 0.053)	Loss 1.4308e+00 (1.3465e+00)	Acc@1  18.75 ( 37.05)	Acc C1   0.00 (  0.00)	Acc C2   0.00 ( 46.12)	Acc C3   0.00 (  0.00)	Acc C4  75.00 ( 79.15)
+Test: [220/222]	Time  0.016 ( 0.035)	Loss 1.2598e+00 (1.3517e+00)	Acc@1  43.75 ( 36.69)	Acc C1   0.00 (  0.00)	Acc C2  45.45 ( 46.46)	Acc C3   0.00 (  0.00)	Acc C4 100.00 ( 78.77)
+ * Acc 36.673
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.33      0.46      0.39      1967
+           2       0.00      0.00      0.00      1692
+           3       0.39      0.79      0.52      2141
+
+    accuracy                           0.37      7087
+   macro avg       0.18      0.31      0.23      7087
+weighted avg       0.21      0.37      0.27      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   598     0   689 
+        1     5   912     0  1050 
+        2     1   810     0   881 
+        3     7   447     0  1687 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.698 ( 3.698)	Loss 1.5446e+00 (1.5446e+00)	Acc@1  31.25 ( 31.25)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  31.25 ( 31.25)
+Test: [110/354]	Time  0.017 ( 0.051)	Loss 1.4053e+00 (1.5413e+00)	Acc@1  28.12 ( 26.97)	Acc C1   0.00 (  1.78)	Acc C2  33.33 ( 47.48)	Acc C3   0.00 (  0.00)	Acc C4  63.64 ( 45.58)
+Test: [220/354]	Time  0.017 ( 0.034)	Loss 1.6102e+00 (1.3708e+00)	Acc@1   0.00 ( 40.44)	Acc C1   0.00 (  1.19)	Acc C2 100.00 ( 49.38)	Acc C3   0.00 (  0.00)	Acc C4 100.00 ( 65.35)
+Test: [330/354]	Time  0.017 ( 0.028)	Loss 1.3921e+00 (1.3556e+00)	Acc@1  59.38 ( 40.64)	Acc C1   0.00 (  0.70)	Acc C2  50.00 ( 49.95)	Acc C3   0.00 (  0.00)	Acc C4  94.44 ( 71.05)
+ * Acc 39.309
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.10      0.01      0.01      1141
+           1       0.24      0.48      0.32      2324
+           2       0.00      0.00      0.00      3196
+           3       0.51      0.71      0.59      4657
+
+    accuracy                           0.39     11318
+   macro avg       0.21      0.30      0.23     11318
+weighted avg       0.27      0.39      0.31     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     7   561     0   573 
+        1     4  1114     0  1206 
+        2    12  1719     0  1465 
+        3    47  1282     0  3328 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [3][  0/886]	Time  3.770 ( 3.770)	Data loading time  3.703 ( 3.703)	Loss 1.4222e+00 (1.4222e+00)	Acc@1  34.38 ( 34.38)
+Epoch: [3][110/886]	Time  0.049 ( 0.085)	Data loading time  0.000 ( 0.034)	Loss 1.2957e+00 (1.3513e+00)	Acc@1  37.50 ( 35.42)
+Epoch: [3][220/886]	Time  0.051 ( 0.069)	Data loading time  0.000 ( 0.017)	Loss 1.4105e+00 (1.3575e+00)	Acc@1  28.12 ( 33.99)
+Epoch: [3][330/886]	Time  0.049 ( 0.063)	Data loading time  0.000 ( 0.011)	Loss 1.4177e+00 (1.3544e+00)	Acc@1  25.00 ( 34.90)
+Epoch: [3][440/886]	Time  0.051 ( 0.060)	Data loading time  0.000 ( 0.009)	Loss 1.2229e+00 (1.3526e+00)	Acc@1  56.25 ( 35.13)
+Epoch: [3][550/886]	Time  0.051 ( 0.058)	Data loading time  0.000 ( 0.007)	Loss 1.4024e+00 (1.3524e+00)	Acc@1  34.38 ( 35.01)
+Epoch: [3][660/886]	Time  0.048 ( 0.057)	Data loading time  0.000 ( 0.006)	Loss 1.3128e+00 (1.3510e+00)	Acc@1  46.88 ( 35.02)
+Epoch: [3][770/886]	Time  0.053 ( 0.056)	Data loading time  0.000 ( 0.005)	Loss 1.3439e+00 (1.3487e+00)	Acc@1  37.50 ( 35.36)
+Epoch: [3][880/886]	Time  0.050 ( 0.056)	Data loading time  0.000 ( 0.004)	Loss 1.3294e+00 (1.3492e+00)	Acc@1  31.25 ( 35.29)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.978 ( 3.978)	Loss 1.3613e+00 (1.3613e+00)	Acc@1  25.00 ( 25.00)	Acc C1   0.00 (  0.00)	Acc C2  10.00 ( 10.00)	Acc C3   0.00 (  0.00)	Acc C4 100.00 (100.00)
+Test: [110/222]	Time  0.017 ( 0.053)	Loss 1.3372e+00 (1.3163e+00)	Acc@1  25.00 ( 38.18)	Acc C1   0.00 (  0.00)	Acc C2  25.00 ( 45.72)	Acc C3   0.00 (  3.70)	Acc C4  75.00 ( 80.35)
+Test: [220/222]	Time  0.016 ( 0.035)	Loss 1.2518e+00 (1.3205e+00)	Acc@1  46.88 ( 37.73)	Acc C1   0.00 (  0.00)	Acc C2  54.55 ( 45.13)	Acc C3   0.00 (  3.85)	Acc C4 100.00 ( 80.36)
+ * Acc 37.689
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.34      0.45      0.38      1967
+           2       0.41      0.04      0.07      1692
+           3       0.40      0.80      0.54      2141
+
+    accuracy                           0.38      7087
+   macro avg       0.29      0.32      0.25      7087
+weighted avg       0.31      0.38      0.29      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   585    57   645 
+        1     0   886    29  1052 
+        2     0   757    65   870 
+        3     0   414     7  1720 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.631 ( 3.631)	Loss 1.3613e+00 (1.3613e+00)	Acc@1  25.00 ( 25.00)	Acc C1   0.00 (  0.00)	Acc C2  10.00 ( 10.00)	Acc C3   0.00 (  0.00)	Acc C4 100.00 (100.00)
+Test: [110/222]	Time  0.016 ( 0.051)	Loss 1.3372e+00 (1.3163e+00)	Acc@1  25.00 ( 38.18)	Acc C1   0.00 (  0.00)	Acc C2  25.00 ( 45.72)	Acc C3   0.00 (  3.70)	Acc C4  75.00 ( 80.35)
+Test: [220/222]	Time  0.016 ( 0.034)	Loss 1.2518e+00 (1.3205e+00)	Acc@1  46.88 ( 37.73)	Acc C1   0.00 (  0.00)	Acc C2  54.55 ( 45.13)	Acc C3   0.00 (  3.85)	Acc C4 100.00 ( 80.36)
+ * Acc 37.689
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.34      0.45      0.38      1967
+           2       0.41      0.04      0.07      1692
+           3       0.40      0.80      0.54      2141
+
+    accuracy                           0.38      7087
+   macro avg       0.29      0.32      0.25      7087
+weighted avg       0.31      0.38      0.29      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   585    57   645 
+        1     0   886    29  1052 
+        2     0   757    65   870 
+        3     0   414     7  1720 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.622 ( 3.622)	Loss 1.5559e+00 (1.5559e+00)	Acc@1  28.12 ( 28.12)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  28.12 ( 28.12)
+Test: [110/354]	Time  0.017 ( 0.051)	Loss 1.3958e+00 (1.4289e+00)	Acc@1  28.12 ( 26.55)	Acc C1   0.00 (  0.00)	Acc C2  50.00 ( 52.16)	Acc C3   0.00 (  3.17)	Acc C4  54.55 ( 42.36)
+Test: [220/354]	Time  0.017 ( 0.034)	Loss 1.5672e+00 (1.2984e+00)	Acc@1   0.00 ( 39.80)	Acc C1   0.00 (  0.00)	Acc C2  84.62 ( 47.69)	Acc C3   0.00 (  2.28)	Acc C4 100.00 ( 63.58)
+Test: [330/354]	Time  0.018 ( 0.028)	Loss 1.2580e+00 (1.2902e+00)	Acc@1  50.00 ( 39.93)	Acc C1   0.00 (  0.00)	Acc C2   0.00 ( 48.08)	Acc C3   0.00 (  1.68)	Acc C4  88.89 ( 69.28)
+ * Acc 38.646
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1141
+           1       0.23      0.46      0.31      2324
+           2       0.29      0.02      0.03      3196
+           3       0.50      0.70      0.58      4657
+
+    accuracy                           0.39     11318
+   macro avg       0.26      0.29      0.23     11318
+weighted avg       0.34      0.39      0.31     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   563    11   567 
+        1     0  1070    14  1240 
+        2     0  1696    53  1447 
+        3     0  1304   102  3251 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [4][  0/886]	Time  3.729 ( 3.729)	Data loading time  3.658 ( 3.658)	Loss 1.3189e+00 (1.3189e+00)	Acc@1  43.75 ( 43.75)
+Epoch: [4][110/886]	Time  0.052 ( 0.085)	Data loading time  0.000 ( 0.033)	Loss 1.3927e+00 (1.3394e+00)	Acc@1  28.12 ( 36.29)
+Epoch: [4][220/886]	Time  0.052 ( 0.068)	Data loading time  0.000 ( 0.017)	Loss 1.3702e+00 (1.3360e+00)	Acc@1  34.38 ( 35.92)
+Epoch: [4][330/886]	Time  0.050 ( 0.063)	Data loading time  0.000 ( 0.011)	Loss 1.3326e+00 (1.3367e+00)	Acc@1  34.38 ( 36.17)
+Epoch: [4][440/886]	Time  0.051 ( 0.060)	Data loading time  0.000 ( 0.009)	Loss 1.3542e+00 (1.3388e+00)	Acc@1  34.38 ( 36.09)
+Epoch: [4][550/886]	Time  0.058 ( 0.058)	Data loading time  0.000 ( 0.007)	Loss 1.2321e+00 (1.3363e+00)	Acc@1  46.88 ( 36.28)
+Epoch: [4][660/886]	Time  0.054 ( 0.057)	Data loading time  0.000 ( 0.006)	Loss 1.3829e+00 (1.3367e+00)	Acc@1  31.25 ( 36.33)
+Epoch: [4][770/886]	Time  0.050 ( 0.056)	Data loading time  0.000 ( 0.005)	Loss 1.1634e+00 (1.3356e+00)	Acc@1  53.12 ( 36.56)
+Epoch: [4][880/886]	Time  0.056 ( 0.056)	Data loading time  0.000 ( 0.004)	Loss 1.2061e+00 (1.3346e+00)	Acc@1  46.88 ( 36.65)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  4.012 ( 4.012)	Loss 1.4462e+00 (1.4462e+00)	Acc@1  28.12 ( 28.12)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3  22.22 ( 22.22)	Acc C4 100.00 (100.00)
+Test: [110/222]	Time  0.017 ( 0.054)	Loss 1.3421e+00 (1.3427e+00)	Acc@1  28.12 ( 36.63)	Acc C1   0.00 (  0.16)	Acc C2   0.00 ( 18.63)	Acc C3  20.00 ( 17.44)	Acc C4  87.50 ( 89.39)
+Test: [220/222]	Time  0.016 ( 0.036)	Loss 1.2495e+00 (1.3424e+00)	Acc@1  43.75 ( 36.89)	Acc C1   0.00 (  0.16)	Acc C2  18.18 ( 18.41)	Acc C3  33.33 ( 19.64)	Acc C4 100.00 ( 89.52)
+ * Acc 36.856
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.07      0.00      0.00      1287
+           1       0.37      0.18      0.25      1967
+           2       0.37      0.20      0.26      1692
+           3       0.37      0.90      0.52      2141
+
+    accuracy                           0.37      7087
+   macro avg       0.30      0.32      0.26      7087
+weighted avg       0.32      0.37      0.29      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     2   223   218   844 
+        1     6   361   260  1340 
+        2     6   261   332  1093 
+        3    15   119    90  1917 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.583 ( 3.583)	Loss 1.4462e+00 (1.4462e+00)	Acc@1  28.12 ( 28.12)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3  22.22 ( 22.22)	Acc C4 100.00 (100.00)
+Test: [110/222]	Time  0.018 ( 0.050)	Loss 1.3421e+00 (1.3427e+00)	Acc@1  28.12 ( 36.63)	Acc C1   0.00 (  0.16)	Acc C2   0.00 ( 18.63)	Acc C3  20.00 ( 17.44)	Acc C4  87.50 ( 89.39)
+Test: [220/222]	Time  0.019 ( 0.034)	Loss 1.2495e+00 (1.3424e+00)	Acc@1  43.75 ( 36.89)	Acc C1   0.00 (  0.16)	Acc C2  18.18 ( 18.41)	Acc C3  33.33 ( 19.64)	Acc C4 100.00 ( 89.52)
+ * Acc 36.856
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.07      0.00      0.00      1287
+           1       0.37      0.18      0.25      1967
+           2       0.37      0.20      0.26      1692
+           3       0.37      0.90      0.52      2141
+
+    accuracy                           0.37      7087
+   macro avg       0.30      0.32      0.26      7087
+weighted avg       0.32      0.37      0.29      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     2   223   218   844 
+        1     6   361   260  1340 
+        2     6   261   332  1093 
+        3    15   119    90  1917 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.649 ( 3.649)	Loss 1.3002e+00 (1.3002e+00)	Acc@1  40.62 ( 40.62)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  40.62 ( 40.62)
+Test: [110/354]	Time  0.019 ( 0.052)	Loss 1.3640e+00 (1.3662e+00)	Acc@1  34.38 ( 35.70)	Acc C1   0.00 (  0.89)	Acc C2  33.33 ( 22.66)	Acc C3  10.00 ( 14.42)	Acc C4  72.73 ( 57.70)
+Test: [220/354]	Time  0.020 ( 0.036)	Loss 1.6497e+00 (1.2876e+00)	Acc@1   6.25 ( 41.33)	Acc C1   0.00 (  0.79)	Acc C2  76.92 ( 17.44)	Acc C3  10.53 ( 13.86)	Acc C4   0.00 ( 71.78)
+Test: [330/354]	Time  0.019 ( 0.030)	Loss 1.2393e+00 (1.3015e+00)	Acc@1  53.12 ( 39.44)	Acc C1   0.00 (  0.58)	Acc C2   0.00 ( 18.37)	Acc C3   0.00 ( 11.82)	Acc C4  94.44 ( 75.64)
+ * Acc 38.399
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.08      0.01      0.01      1141
+           1       0.19      0.18      0.18      2324
+           2       0.38      0.12      0.18      3196
+           3       0.44      0.76      0.56      4657
+
+    accuracy                           0.38     11318
+   macro avg       0.27      0.27      0.23     11318
+weighted avg       0.34      0.38      0.32     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     8   229   143   761 
+        1     6   415   168  1735 
+        2     4   828   377  1987 
+        3    79   734   298  3546 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [5][  0/886]	Time  3.639 ( 3.639)	Data loading time  3.557 ( 3.557)	Loss 1.2818e+00 (1.2818e+00)	Acc@1  43.75 ( 43.75)
+Epoch: [5][110/886]	Time  0.066 ( 0.095)	Data loading time  0.000 ( 0.032)	Loss 1.3145e+00 (1.3354e+00)	Acc@1  34.38 ( 36.54)
+Epoch: [5][220/886]	Time  0.051 ( 0.078)	Data loading time  0.000 ( 0.016)	Loss 1.2270e+00 (1.3335e+00)	Acc@1  46.88 ( 36.76)
+Epoch: [5][330/886]	Time  0.051 ( 0.070)	Data loading time  0.000 ( 0.011)	Loss 1.3636e+00 (1.3324e+00)	Acc@1  40.62 ( 36.74)
+Epoch: [5][440/886]	Time  0.053 ( 0.066)	Data loading time  0.000 ( 0.008)	Loss 1.4019e+00 (1.3295e+00)	Acc@1  28.12 ( 37.00)
+Epoch: [5][550/886]	Time  0.057 ( 0.064)	Data loading time  0.000 ( 0.007)	Loss 1.4345e+00 (1.3298e+00)	Acc@1  34.38 ( 36.87)
+Epoch: [5][660/886]	Time  0.059 ( 0.062)	Data loading time  0.000 ( 0.006)	Loss 1.2531e+00 (1.3293e+00)	Acc@1  50.00 ( 36.91)
+Epoch: [5][770/886]	Time  0.055 ( 0.061)	Data loading time  0.000 ( 0.005)	Loss 1.2804e+00 (1.3293e+00)	Acc@1  46.88 ( 36.85)
+Epoch: [5][880/886]	Time  0.050 ( 0.060)	Data loading time  0.000 ( 0.004)	Loss 1.3576e+00 (1.3289e+00)	Acc@1  34.38 ( 36.94)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.980 ( 3.980)	Loss 1.2493e+00 (1.2493e+00)	Acc@1  43.75 ( 43.75)	Acc C1   0.00 (  0.00)	Acc C2 100.00 (100.00)	Acc C3  22.22 ( 22.22)	Acc C4  28.57 ( 28.57)
+Test: [110/222]	Time  0.017 ( 0.054)	Loss 1.3223e+00 (1.3276e+00)	Acc@1  40.62 ( 35.36)	Acc C1   0.00 (  0.00)	Acc C2 100.00 ( 81.77)	Acc C3   0.00 ( 11.23)	Acc C4  62.50 ( 32.29)
+Test: [220/222]	Time  0.015 ( 0.035)	Loss 1.2018e+00 (1.3282e+00)	Acc@1  37.50 ( 34.95)	Acc C1   0.00 (  0.00)	Acc C2  72.73 ( 80.93)	Acc C3   0.00 ( 10.47)	Acc C4  44.44 ( 33.12)
+ * Acc 34.980
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.30      0.81      0.43      1967
+           2       0.40      0.10      0.17      1692
+           3       0.56      0.33      0.42      2141
+
+    accuracy                           0.35      7087
+   macro avg       0.31      0.31      0.25      7087
+weighted avg       0.35      0.35      0.29      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0  1030   145   112 
+        1     1  1592   111   263 
+        2     0  1340   177   175 
+        3     2  1415    14   710 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.619 ( 3.619)	Loss 1.2493e+00 (1.2493e+00)	Acc@1  43.75 ( 43.75)	Acc C1   0.00 (  0.00)	Acc C2 100.00 (100.00)	Acc C3  22.22 ( 22.22)	Acc C4  28.57 ( 28.57)
+Test: [110/222]	Time  0.017 ( 0.050)	Loss 1.3223e+00 (1.3276e+00)	Acc@1  40.62 ( 35.36)	Acc C1   0.00 (  0.00)	Acc C2 100.00 ( 81.77)	Acc C3   0.00 ( 11.23)	Acc C4  62.50 ( 32.29)
+Test: [220/222]	Time  0.016 ( 0.034)	Loss 1.2018e+00 (1.3282e+00)	Acc@1  37.50 ( 34.95)	Acc C1   0.00 (  0.00)	Acc C2  72.73 ( 80.93)	Acc C3   0.00 ( 10.47)	Acc C4  44.44 ( 33.12)
+ * Acc 34.980
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.30      0.81      0.43      1967
+           2       0.40      0.10      0.17      1692
+           3       0.56      0.33      0.42      2141
+
+    accuracy                           0.35      7087
+   macro avg       0.31      0.31      0.25      7087
+weighted avg       0.35      0.35      0.29      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0  1030   145   112 
+        1     1  1592   111   263 
+        2     0  1340   177   175 
+        3     2  1415    14   710 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.660 ( 3.660)	Loss 1.8871e+00 (1.8871e+00)	Acc@1   3.12 (  3.12)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4   3.12 (  3.12)
+Test: [110/354]	Time  0.019 ( 0.053)	Loss 1.4647e+00 (1.5361e+00)	Acc@1  18.75 ( 15.99)	Acc C1   0.00 (  0.89)	Acc C2 100.00 ( 87.05)	Acc C3   0.00 (  9.94)	Acc C4   0.00 ( 11.67)
+Test: [220/354]	Time  0.020 ( 0.036)	Loss 1.5699e+00 (1.3446e+00)	Acc@1   0.00 ( 35.42)	Acc C1   0.00 (  0.59)	Acc C2  84.62 ( 88.12)	Acc C3   0.00 (  7.54)	Acc C4 100.00 ( 35.95)
+Test: [330/354]	Time  0.020 ( 0.030)	Loss 1.3519e+00 (1.3196e+00)	Acc@1  50.00 ( 38.08)	Acc C1   0.00 (  0.35)	Acc C2  50.00 ( 87.07)	Acc C3   0.00 (  5.68)	Acc C4  77.78 ( 43.28)
+ * Acc 36.888
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.05      0.00      0.00      1141
+           1       0.25      0.85      0.38      2324
+           2       0.42      0.06      0.10      3196
+           3       0.72      0.43      0.54      4657
+
+    accuracy                           0.37     11318
+   macro avg       0.36      0.34      0.26     11318
+weighted avg       0.47      0.37      0.33     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     3   986    38   114 
+        1     3  1970    48   303 
+        2     2  2656   191   347 
+        3    56  2413   177  2011 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [6][  0/886]	Time  3.645 ( 3.645)	Data loading time  3.573 ( 3.573)	Loss 1.3590e+00 (1.3590e+00)	Acc@1  28.12 ( 28.12)
+Epoch: [6][110/886]	Time  0.049 ( 0.084)	Data loading time  0.000 ( 0.032)	Loss 1.2307e+00 (1.3347e+00)	Acc@1  53.12 ( 35.75)
+Epoch: [6][220/886]	Time  0.052 ( 0.068)	Data loading time  0.000 ( 0.016)	Loss 1.1772e+00 (1.3316e+00)	Acc@1  46.88 ( 36.45)
+Epoch: [6][330/886]	Time  0.050 ( 0.062)	Data loading time  0.000 ( 0.011)	Loss 1.3933e+00 (1.3290e+00)	Acc@1  34.38 ( 36.67)
+Epoch: [6][440/886]	Time  0.052 ( 0.060)	Data loading time  0.000 ( 0.008)	Loss 1.2068e+00 (1.3291e+00)	Acc@1  62.50 ( 36.56)
+Epoch: [6][550/886]	Time  0.051 ( 0.058)	Data loading time  0.000 ( 0.007)	Loss 1.2781e+00 (1.3258e+00)	Acc@1  40.62 ( 36.85)
+Epoch: [6][660/886]	Time  0.057 ( 0.057)	Data loading time  0.000 ( 0.006)	Loss 1.2603e+00 (1.3250e+00)	Acc@1  46.88 ( 36.91)
+Epoch: [6][770/886]	Time  0.050 ( 0.057)	Data loading time  0.000 ( 0.005)	Loss 1.3806e+00 (1.3239e+00)	Acc@1  21.88 ( 36.87)
+Epoch: [6][880/886]	Time  0.051 ( 0.056)	Data loading time  0.000 ( 0.004)	Loss 1.4821e+00 (1.3210e+00)	Acc@1  25.00 ( 37.18)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  4.056 ( 4.056)	Loss 1.2836e+00 (1.2836e+00)	Acc@1  40.62 ( 40.62)	Acc C1  16.67 ( 16.67)	Acc C2  30.00 ( 30.00)	Acc C3  33.33 ( 33.33)	Acc C4  85.71 ( 85.71)
+Test: [110/222]	Time  0.018 ( 0.055)	Loss 1.3021e+00 (1.2910e+00)	Acc@1  31.25 ( 40.01)	Acc C1   0.00 (  6.27)	Acc C2  50.00 ( 45.62)	Acc C3   0.00 ( 12.78)	Acc C4  75.00 ( 75.74)
+Test: [220/222]	Time  0.016 ( 0.036)	Loss 1.2527e+00 (1.2914e+00)	Acc@1  34.38 ( 39.96)	Acc C1   0.00 (  7.64)	Acc C2  36.36 ( 44.88)	Acc C3   0.00 ( 13.02)	Acc C4  77.78 ( 76.15)
+ * Acc 39.946
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.27      0.08      0.12      1287
+           1       0.34      0.45      0.39      1967
+           2       0.41      0.13      0.20      1692
+           3       0.45      0.76      0.57      2141
+
+    accuracy                           0.40      7087
+   macro avg       0.37      0.35      0.32      7087
+weighted avg       0.38      0.40      0.35      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0    99   555   175   458 
+        1    95   881   126   865 
+        2   132   679   220   661 
+        3    38   450    22  1631 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.556 ( 3.556)	Loss 1.2836e+00 (1.2836e+00)	Acc@1  40.62 ( 40.62)	Acc C1  16.67 ( 16.67)	Acc C2  30.00 ( 30.00)	Acc C3  33.33 ( 33.33)	Acc C4  85.71 ( 85.71)
+Test: [110/222]	Time  0.017 ( 0.050)	Loss 1.3021e+00 (1.2910e+00)	Acc@1  31.25 ( 40.01)	Acc C1   0.00 (  6.27)	Acc C2  50.00 ( 45.62)	Acc C3   0.00 ( 12.78)	Acc C4  75.00 ( 75.74)
+Test: [220/222]	Time  0.016 ( 0.033)	Loss 1.2527e+00 (1.2914e+00)	Acc@1  34.38 ( 39.96)	Acc C1   0.00 (  7.64)	Acc C2  36.36 ( 44.88)	Acc C3   0.00 ( 13.02)	Acc C4  77.78 ( 76.15)
+ * Acc 39.946
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.27      0.08      0.12      1287
+           1       0.34      0.45      0.39      1967
+           2       0.41      0.13      0.20      1692
+           3       0.45      0.76      0.57      2141
+
+    accuracy                           0.40      7087
+   macro avg       0.37      0.35      0.32      7087
+weighted avg       0.38      0.40      0.35      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0    99   555   175   458 
+        1    95   881   126   865 
+        2   132   679   220   661 
+        3    38   450    22  1631 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.794 ( 3.794)	Loss 1.7371e+00 (1.7371e+00)	Acc@1  15.62 ( 15.62)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  15.62 ( 15.62)
+Test: [110/354]	Time  0.017 ( 0.051)	Loss 1.3647e+00 (1.4692e+00)	Acc@1  28.12 ( 24.49)	Acc C1   0.00 (  5.92)	Acc C2  66.67 ( 61.15)	Acc C3   0.00 (  7.39)	Acc C4  45.45 ( 33.13)
+Test: [220/354]	Time  0.017 ( 0.034)	Loss 1.4665e+00 (1.3246e+00)	Acc@1   0.00 ( 39.07)	Acc C1   0.00 (  4.75)	Acc C2  76.92 ( 49.00)	Acc C3   0.00 (  5.63)	Acc C4 100.00 ( 58.97)
+Test: [330/354]	Time  0.017 ( 0.028)	Loss 1.7300e+00 (1.3095e+00)	Acc@1  50.00 ( 40.01)	Acc C1   0.00 (  4.64)	Acc C2   0.00 ( 49.73)	Acc C3   0.00 (  4.59)	Acc C4  88.89 ( 65.85)
+ * Acc 38.964
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.12      0.05      0.07      1141
+           1       0.23      0.48      0.31      2324
+           2       0.44      0.05      0.09      3196
+           3       0.54      0.66      0.59      4657
+
+    accuracy                           0.39     11318
+   macro avg       0.33      0.31      0.27     11318
+weighted avg       0.41      0.39      0.34     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0    56   601    54   430 
+        1    62  1111    50  1101 
+        2   161  1732   155  1148 
+        3   177  1299    93  3088 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [7][  0/886]	Time  3.651 ( 3.651)	Data loading time  3.569 ( 3.569)	Loss 1.3464e+00 (1.3464e+00)	Acc@1  37.50 ( 37.50)
+Epoch: [7][110/886]	Time  0.062 ( 0.093)	Data loading time  0.000 ( 0.032)	Loss 1.3948e+00 (1.3148e+00)	Acc@1  25.00 ( 38.34)
+Epoch: [7][220/886]	Time  0.055 ( 0.075)	Data loading time  0.000 ( 0.016)	Loss 1.2243e+00 (1.3178e+00)	Acc@1  53.12 ( 37.75)
+Epoch: [7][330/886]	Time  0.058 ( 0.068)	Data loading time  0.000 ( 0.011)	Loss 1.2714e+00 (1.3183e+00)	Acc@1  40.62 ( 37.44)
+Epoch: [7][440/886]	Time  0.050 ( 0.064)	Data loading time  0.000 ( 0.008)	Loss 1.2890e+00 (1.3180e+00)	Acc@1  43.75 ( 37.63)
+Epoch: [7][550/886]	Time  0.057 ( 0.062)	Data loading time  0.000 ( 0.007)	Loss 1.3227e+00 (1.3163e+00)	Acc@1  28.12 ( 37.72)
+Epoch: [7][660/886]	Time  0.052 ( 0.060)	Data loading time  0.000 ( 0.006)	Loss 1.4665e+00 (1.3152e+00)	Acc@1  15.62 ( 37.78)
+Epoch: [7][770/886]	Time  0.051 ( 0.059)	Data loading time  0.000 ( 0.005)	Loss 1.2508e+00 (1.3153e+00)	Acc@1  43.75 ( 37.59)
+Epoch: [7][880/886]	Time  0.050 ( 0.058)	Data loading time  0.000 ( 0.004)	Loss 1.2620e+00 (1.3139e+00)	Acc@1  37.50 ( 37.73)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.919 ( 3.919)	Loss 1.2805e+00 (1.2805e+00)	Acc@1  31.25 ( 31.25)	Acc C1   0.00 (  0.00)	Acc C2  20.00 ( 20.00)	Acc C3  22.22 ( 22.22)	Acc C4  85.71 ( 85.71)
+Test: [110/222]	Time  0.018 ( 0.053)	Loss 1.2815e+00 (1.2880e+00)	Acc@1  43.75 ( 40.91)	Acc C1   0.00 (  0.00)	Acc C2  50.00 ( 43.91)	Acc C3  30.00 ( 15.17)	Acc C4  87.50 ( 82.10)
+Test: [220/222]	Time  0.016 ( 0.035)	Loss 1.2439e+00 (1.2890e+00)	Acc@1  43.75 ( 40.29)	Acc C1   0.00 (  0.00)	Acc C2  36.36 ( 41.51)	Acc C3  22.22 ( 16.75)	Acc C4  88.89 ( 81.95)
+ * Acc 40.257
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.35      0.41      0.38      1967
+           2       0.40      0.17      0.24      1692
+           3       0.43      0.82      0.57      2141
+
+    accuracy                           0.40      7087
+   macro avg       0.30      0.35      0.30      7087
+weighted avg       0.32      0.40      0.33      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   529   204   554 
+        1     3   815   183   966 
+        2     3   631   283   775 
+        3     7   337    42  1755 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.600 ( 3.600)	Loss 1.2805e+00 (1.2805e+00)	Acc@1  31.25 ( 31.25)	Acc C1   0.00 (  0.00)	Acc C2  20.00 ( 20.00)	Acc C3  22.22 ( 22.22)	Acc C4  85.71 ( 85.71)
+Test: [110/222]	Time  0.017 ( 0.050)	Loss 1.2815e+00 (1.2880e+00)	Acc@1  43.75 ( 40.91)	Acc C1   0.00 (  0.00)	Acc C2  50.00 ( 43.91)	Acc C3  30.00 ( 15.17)	Acc C4  87.50 ( 82.10)
+Test: [220/222]	Time  0.016 ( 0.034)	Loss 1.2439e+00 (1.2890e+00)	Acc@1  43.75 ( 40.29)	Acc C1   0.00 (  0.00)	Acc C2  36.36 ( 41.51)	Acc C3  22.22 ( 16.75)	Acc C4  88.89 ( 81.95)
+ * Acc 40.257
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.35      0.41      0.38      1967
+           2       0.40      0.17      0.24      1692
+           3       0.43      0.82      0.57      2141
+
+    accuracy                           0.40      7087
+   macro avg       0.30      0.35      0.30      7087
+weighted avg       0.32      0.40      0.33      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   529   204   554 
+        1     3   815   183   966 
+        2     3   631   283   775 
+        3     7   337    42  1755 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.652 ( 3.652)	Loss 1.7093e+00 (1.7093e+00)	Acc@1  15.62 ( 15.62)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  15.62 ( 15.62)
+Test: [110/354]	Time  0.016 ( 0.050)	Loss 1.3762e+00 (1.4642e+00)	Acc@1  34.38 ( 25.20)	Acc C1   0.00 (  0.00)	Acc C2  66.67 ( 64.03)	Acc C3  20.00 (  9.85)	Acc C4  45.45 ( 33.63)
+Test: [220/354]	Time  0.017 ( 0.033)	Loss 1.6050e+00 (1.3034e+00)	Acc@1   0.00 ( 38.36)	Acc C1   0.00 (  0.00)	Acc C2  92.31 ( 40.74)	Acc C3   0.00 (  9.40)	Acc C4 100.00 ( 59.27)
+Test: [330/354]	Time  0.017 ( 0.028)	Loss 1.2987e+00 (1.3037e+00)	Acc@1  46.88 ( 39.15)	Acc C1   0.00 (  0.00)	Acc C2   0.00 ( 43.28)	Acc C3   0.00 (  8.25)	Acc C4  83.33 ( 65.38)
+ * Acc 38.090
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1141
+           1       0.21      0.41      0.28      2324
+           2       0.46      0.08      0.14      3196
+           3       0.51      0.66      0.57      4657
+
+    accuracy                           0.38     11318
+   macro avg       0.29      0.29      0.25     11318
+weighted avg       0.38      0.38      0.33     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   583    88   470 
+        1     1   964    91  1268 
+        2     1  1684   268  1243 
+        3   100  1340   138  3079 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [8][  0/886]	Time  3.651 ( 3.651)	Data loading time  3.579 ( 3.579)	Loss 1.2699e+00 (1.2699e+00)	Acc@1  40.62 ( 40.62)
+Epoch: [8][110/886]	Time  0.053 ( 0.085)	Data loading time  0.000 ( 0.033)	Loss 1.3420e+00 (1.3046e+00)	Acc@1  34.38 ( 40.12)
+Epoch: [8][220/886]	Time  0.051 ( 0.068)	Data loading time  0.000 ( 0.016)	Loss 1.3063e+00 (1.3036e+00)	Acc@1  37.50 ( 39.39)
+Epoch: [8][330/886]	Time  0.051 ( 0.063)	Data loading time  0.000 ( 0.011)	Loss 1.2299e+00 (1.3036e+00)	Acc@1  40.62 ( 38.89)
+Epoch: [8][440/886]	Time  0.051 ( 0.060)	Data loading time  0.000 ( 0.008)	Loss 1.2967e+00 (1.3038e+00)	Acc@1  46.88 ( 38.90)
+Epoch: [8][550/886]	Time  0.050 ( 0.058)	Data loading time  0.000 ( 0.007)	Loss 1.2057e+00 (1.3027e+00)	Acc@1  53.12 ( 38.93)
+Epoch: [8][660/886]	Time  0.055 ( 0.057)	Data loading time  0.000 ( 0.006)	Loss 1.3670e+00 (1.3027e+00)	Acc@1  28.12 ( 38.86)
+Epoch: [8][770/886]	Time  0.060 ( 0.057)	Data loading time  0.000 ( 0.005)	Loss 1.3396e+00 (1.3042e+00)	Acc@1  34.38 ( 38.70)
+Epoch: [8][880/886]	Time  0.063 ( 0.058)	Data loading time  0.000 ( 0.004)	Loss 1.3125e+00 (1.3032e+00)	Acc@1  34.38 ( 38.77)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.923 ( 3.923)	Loss 1.2833e+00 (1.2833e+00)	Acc@1  31.25 ( 31.25)	Acc C1  50.00 ( 50.00)	Acc C2  10.00 ( 10.00)	Acc C3   0.00 (  0.00)	Acc C4  85.71 ( 85.71)
+Test: [110/222]	Time  0.017 ( 0.053)	Loss 1.3199e+00 (1.2691e+00)	Acc@1  25.00 ( 41.16)	Acc C1   0.00 ( 18.18)	Acc C2  12.50 ( 35.75)	Acc C3   0.00 (  8.12)	Acc C4  87.50 ( 85.15)
+Test: [220/222]	Time  0.016 ( 0.035)	Loss 1.2089e+00 (1.2727e+00)	Acc@1  43.75 ( 40.14)	Acc C1   0.00 ( 17.54)	Acc C2  54.55 ( 35.14)	Acc C3   0.00 (  7.22)	Acc C4  88.89 ( 84.33)
+ * Acc 40.116
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.27      0.18      0.21      1287
+           1       0.39      0.35      0.37      1967
+           2       0.33      0.07      0.12      1692
+           3       0.44      0.84      0.58      2141
+
+    accuracy                           0.40      7087
+   macro avg       0.36      0.36      0.32      7087
+weighted avg       0.37      0.40      0.34      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0   226   428    87   546 
+        1   214   689    94   970 
+        2   310   475   122   785 
+        3    82   181    72  1806 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.632 ( 3.632)	Loss 1.2833e+00 (1.2833e+00)	Acc@1  31.25 ( 31.25)	Acc C1  50.00 ( 50.00)	Acc C2  10.00 ( 10.00)	Acc C3   0.00 (  0.00)	Acc C4  85.71 ( 85.71)
+Test: [110/222]	Time  0.016 ( 0.051)	Loss 1.3199e+00 (1.2691e+00)	Acc@1  25.00 ( 41.16)	Acc C1   0.00 ( 18.18)	Acc C2  12.50 ( 35.75)	Acc C3   0.00 (  8.12)	Acc C4  87.50 ( 85.15)
+Test: [220/222]	Time  0.016 ( 0.034)	Loss 1.2089e+00 (1.2727e+00)	Acc@1  43.75 ( 40.14)	Acc C1   0.00 ( 17.54)	Acc C2  54.55 ( 35.14)	Acc C3   0.00 (  7.22)	Acc C4  88.89 ( 84.33)
+ * Acc 40.116
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.27      0.18      0.21      1287
+           1       0.39      0.35      0.37      1967
+           2       0.33      0.07      0.12      1692
+           3       0.44      0.84      0.58      2141
+
+    accuracy                           0.40      7087
+   macro avg       0.36      0.36      0.32      7087
+weighted avg       0.37      0.40      0.34      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0   226   428    87   546 
+        1   214   689    94   970 
+        2   310   475   122   785 
+        3    82   181    72  1806 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.641 ( 3.641)	Loss 1.7809e+00 (1.7809e+00)	Acc@1  25.00 ( 25.00)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  25.00 ( 25.00)
+Test: [110/354]	Time  0.018 ( 0.050)	Loss 1.3775e+00 (1.4845e+00)	Acc@1  34.38 ( 26.35)	Acc C1  20.00 (  7.99)	Acc C2  66.67 ( 51.08)	Acc C3   0.00 (  3.25)	Acc C4  54.55 ( 40.58)
+Test: [220/354]	Time  0.017 ( 0.034)	Loss 1.5348e+00 (1.3169e+00)	Acc@1   3.12 ( 37.51)	Acc C1   7.69 (  6.73)	Acc C2  84.62 ( 29.63)	Acc C3   0.00 (  3.56)	Acc C4 100.00 ( 63.99)
+Test: [330/354]	Time  0.017 ( 0.028)	Loss 1.0236e+00 (1.2910e+00)	Acc@1  56.25 ( 38.55)	Acc C1   0.00 (  7.31)	Acc C2   0.00 ( 33.41)	Acc C3   0.00 (  3.43)	Acc C4 100.00 ( 70.59)
+ * Acc 37.657
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.12      0.08      0.10      1141
+           1       0.20      0.32      0.24      2324
+           2       0.35      0.03      0.06      3196
+           3       0.51      0.71      0.60      4657
+
+    accuracy                           0.38     11318
+   macro avg       0.30      0.29      0.25     11318
+weighted avg       0.36      0.38      0.32     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0    94   491    51   505 
+        1   185   741    64  1334 
+        2   302  1472   110  1312 
+        3   215  1040    85  3317 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [9][  0/886]	Time  3.680 ( 3.680)	Data loading time  3.613 ( 3.613)	Loss 1.4398e+00 (1.4398e+00)	Acc@1  25.00 ( 25.00)
+Epoch: [9][110/886]	Time  0.050 ( 0.084)	Data loading time  0.000 ( 0.033)	Loss 1.1702e+00 (1.2959e+00)	Acc@1  53.12 ( 38.91)
+Epoch: [9][220/886]	Time  0.050 ( 0.068)	Data loading time  0.000 ( 0.017)	Loss 1.2538e+00 (1.2949e+00)	Acc@1  50.00 ( 39.06)
+Epoch: [9][330/886]	Time  0.065 ( 0.063)	Data loading time  0.000 ( 0.011)	Loss 1.3035e+00 (1.3004e+00)	Acc@1  34.38 ( 38.50)
+Epoch: [9][440/886]	Time  0.065 ( 0.063)	Data loading time  0.000 ( 0.008)	Loss 1.2863e+00 (1.3029e+00)	Acc@1  34.38 ( 38.47)
+Epoch: [9][550/886]	Time  0.064 ( 0.063)	Data loading time  0.000 ( 0.007)	Loss 1.2376e+00 (1.3031e+00)	Acc@1  43.75 ( 38.35)
+Epoch: [9][660/886]	Time  0.066 ( 0.063)	Data loading time  0.000 ( 0.006)	Loss 1.3145e+00 (1.3028e+00)	Acc@1  31.25 ( 38.40)
+Epoch: [9][770/886]	Time  0.064 ( 0.063)	Data loading time  0.000 ( 0.005)	Loss 1.4477e+00 (1.3008e+00)	Acc@1  18.75 ( 38.66)
+Epoch: [9][880/886]	Time  0.050 ( 0.063)	Data loading time  0.000 ( 0.004)	Loss 1.1842e+00 (1.3004e+00)	Acc@1  46.88 ( 38.68)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.974 ( 3.974)	Loss 1.2855e+00 (1.2855e+00)	Acc@1  28.12 ( 28.12)	Acc C1   0.00 (  0.00)	Acc C2  50.00 ( 50.00)	Acc C3  11.11 ( 11.11)	Acc C4  42.86 ( 42.86)
+Test: [110/222]	Time  0.017 ( 0.053)	Loss 1.3125e+00 (1.3366e+00)	Acc@1  37.50 ( 37.33)	Acc C1   0.00 (  0.00)	Acc C2  75.00 ( 72.61)	Acc C3  10.00 ( 17.68)	Acc C4  62.50 ( 42.16)
+Test: [220/222]	Time  0.016 ( 0.035)	Loss 1.2633e+00 (1.3390e+00)	Acc@1  46.88 ( 36.65)	Acc C1   0.00 (  0.00)	Acc C2  72.73 ( 71.24)	Acc C3  11.11 ( 17.46)	Acc C4  66.67 ( 42.10)
+ * Acc 36.659
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.32      0.71      0.44      1967
+           2       0.25      0.17      0.20      1692
+           3       0.61      0.42      0.50      2141
+
+    accuracy                           0.37      7087
+   macro avg       0.29      0.33      0.29      7087
+weighted avg       0.33      0.37      0.32      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   984   200   103 
+        1     0  1401   281   285 
+        2     0  1207   295   190 
+        3     0   826   413   902 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.584 ( 3.584)	Loss 1.2855e+00 (1.2855e+00)	Acc@1  28.12 ( 28.12)	Acc C1   0.00 (  0.00)	Acc C2  50.00 ( 50.00)	Acc C3  11.11 ( 11.11)	Acc C4  42.86 ( 42.86)
+Test: [110/222]	Time  0.020 ( 0.052)	Loss 1.3125e+00 (1.3366e+00)	Acc@1  37.50 ( 37.33)	Acc C1   0.00 (  0.00)	Acc C2  75.00 ( 72.61)	Acc C3  10.00 ( 17.68)	Acc C4  62.50 ( 42.16)
+Test: [220/222]	Time  0.019 ( 0.036)	Loss 1.2633e+00 (1.3390e+00)	Acc@1  46.88 ( 36.65)	Acc C1   0.00 (  0.00)	Acc C2  72.73 ( 71.24)	Acc C3  11.11 ( 17.46)	Acc C4  66.67 ( 42.10)
+ * Acc 36.659
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.32      0.71      0.44      1967
+           2       0.25      0.17      0.20      1692
+           3       0.61      0.42      0.50      2141
+
+    accuracy                           0.37      7087
+   macro avg       0.29      0.33      0.29      7087
+weighted avg       0.33      0.37      0.32      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   984   200   103 
+        1     0  1401   281   285 
+        2     0  1207   295   190 
+        3     0   826   413   902 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.777 ( 3.777)	Loss 2.2354e+00 (2.2354e+00)	Acc@1   0.00 (  0.00)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4   0.00 (  0.00)
+Test: [110/354]	Time  0.020 ( 0.054)	Loss 1.4731e+00 (1.6573e+00)	Acc@1  21.88 ( 14.10)	Acc C1   0.00 (  0.00)	Acc C2 100.00 ( 81.65)	Acc C3   0.00 (  6.60)	Acc C4   9.09 ( 11.06)
+Test: [220/354]	Time  0.019 ( 0.036)	Loss 1.3220e+00 (1.4558e+00)	Acc@1   9.38 ( 33.03)	Acc C1   0.00 (  0.00)	Acc C2 100.00 ( 68.29)	Acc C3  15.79 (  8.34)	Acc C4 100.00 ( 38.19)
+Test: [330/354]	Time  0.020 ( 0.031)	Loss 1.1045e+00 (1.3744e+00)	Acc@1  56.25 ( 38.42)	Acc C1   0.00 (  0.00)	Acc C2  50.00 ( 71.94)	Acc C3   0.00 ( 11.58)	Acc C4  88.89 ( 47.52)
+ * Acc 37.047
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1141
+           1       0.24      0.70      0.35      2324
+           2       0.27      0.11      0.16      3196
+           3       0.71      0.47      0.57      4657
+
+    accuracy                           0.37     11318
+   macro avg       0.30      0.32      0.27     11318
+weighted avg       0.42      0.37      0.35     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   877   138   126 
+        1     0  1621   284   419 
+        2     0  2484   362   350 
+        3     0  1876   571  2210 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [10][  0/886]	Time  3.665 ( 3.665)	Data loading time  3.587 ( 3.587)	Loss 1.3224e+00 (1.3224e+00)	Acc@1  37.50 ( 37.50)
+Epoch: [10][110/886]	Time  0.063 ( 0.093)	Data loading time  0.000 ( 0.033)	Loss 1.2319e+00 (1.2892e+00)	Acc@1  40.62 ( 40.57)
+Epoch: [10][220/886]	Time  0.067 ( 0.079)	Data loading time  0.000 ( 0.016)	Loss 1.2005e+00 (1.2869e+00)	Acc@1  43.75 ( 40.29)
+Epoch: [10][330/886]	Time  0.061 ( 0.074)	Data loading time  0.000 ( 0.011)	Loss 1.2796e+00 (1.2878e+00)	Acc@1  50.00 ( 40.05)
+Epoch: [10][440/886]	Time  0.063 ( 0.072)	Data loading time  0.000 ( 0.008)	Loss 1.2216e+00 (1.2840e+00)	Acc@1  40.62 ( 40.02)
+Epoch: [10][550/886]	Time  0.056 ( 0.069)	Data loading time  0.000 ( 0.007)	Loss 1.2515e+00 (1.2833e+00)	Acc@1  43.75 ( 39.96)
+Epoch: [10][660/886]	Time  0.056 ( 0.067)	Data loading time  0.000 ( 0.006)	Loss 1.1134e+00 (1.2841e+00)	Acc@1  43.75 ( 39.81)
+Epoch: [10][770/886]	Time  0.060 ( 0.066)	Data loading time  0.000 ( 0.005)	Loss 1.3527e+00 (1.2844e+00)	Acc@1  34.38 ( 39.68)
+Epoch: [10][880/886]	Time  0.060 ( 0.066)	Data loading time  0.000 ( 0.004)	Loss 1.2813e+00 (1.2829e+00)	Acc@1  40.62 ( 39.90)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  4.022 ( 4.022)	Loss 1.2939e+00 (1.2939e+00)	Acc@1  34.38 ( 34.38)	Acc C1   0.00 (  0.00)	Acc C2  30.00 ( 30.00)	Acc C3  33.33 ( 33.33)	Acc C4  71.43 ( 71.43)
+Test: [110/222]	Time  0.017 ( 0.054)	Loss 1.2049e+00 (1.2508e+00)	Acc@1  43.75 ( 41.27)	Acc C1   0.00 (  0.00)	Acc C2  37.50 ( 33.13)	Acc C3  40.00 ( 37.16)	Acc C4  87.50 ( 76.20)
+Test: [220/222]	Time  0.016 ( 0.036)	Loss 1.1453e+00 (1.2502e+00)	Acc@1  53.12 ( 41.45)	Acc C1   0.00 (  0.00)	Acc C2  27.27 ( 32.33)	Acc C3  66.67 ( 37.87)	Acc C4  88.89 ( 77.50)
+ * Acc 41.456
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.32      0.32      0.32      1967
+           2       0.34      0.38      0.36      1692
+           3       0.52      0.78      0.62      2141
+
+    accuracy                           0.41      7087
+   macro avg       0.29      0.37      0.33      7087
+weighted avg       0.33      0.41      0.36      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   441   502   344 
+        1     0   637   611   719 
+        2     1   560   641   490 
+        3     0   352   129  1660 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.656 ( 3.656)	Loss 1.2939e+00 (1.2939e+00)	Acc@1  34.38 ( 34.38)	Acc C1   0.00 (  0.00)	Acc C2  30.00 ( 30.00)	Acc C3  33.33 ( 33.33)	Acc C4  71.43 ( 71.43)
+Test: [110/222]	Time  0.017 ( 0.051)	Loss 1.2049e+00 (1.2508e+00)	Acc@1  43.75 ( 41.27)	Acc C1   0.00 (  0.00)	Acc C2  37.50 ( 33.13)	Acc C3  40.00 ( 37.16)	Acc C4  87.50 ( 76.20)
+Test: [220/222]	Time  0.016 ( 0.034)	Loss 1.1453e+00 (1.2502e+00)	Acc@1  53.12 ( 41.45)	Acc C1   0.00 (  0.00)	Acc C2  27.27 ( 32.33)	Acc C3  66.67 ( 37.87)	Acc C4  88.89 ( 77.50)
+ * Acc 41.456
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.32      0.32      0.32      1967
+           2       0.34      0.38      0.36      1692
+           3       0.52      0.78      0.62      2141
+
+    accuracy                           0.41      7087
+   macro avg       0.29      0.37      0.33      7087
+weighted avg       0.33      0.41      0.36      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   441   502   344 
+        1     0   637   611   719 
+        2     1   560   641   490 
+        3     0   352   129  1660 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.733 ( 3.733)	Loss 1.7566e+00 (1.7566e+00)	Acc@1   6.25 (  6.25)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4   6.25 (  6.25)
+Test: [110/354]	Time  0.017 ( 0.051)	Loss 1.3873e+00 (1.4585e+00)	Acc@1  34.38 ( 28.43)	Acc C1   0.00 (  0.00)	Acc C2  83.33 ( 54.68)	Acc C3  40.00 ( 39.05)	Acc C4  18.18 ( 23.01)
+Test: [220/354]	Time  0.017 ( 0.034)	Loss 1.5663e+00 (1.2930e+00)	Acc@1   9.38 ( 40.30)	Acc C1   0.00 (  0.00)	Acc C2  38.46 ( 35.03)	Acc C3  15.79 ( 34.63)	Acc C4 100.00 ( 51.48)
+Test: [330/354]	Time  0.017 ( 0.028)	Loss 1.0637e+00 (1.2765e+00)	Acc@1  56.25 ( 41.05)	Acc C1   0.00 (  0.00)	Acc C2  25.00 ( 36.75)	Acc C3   0.00 ( 27.99)	Acc C4  94.44 ( 59.75)
+ * Acc 40.272
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1141
+           1       0.22      0.36      0.27      2324
+           2       0.39      0.29      0.33      3196
+           3       0.54      0.60      0.57      4657
+
+    accuracy                           0.40     11318
+   macro avg       0.29      0.31      0.29     11318
+weighted avg       0.38      0.40      0.38     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   520   315   306 
+        1     0   835   397  1092 
+        2     0  1311   915   970 
+        3     4  1126   719  2808 
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [11][  0/886]	Time  3.669 ( 3.669)	Data loading time  3.596 ( 3.596)	Loss 1.3239e+00 (1.3239e+00)	Acc@1  31.25 ( 31.25)
+Epoch: [11][110/886]	Time  0.064 ( 0.094)	Data loading time  0.000 ( 0.033)	Loss 1.3722e+00 (1.2707e+00)	Acc@1  34.38 ( 40.62)
+Epoch: [11][220/886]	Time  0.066 ( 0.079)	Data loading time  0.000 ( 0.016)	Loss 1.2991e+00 (1.2651e+00)	Acc@1  37.50 ( 40.84)
+Epoch: [11][330/886]	Time  0.059 ( 0.074)	Data loading time  0.000 ( 0.011)	Loss 1.1535e+00 (1.2685e+00)	Acc@1  53.12 ( 40.51)
+Epoch: [11][440/886]	Time  0.055 ( 0.070)	Data loading time  0.000 ( 0.008)	Loss 1.2726e+00 (1.2686e+00)	Acc@1  37.50 ( 40.44)
+Epoch: [11][550/886]	Time  0.056 ( 0.067)	Data loading time  0.000 ( 0.007)	Loss 1.2545e+00 (1.2722e+00)	Acc@1  50.00 ( 40.37)
+Epoch: [11][660/886]	Time  0.065 ( 0.066)	Data loading time  0.000 ( 0.006)	Loss 1.1575e+00 (1.2721e+00)	Acc@1  53.12 ( 40.23)
+Epoch: [11][770/886]	Time  0.063 ( 0.066)	Data loading time  0.000 ( 0.005)	Loss 1.5074e+00 (1.2704e+00)	Acc@1  34.38 ( 40.36)
+Epoch: [11][880/886]	Time  0.063 ( 0.066)	Data loading time  0.000 ( 0.004)	Loss 1.4184e+00 (1.2712e+00)	Acc@1  40.62 ( 40.26)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.990 ( 3.990)	Loss 1.2031e+00 (1.2031e+00)	Acc@1  46.88 ( 46.88)	Acc C1   0.00 (  0.00)	Acc C2  70.00 ( 70.00)	Acc C3  22.22 ( 22.22)	Acc C4  85.71 ( 85.71)
+Test: [110/222]	Time  0.019 ( 0.056)	Loss 1.2455e+00 (1.2855e+00)	Acc@1  40.62 ( 40.82)	Acc C1   0.00 (  0.00)	Acc C2  87.50 ( 80.56)	Acc C3  10.00 (  9.68)	Acc C4  62.50 ( 52.49)
+Test: [220/222]	Time  0.019 ( 0.038)	Loss 1.3265e+00 (1.2781e+00)	Acc@1  40.62 ( 40.51)	Acc C1   0.00 (  0.00)	Acc C2  81.82 ( 80.42)	Acc C3   0.00 (  9.94)	Acc C4  44.44 ( 52.39)
+ * Acc 40.525
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.32      0.80      0.46      1967
+           2       0.46      0.10      0.16      1692
+           3       0.64      0.52      0.58      2141
+
+    accuracy                           0.41      7087
+   macro avg       0.35      0.36      0.30      7087
+weighted avg       0.39      0.41      0.34      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0  1078   107   102 
+        1     0  1582    60   325 
+        2     0  1313   168   211 
+        3     0   987    32  1122 
+Validation
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.702 ( 3.702)	Loss 1.2031e+00 (1.2031e+00)	Acc@1  46.88 ( 46.88)	Acc C1   0.00 (  0.00)	Acc C2  70.00 ( 70.00)	Acc C3  22.22 ( 22.22)	Acc C4  85.71 ( 85.71)
+Test: [110/222]	Time  0.017 ( 0.051)	Loss 1.2455e+00 (1.2855e+00)	Acc@1  40.62 ( 40.82)	Acc C1   0.00 (  0.00)	Acc C2  87.50 ( 80.56)	Acc C3  10.00 (  9.68)	Acc C4  62.50 ( 52.49)
+Test: [220/222]	Time  0.016 ( 0.034)	Loss 1.3265e+00 (1.2781e+00)	Acc@1  40.62 ( 40.51)	Acc C1   0.00 (  0.00)	Acc C2  81.82 ( 80.42)	Acc C3   0.00 (  9.94)	Acc C4  44.44 ( 52.39)
+ * Acc 40.525
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1287
+           1       0.32      0.80      0.46      1967
+           2       0.46      0.10      0.16      1692
+           3       0.64      0.52      0.58      2141
+
+    accuracy                           0.41      7087
+   macro avg       0.35      0.36      0.30      7087
+weighted avg       0.39      0.41      0.34      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0  1078   107   102 
+        1     0  1582    60   325 
+        2     0  1313   168   211 
+        3     0   987    32  1122 
+Test
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.743 ( 3.743)	Loss 1.8867e+00 (1.8867e+00)	Acc@1   0.00 (  0.00)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4   0.00 (  0.00)
+Test: [110/354]	Time  0.016 ( 0.051)	Loss 1.4353e+00 (1.5774e+00)	Acc@1  18.75 ( 11.15)	Acc C1   0.00 (  0.00)	Acc C2 100.00 ( 96.04)	Acc C3   0.00 (  1.14)	Acc C4   0.00 (  6.45)
+Test: [220/354]	Time  0.017 ( 0.034)	Loss 1.4101e+00 (1.3580e+00)	Acc@1   0.00 ( 34.87)	Acc C1   0.00 (  0.00)	Acc C2  92.31 ( 84.34)	Acc C3   0.00 (  1.27)	Acc C4 100.00 ( 39.82)
+Test: [330/354]	Time  0.018 ( 0.029)	Loss 1.2518e+00 (1.3117e+00)	Acc@1  46.88 ( 38.72)	Acc C1   0.00 (  0.00)	Acc C2  25.00 ( 83.27)	Acc C3   0.00 (  1.52)	Acc C4  77.78 ( 49.49)
+ * Acc 37.692
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1141
+           1       0.24      0.82      0.37      2324
+           2       0.24      0.02      0.03      3196
+           3       0.71      0.50      0.59      4657
+
+    accuracy                           0.38     11318
+   macro avg       0.30      0.33      0.25     11318
+weighted avg       0.41      0.38      0.33     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0     0   987    27   127 
+        1     0  1906    30   388 
+        2     0  2739    51   406 
+        3     0  2247   101  2309 
+slurmstepd: error: *** JOB 60952 ON alvis2-01 CANCELLED AT 2021-04-08T18:57:58 ***

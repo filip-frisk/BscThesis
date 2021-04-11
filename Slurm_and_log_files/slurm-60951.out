@@ -1,0 +1,130 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=60951&from=1617899697000
+/tmp/slurmd/job60951/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job60951/slurm_script: line 17: start: command not found
+Starting at Thu Apr  8 18:34:57 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis2-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+10.2
+tensor([1.], device='cuda:0')
+Using image size:  32
+Using filter:  
+Training set : 
+P19_1_1
+P19_1_2
+P19_2_1
+P19_2_2
+P19_3_1
+P19_3_2
+P20_1_3
+P20_1_4
+P20_2_2
+P20_2_3
+P20_2_4
+P20_3_1
+P20_3_2
+P20_3_3
+P20_4_1
+P20_4_2
+P20_4_3
+P20_5_1
+P20_5_2
+P20_6_1
+P20_6_2
+P20_7_1
+P20_7_2
+P20_8_1
+P20_8_2
+P20_9_1
+P20_9_2
+P9_1_1
+P9_2_1
+P9_2_2
+P9_3_1
+P9_3_2
+P9_4_1
+P9_4_2
+Testing set : 
+N10_1_1
+N10_1_2
+N10_1_3
+N10_2_1
+N10_2_2
+P13_1_1
+P13_1_2
+P13_2_1
+P13_2_2
+P28_7_5
+P28_8_5
+P28_10_4
+P28_10_5
+inflammatory appears 715 times in the non augmented training and validation set
+inflammatory appears 6435 times in the augmented training and validation set
+lymphocyte appears 1967 times in the non augmented training and validation set
+lymphocyte appears 9835 times in the augmented training and validation set
+fibroblast and endothelial appears 4228 times in the non augmented training and validation set
+fibroblast and endothelial appears 8456 times in the augmented training and validation set
+epithelial appears 8706 times in the non augmented training and validation set
+epithelial appears 10706 times in the augmented training and validation set
+[5148, 7868, 6765, 8564]
+train size: 28345
+val size: 7087
+test size: 11318
+Available GPUs: 1
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Epoch: [0][  0/886]	Time  4.692 ( 4.692)	Data loading time  4.264 ( 4.264)	Loss 1.4430e+00 (1.4430e+00)	Acc@1  18.75 ( 18.75)
+Epoch: [0][110/886]	Time  0.063 ( 0.103)	Data loading time  0.000 ( 0.039)	Loss 1.7358e+00 (1.6894e+00)	Acc@1  21.88 ( 27.08)
+Epoch: [0][220/886]	Time  0.060 ( 0.083)	Data loading time  0.000 ( 0.020)	Loss 2.3488e+00 (1.7780e+00)	Acc@1  25.00 ( 26.41)
+Epoch: [0][330/886]	Time  0.060 ( 0.076)	Data loading time  0.000 ( 0.013)	Loss 1.8441e+00 (1.8151e+00)	Acc@1  31.25 ( 27.15)
+Epoch: [0][440/886]	Time  0.057 ( 0.072)	Data loading time  0.000 ( 0.010)	Loss 1.2647e+00 (1.8247e+00)	Acc@1  37.50 ( 27.54)
+Epoch: [0][550/886]	Time  0.051 ( 0.067)	Data loading time  0.000 ( 0.008)	Loss 1.6641e+00 (1.8127e+00)	Acc@1  25.00 ( 27.60)
+Epoch: [0][660/886]	Time  0.060 ( 0.066)	Data loading time  0.000 ( 0.007)	Loss 1.5756e+00 (1.7747e+00)	Acc@1  15.62 ( 27.74)
+Epoch: [0][770/886]	Time  0.062 ( 0.065)	Data loading time  0.000 ( 0.006)	Loss 1.4175e+00 (1.7334e+00)	Acc@1  31.25 ( 27.81)
+Epoch: [0][880/886]	Time  0.062 ( 0.065)	Data loading time  0.000 ( 0.005)	Loss 1.3754e+00 (1.6936e+00)	Acc@1  31.25 ( 27.87)
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/222]	Time  3.933 ( 3.933)	Loss 1.4581e+00 (1.4581e+00)	Acc@1  31.25 ( 31.25)	Acc C1   0.00 (  0.00)	Acc C2  20.00 ( 20.00)	Acc C3   0.00 (  0.00)	Acc C4  88.89 ( 88.89)
+Test: [110/222]	Time  0.019 ( 0.055)	Loss 1.2754e+00 (1.5284e+00)	Acc@1  46.88 ( 29.73)	Acc C1  20.00 ( 15.92)	Acc C2   0.00 (  4.64)	Acc C3   0.00 (  0.36)	Acc C4 100.00 ( 82.16)
+Test: [220/222]	Time  0.019 ( 0.038)	Loss 1.2755e+00 (1.5233e+00)	Acc@1  46.88 ( 29.11)	Acc C1  33.33 ( 16.64)	Acc C2  12.50 (  4.48)	Acc C3   0.00 (  0.42)	Acc C4  92.31 ( 81.97)
+ * Acc 29.152
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.24      0.17      0.20      1287
+           1       0.21      0.04      0.07      1967
+           2       0.44      0.00      0.01      1691
+           3       0.30      0.82      0.44      2142
+
+    accuracy                           0.29      7087
+   macro avg       0.30      0.26      0.18      7087
+weighted avg       0.30      0.29      0.19      7087
+
+confusion matrix:
+      t\p     0     1     2     3 
+        0   214    77     3   993 
+        1   231    88     4  1644 
+        2   209   106     7  1369 
+        3   237   146     2  1757 
+Traceback (most recent call last):
+  File "main.py", line 347, in <module>
+    main()
+  File "main.py", line 334, in main
+    model = run_model(loaders, split_counter, args, class_names,num_item_per_class)
+  File "/cephyr/users/filipfri/Alvis/BscProject/run_model.py", line 57, in run_model
+    return main_worker(loaders, split, args.gpu, ngpus, args,num_item_per_class)
+  File "/cephyr/users/filipfri/Alvis/BscProject/run_model.py", line 183, in main_worker
+    }, is_best, split, output_destination)
+  File "/cephyr/users/filipfri/Alvis/BscProject/run_model.py", line 351, in save_checkpoint
+    torch.save(state, destination + filename)
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/torch/serialization.py", line 369, in save
+    with _open_file_like(f, 'wb') as opened_file:
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'Output_Test/checkpoint.pth.tar'
+Program finished with exit code 1 at: Thu Apr  8 18:37:21 CEST 2021
+Cern here we go
