@@ -2,7 +2,7 @@
 A repo for documentation Filip &amp; Albert
 
 # Setup 
-Documented everything in the python-files (1) and (2) use a Jupiter Notebook parser library (https://pypi.org/project/p2j/) convert .py to .ipynb and (3) push changes to git.
+(1) Document everything in the python-files (.py)  and (2) use a Jupiter Notebook parser library (https://pypi.org/project/p2j/) convert .py to .ipynb and (3) push changes to git.
 
 # p2j documentation 
 To create a jupyter notebook in terminal: "p2j train.py"
