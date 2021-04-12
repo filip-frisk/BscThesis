@@ -1,5 +1,5 @@
 # About
-A repo for documentation Albert &amp; Filip
+A repo for documentation Filip &amp; Albert
 
 # Setup 
 Documented everything in the python-files (1) and (2) use a Jupiter Notebook parser library (https://pypi.org/project/p2j/) convert .py to .ipynb and (3) push changes to git.
