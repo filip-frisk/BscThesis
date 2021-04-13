@@ -1,0 +1,11 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=61926&from=1618332271000
+/tmp/slurmd/job61926/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job61926/slurm_script: line 17: start: command not found
+Starting at Tue Apr 13 18:44:31 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis2-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+Program finished with exit code 0 at: Tue Apr 13 18:44:32 CEST 2021
+done

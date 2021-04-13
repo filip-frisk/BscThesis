@@ -1,0 +1,34 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=61954&from=1618336650000
+/tmp/slurmd/job61954/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job61954/slurm_script: line 17: start: command not found
+Starting at Tue Apr 13 19:57:30 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis2-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+['Iteration_2/Output_Macenko/', 'Iteration_2/Output_No_filter/', 'Iteration_2/Output_Reinhard/', 'Iteration_2/Output_SCD/']
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+Traceback (most recent call last):
+  File "ensemble.py", line 274, in <module>
+    main()
+  File "ensemble.py", line 179, in main
+    cudnn.benchmark = True
+NameError: name 'cudnn' is not defined
+Program finished with exit code 1 at: Tue Apr 13 19:57:56 CEST 2021
+done

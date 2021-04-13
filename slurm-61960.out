@@ -1,0 +1,144 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=61960&from=1618340847000
+/tmp/slurmd/job61960/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job61960/slurm_script: line 17: start: command not found
+Starting at Tue Apr 13 21:07:27 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis2-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+['Iteration_2/Output_No_filter/', 'Iteration_2/Output_Macenko/', 'Iteration_2/Output_Reinhard/', 'Iteration_2/Output_SCD/']
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [   0/1415]	Time  4.190 ( 4.190)	Loss 2.6210e-01 (2.6210e-01)	Acc@1  87.50 ( 87.50)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  87.50 ( 87.50)
+Test: [ 100/1415]	Time  0.018 ( 0.060)	Loss 2.3402e-01 (1.1156e+00)	Acc@1  87.50 ( 74.38)	Acc C1  75.00 ( 33.33)	Acc C2 100.00 ( 76.92)	Acc C3  25.00 ( 10.00)	Acc C4  87.50 ( 76.50)
+Test: [ 200/1415]	Time  0.018 ( 0.039)	Loss 3.2390e+00 (1.7845e+00)	Acc@1  25.00 ( 63.68)	Acc C1   0.00 ( 20.00)	Acc C2 100.00 ( 54.55)	Acc C3 100.00 ( 43.66)	Acc C4  25.00 ( 73.19)
+Test: [ 300/1415]	Time  0.019 ( 0.032)	Loss 1.9081e+00 (1.9713e+00)	Acc@1  75.00 ( 59.93)	Acc C1  50.00 ( 18.03)	Acc C2  75.00 ( 48.96)	Acc C3   0.00 ( 40.69)	Acc C4 100.00 ( 72.95)
+Test: [ 400/1415]	Time  0.019 ( 0.029)	Loss 4.6415e+00 (2.3323e+00)	Acc@1  37.50 ( 55.74)	Acc C1   0.00 ( 10.53)	Acc C2 100.00 ( 52.42)	Acc C3  20.00 ( 40.29)	Acc C4   0.00 ( 72.09)
+Test: [ 500/1415]	Time  0.019 ( 0.027)	Loss 2.5884e+00 (2.4758e+00)	Acc@1  37.50 ( 53.84)	Acc C1   0.00 ( 11.66)	Acc C2   0.00 ( 53.47)	Acc C3  60.00 ( 38.91)	Acc C4 100.00 ( 73.58)
+Test: [ 600/1415]	Time  0.019 ( 0.026)	Loss 3.9180e-02 (2.4474e+00)	Acc@1 100.00 ( 54.43)	Acc C1   0.00 ( 11.43)	Acc C2  50.00 ( 39.39)	Acc C3 100.00 ( 42.57)	Acc C4 100.00 ( 76.16)
+Test: [ 700/1415]	Time  0.018 ( 0.025)	Loss 1.1754e-02 (2.1187e+00)	Acc@1 100.00 ( 60.24)	Acc C1   0.00 ( 11.43)	Acc C2  50.00 ( 39.39)	Acc C3 100.00 ( 42.57)	Acc C4 100.00 ( 81.28)
+Test: [ 800/1415]	Time  0.018 ( 0.024)	Loss 2.5018e+00 (2.1827e+00)	Acc@1  25.00 ( 59.75)	Acc C1   0.00 ( 11.35)	Acc C2  25.00 ( 31.46)	Acc C3  33.33 ( 42.62)	Acc C4   0.00 ( 82.02)
+Test: [ 900/1415]	Time  0.018 ( 0.023)	Loss 4.6238e+00 (2.4083e+00)	Acc@1  37.50 ( 56.09)	Acc C1   0.00 ( 11.79)	Acc C2  37.50 ( 26.04)	Acc C3  50.00 ( 43.98)	Acc C4 100.00 ( 82.02)
+Test: [1000/1415]	Time  0.019 ( 0.023)	Loss 5.2774e-01 (2.3185e+00)	Acc@1  75.00 ( 57.44)	Acc C1 100.00 ( 11.57)	Acc C2   0.00 ( 27.44)	Acc C3 100.00 ( 46.20)	Acc C4  85.71 ( 83.50)
+Test: [1100/1415]	Time  0.019 ( 0.022)	Loss 1.4658e+00 (2.2924e+00)	Acc@1  75.00 ( 58.08)	Acc C1   0.00 ( 11.90)	Acc C2   0.00 ( 26.99)	Acc C3  85.71 ( 48.62)	Acc C4 100.00 ( 84.18)
+Test: [1200/1415]	Time  0.018 ( 0.022)	Loss 1.4776e+00 (2.3457e+00)	Acc@1  62.50 ( 57.59)	Acc C1   0.00 ( 11.86)	Acc C2 100.00 ( 26.45)	Acc C3  28.57 ( 50.41)	Acc C4  62.50 ( 83.74)
+Test: [1300/1415]	Time  0.018 ( 0.022)	Loss 1.6514e+00 (2.4006e+00)	Acc@1  50.00 ( 57.12)	Acc C1   0.00 ( 11.96)	Acc C2  50.00 ( 25.25)	Acc C3  50.00 ( 51.27)	Acc C4 100.00 ( 84.33)
+Test: [1400/1415]	Time  0.019 ( 0.022)	Loss 5.8709e-01 (2.5310e+00)	Acc@1  87.50 ( 55.82)	Acc C1   0.00 ( 11.45)	Acc C2   0.00 ( 24.91)	Acc C3 100.00 ( 52.75)	Acc C4 100.00 ( 84.29)
+ * Acc 55.867
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [   0/1415]	Time  3.689 ( 3.689)	Loss 1.6466e+00 (1.6466e+00)	Acc@1  50.00 ( 50.00)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  50.00 ( 50.00)
+Test: [ 100/1415]	Time  0.019 ( 0.055)	Loss 5.8548e-01 (1.8570e+00)	Acc@1  62.50 ( 60.77)	Acc C1   0.00 (  0.00)	Acc C2 100.00 ( 69.23)	Acc C3  50.00 ( 45.00)	Acc C4  62.50 ( 61.75)
+Test: [ 200/1415]	Time  0.019 ( 0.037)	Loss 2.8169e+00 (2.6811e+00)	Acc@1  37.50 ( 52.30)	Acc C1   0.00 ( 17.33)	Acc C2  25.00 ( 29.55)	Acc C3 100.00 ( 53.52)	Acc C4  37.50 ( 55.11)
+Test: [ 300/1415]	Time  0.019 ( 0.031)	Loss 2.3897e+00 (2.7413e+00)	Acc@1  50.00 ( 51.33)	Acc C1   0.00 ( 13.93)	Acc C2  75.00 ( 32.29)	Acc C3   0.00 ( 48.63)	Acc C4  50.00 ( 56.85)
+Test: [ 400/1415]	Time  0.019 ( 0.028)	Loss 1.5844e+00 (2.9487e+00)	Acc@1  87.50 ( 48.88)	Acc C1   0.00 (  8.42)	Acc C2 100.00 ( 35.68)	Acc C3 100.00 ( 51.98)	Acc C4   0.00 ( 55.52)
+Test: [ 500/1415]	Time  0.019 ( 0.026)	Loss 5.1012e+00 (3.0262e+00)	Acc@1  25.00 ( 48.83)	Acc C1   0.00 (  8.68)	Acc C2 100.00 ( 39.88)	Acc C3  20.00 ( 50.29)	Acc C4 100.00 ( 57.83)
+Test: [ 600/1415]	Time  0.018 ( 0.025)	Loss 9.9171e-01 (3.0085e+00)	Acc@1  62.50 ( 47.57)	Acc C1   0.00 (  8.74)	Acc C2  62.50 ( 45.14)	Acc C3  50.00 ( 46.53)	Acc C4  62.50 ( 56.98)
+Test: [ 700/1415]	Time  0.018 ( 0.024)	Loss 9.5831e-01 (2.7991e+00)	Acc@1  50.00 ( 48.23)	Acc C1   0.00 (  8.74)	Acc C2  62.50 ( 45.14)	Acc C3  50.00 ( 46.53)	Acc C4  50.00 ( 55.70)
+Test: [ 800/1415]	Time  0.019 ( 0.023)	Loss 1.4514e+00 (2.7111e+00)	Acc@1  62.50 ( 48.31)	Acc C1   0.00 (  8.52)	Acc C2  62.50 ( 48.92)	Acc C3  33.33 ( 45.98)	Acc C4   0.00 ( 54.74)
+Test: [ 900/1415]	Time  0.019 ( 0.023)	Loss 2.6401e+00 (2.7310e+00)	Acc@1  37.50 ( 47.71)	Acc C1   0.00 (  8.37)	Acc C2  37.50 ( 50.62)	Acc C3   0.00 ( 44.03)	Acc C4   0.00 ( 54.72)
+Test: [1000/1415]	Time  0.019 ( 0.022)	Loss 3.0415e+00 (2.6855e+00)	Acc@1  37.50 ( 47.99)	Acc C1   0.00 (  8.68)	Acc C2 100.00 ( 50.58)	Acc C3   0.00 ( 43.65)	Acc C4  28.57 ( 55.07)
+Test: [1100/1415]	Time  0.019 ( 0.022)	Loss 2.4578e+00 (2.7202e+00)	Acc@1  37.50 ( 47.71)	Acc C1 100.00 (  8.57)	Acc C2   0.00 ( 51.09)	Acc C3  28.57 ( 41.79)	Acc C4  50.00 ( 55.82)
+Test: [1200/1415]	Time  0.019 ( 0.022)	Loss 5.4422e+00 (2.8275e+00)	Acc@1   0.00 ( 46.70)	Acc C1   0.00 (  8.87)	Acc C2   0.00 ( 51.51)	Acc C3  42.86 ( 40.66)	Acc C4   0.00 ( 55.16)
+Test: [1300/1415]	Time  0.019 ( 0.021)	Loss 1.1262e+00 (2.8538e+00)	Acc@1  75.00 ( 46.03)	Acc C1   0.00 (  8.82)	Acc C2 100.00 ( 50.54)	Acc C3   0.00 ( 39.40)	Acc C4   0.00 ( 55.18)
+Test: [1400/1415]	Time  0.019 ( 0.021)	Loss 1.6328e+00 (2.9733e+00)	Acc@1  75.00 ( 44.86)	Acc C1   0.00 (  9.23)	Acc C2  20.00 ( 49.87)	Acc C3   0.00 ( 38.71)	Acc C4  85.71 ( 55.35)
+ * Acc 44.955
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [   0/1415]	Time  3.747 ( 3.747)	Loss 1.0134e+00 (1.0134e+00)	Acc@1  75.00 ( 75.00)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  75.00 ( 75.00)
+Test: [ 100/1415]	Time  0.018 ( 0.056)	Loss 9.5563e-01 (8.8384e-01)	Acc@1  75.00 ( 77.10)	Acc C1  25.00 ( 11.11)	Acc C2  50.00 ( 38.46)	Acc C3  25.00 ( 10.00)	Acc C4  75.00 ( 80.29)
+Test: [ 200/1415]	Time  0.018 ( 0.037)	Loss 5.9423e+00 (2.0322e+00)	Acc@1   0.00 ( 60.45)	Acc C1   0.00 ( 24.00)	Acc C2   0.00 ( 38.64)	Acc C3  33.33 ( 42.54)	Acc C4   0.00 ( 69.31)
+Test: [ 300/1415]	Time  0.019 ( 0.031)	Loss 8.6931e+00 (2.1968e+00)	Acc@1  37.50 ( 57.43)	Acc C1   0.00 ( 16.39)	Acc C2  25.00 ( 23.96)	Acc C3   0.00 ( 43.15)	Acc C4 100.00 ( 69.54)
+Test: [ 400/1415]	Time  0.019 ( 0.028)	Loss 1.3739e+00 (2.5694e+00)	Acc@1  87.50 ( 54.52)	Acc C1   0.00 ( 10.53)	Acc C2 100.00 ( 21.59)	Acc C3 100.00 ( 44.36)	Acc C4   0.00 ( 71.63)
+Test: [ 500/1415]	Time  0.019 ( 0.026)	Loss 2.1301e+00 (2.7873e+00)	Acc@1  50.00 ( 51.65)	Acc C1  50.00 ( 10.17)	Acc C2 100.00 ( 20.85)	Acc C3  40.00 ( 41.02)	Acc C4  66.67 ( 73.42)
+Test: [ 600/1415]	Time  0.019 ( 0.025)	Loss 1.9955e-01 (2.6165e+00)	Acc@1  87.50 ( 53.93)	Acc C1   0.00 (  9.42)	Acc C2  25.00 ( 25.36)	Acc C3 100.00 ( 47.69)	Acc C4  87.50 ( 75.18)
+Test: [ 700/1415]	Time  0.018 ( 0.024)	Loss 1.3032e-02 (2.3040e+00)	Acc@1 100.00 ( 58.65)	Acc C1   0.00 (  9.42)	Acc C2  25.00 ( 25.36)	Acc C3 100.00 ( 47.69)	Acc C4 100.00 ( 78.37)
+Test: [ 800/1415]	Time  0.019 ( 0.023)	Loss 6.5281e+00 (2.2981e+00)	Acc@1  25.00 ( 59.14)	Acc C1   0.00 (  9.17)	Acc C2  25.00 ( 27.51)	Acc C3  66.67 ( 49.57)	Acc C4   0.00 ( 78.59)
+Test: [ 900/1415]	Time  0.019 ( 0.023)	Loss 4.6368e+00 (2.4374e+00)	Acc@1  12.50 ( 56.63)	Acc C1 100.00 (  9.13)	Acc C2  12.50 ( 28.95)	Acc C3  25.00 ( 50.70)	Acc C4 100.00 ( 78.60)
+Test: [1000/1415]	Time  0.019 ( 0.022)	Loss 1.5379e+00 (2.3625e+00)	Acc@1  75.00 ( 57.88)	Acc C1   0.00 (  8.86)	Acc C2   0.00 ( 30.88)	Acc C3  50.00 ( 51.63)	Acc C4  85.71 ( 80.33)
+Test: [1100/1415]	Time  0.019 ( 0.022)	Loss 4.0802e+00 (2.3887e+00)	Acc@1  37.50 ( 57.49)	Acc C1   0.00 (  8.10)	Acc C2   0.00 ( 30.49)	Acc C3  42.86 ( 49.75)	Acc C4 100.00 ( 81.32)
+Test: [1200/1415]	Time  0.019 ( 0.022)	Loss 5.5581e-02 (2.4550e+00)	Acc@1 100.00 ( 56.69)	Acc C1   0.00 (  7.82)	Acc C2   0.00 ( 29.84)	Acc C3  28.57 ( 49.18)	Acc C4 100.00 ( 81.76)
+Test: [1300/1415]	Time  0.019 ( 0.022)	Loss 1.4640e+00 (2.5529e+00)	Acc@1  62.50 ( 55.63)	Acc C1  50.00 (  7.49)	Acc C2  66.67 ( 29.13)	Acc C3  50.00 ( 47.42)	Acc C4 100.00 ( 82.44)
+Test: [1400/1415]	Time  0.019 ( 0.021)	Loss 3.0939e+00 (2.6733e+00)	Acc@1  62.50 ( 54.17)	Acc C1   0.00 (  8.87)	Acc C2   0.00 ( 28.43)	Acc C3  50.00 ( 48.54)	Acc C4  71.43 ( 82.05)
+ * Acc 54.011
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [   0/1415]	Time  3.689 ( 3.689)	Loss 1.7139e+00 (1.7139e+00)	Acc@1  62.50 ( 62.50)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  62.50 ( 62.50)
+Test: [ 100/1415]	Time  0.019 ( 0.056)	Loss 3.4223e-01 (5.8010e-01)	Acc@1  87.50 ( 89.23)	Acc C1  25.00 ( 22.22)	Acc C2 100.00 ( 30.77)	Acc C3  50.00 ( 40.00)	Acc C4  87.50 ( 92.30)
+Test: [ 200/1415]	Time  0.018 ( 0.037)	Loss 4.4735e-01 (1.1693e+00)	Acc@1  87.50 ( 79.42)	Acc C1   0.00 ( 29.33)	Acc C2  25.00 ( 25.00)	Acc C3  33.33 ( 53.80)	Acc C4  87.50 ( 92.86)
+Test: [ 300/1415]	Time  0.019 ( 0.031)	Loss 2.4303e+00 (1.2896e+00)	Acc@1  75.00 ( 76.83)	Acc C1   0.00 ( 18.85)	Acc C2 100.00 ( 33.33)	Acc C3  25.00 ( 61.18)	Acc C4 100.00 ( 91.58)
+Test: [ 400/1415]	Time  0.019 ( 0.028)	Loss 2.8802e+00 (1.8494e+00)	Acc@1  25.00 ( 69.48)	Acc C1   0.00 ( 11.58)	Acc C2  50.00 ( 40.53)	Acc C3  20.00 ( 57.10)	Acc C4 100.00 ( 89.59)
+Test: [ 500/1415]	Time  0.019 ( 0.026)	Loss 1.8981e+00 (2.0474e+00)	Acc@1  75.00 ( 67.42)	Acc C1   0.00 ( 13.40)	Acc C2 100.00 ( 39.27)	Acc C3 100.00 ( 59.78)	Acc C4 100.00 ( 89.23)
+Test: [ 600/1415]	Time  0.019 ( 0.025)	Loss 2.8013e-02 (2.0396e+00)	Acc@1 100.00 ( 65.97)	Acc C1   0.00 ( 13.00)	Acc C2  12.50 ( 31.83)	Acc C3 100.00 ( 63.46)	Acc C4 100.00 ( 87.57)
+Test: [ 700/1415]	Time  0.018 ( 0.024)	Loss 3.9960e-02 (1.9112e+00)	Acc@1 100.00 ( 67.05)	Acc C1   0.00 ( 13.00)	Acc C2  12.50 ( 31.83)	Acc C3 100.00 ( 63.46)	Acc C4 100.00 ( 83.77)
+Test: [ 800/1415]	Time  0.019 ( 0.023)	Loss 1.3481e+00 (1.9399e+00)	Acc@1  50.00 ( 65.62)	Acc C1   0.00 ( 13.76)	Acc C2  50.00 ( 29.67)	Acc C3  66.67 ( 64.04)	Acc C4   0.00 ( 82.31)
+Test: [ 900/1415]	Time  0.019 ( 0.023)	Loss 3.5232e+00 (2.0969e+00)	Acc@1  37.50 ( 62.49)	Acc C1   0.00 ( 14.07)	Acc C2  37.50 ( 28.44)	Acc C3  75.00 ( 65.14)	Acc C4 100.00 ( 82.32)
+Test: [1000/1415]	Time  0.019 ( 0.022)	Loss 1.5925e-01 (2.0334e+00)	Acc@1  87.50 ( 63.42)	Acc C1   0.00 ( 14.83)	Acc C2   0.00 ( 30.51)	Acc C3 100.00 ( 66.06)	Acc C4 100.00 ( 83.45)
+Test: [1100/1415]	Time  0.019 ( 0.022)	Loss 1.2955e+00 (2.0092e+00)	Acc@1  62.50 ( 63.51)	Acc C1   0.00 ( 13.97)	Acc C2   0.00 ( 30.67)	Acc C3  71.43 ( 66.37)	Acc C4 100.00 ( 83.61)
+Test: [1200/1415]	Time  0.019 ( 0.022)	Loss 3.1176e+00 (2.0574e+00)	Acc@1  50.00 ( 62.58)	Acc C1   0.00 ( 13.43)	Acc C2   0.00 ( 29.84)	Acc C3  85.71 ( 66.85)	Acc C4  50.00 ( 82.88)
+Test: [1300/1415]	Time  0.019 ( 0.022)	Loss 3.7704e+00 (2.1038e+00)	Acc@1  50.00 ( 61.98)	Acc C1   0.00 ( 12.80)	Acc C2  33.33 ( 29.04)	Acc C3 100.00 ( 67.20)	Acc C4   0.00 ( 83.08)
+Test: [1400/1415]	Time  0.019 ( 0.021)	Loss 1.1890e+00 (2.3549e+00)	Acc@1  75.00 ( 60.39)	Acc C1   0.00 ( 10.56)	Acc C2  60.00 ( 30.30)	Acc C3  50.00 ( 66.91)	Acc C4  85.71 ( 83.14)
+ * Acc 60.382
+Program finished with exit code 0 at: Tue Apr 13 21:11:02 CEST 2021
+done

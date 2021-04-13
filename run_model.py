@@ -1,3 +1,4 @@
+# Find all differences here https://www.diffchecker.com/PlnW76qN
 # imports
 import argparse
 import os
@@ -23,7 +24,6 @@ from sklearn.metrics import confusion_matrix
 from efficientnet_pytorch import EfficientNet
 from CustomDataset import CustomDataset
 
-num_classes = 4
 """
 Name: run_model
 Function: Handles if user specified seed or GPU and warns the user of consequences (process slowdown)
@@ -32,6 +32,8 @@ Output: main_worker with same input
 Source: https://github.com/pytorch/examples/blob/master/imagenet/main.py
 Source2: https://www.xilinx.com/html_docs/vitis_ai/1_3/pytorch_ex.html 
 """
+num_classes = 4
+best_all_splits_acc = 0
 def run_model(loaders, split, args, class_names,num_item_per_class):
     # Uses seed if provided
     if args.seed is not None:
@@ -62,6 +64,7 @@ Function: After run_model we have handled some manual config (seed or GPU), this
 Input: Data loader (dictionary), current split (k), gpu, number of gpus, args, number of items in each class
 """
 def main_worker(loaders, split, gpu, ngpus, args, num_item_per_class):
+    global best_all_splits_acc
     best_acc1 = 0
     args.gpu = gpu
     output_destination = args.outdest
@@ -163,39 +166,57 @@ def main_worker(loaders, split, gpu, ngpus, args, num_item_per_class):
         train(loaders['train'], model, criterion, optimizer, epoch, args)
 
         # evaluate on validation set
-        print("Validation:")
-        acc1, val_classification = validate(loaders['val'], model, criterion, args,'Validation: ')
+        acc1, val_classification, val_confusion_matrix = validate(loaders['val'], model, criterion, args,'Validation: ')
 
         # remember best acc@1
         is_best = acc1 > best_acc1
         best_acc1 = max(acc1, best_acc1)
 
+        # remember best acc@1 over all k splits
+        is_best_all = acc1 > best_all_splits_acc
+        best_all_splits_acc = max(acc1, best_all_splits_acc)
+
         # Saves checkpoint of current model see function comment
         save_checkpoint({
-            'epoch': epoch + 1,
+            'epoch': epoch + 1,# if we use resume (args.resume) we should start from the next epoch
             'arch': args.arch,
             'state_dict': model.state_dict(),
             'best_acc1': best_acc1,
             'optimizer': optimizer.state_dict(),
-        }, is_best, split, output_destination)
+        }, is_best, is_best_all, split, output_destination)
 
         # Classifies current validation set and writes statistics to correct file
-        if args.validate and best_acc1:
-            res = acc1
-            with open(output_destination + '/res_val_{}.txt'.format(split), 'w') as f:
-                print("epoch:", epoch, file = f)
-                print(res, file=f)
-                print(val_classification, file=f)
+        if args.validate:
+            if is_best:
+                with open(output_destination + '/res_val_{}.txt'.format(split), 'w') as f:
+                    print("epoch:", epoch, file = f)
+                    print(acc1, file=f)
+                    print(val_classification, file=f)
+                    print(val_confusion_matrix, file=f)
+            if is_best_all:
+                with open(output_destination + '/res_val.txt', 'w') as f:
+                    print("split:", split, file = f)
+                    print("epoch:", epoch, file = f)
+                    print(acc1, file=f)
+                    print(val_classification, file=f)
+                    print(val_confusion_matrix, file=f)
 
         # Classifies testing set and writes statistics to correct file
-        if args.evaluate and best_acc1:
-            print("Test")
-            res, classification = validate(loaders['test'], model, criterion, args, 'Test: ')
-            with open(output_destination + '/res_test_{}.txt'.format(split), 'w') as f:
-                print("epoch:", epoch, file=f)
-                print(res, file=f)
-                print(classification, file=f)
-
+        if args.evaluate:
+            if is_best:
+                test_acc1, test_classification, test_confusion_matrix = validate(loaders['test'], model, criterion, args, 'Test: ')
+                with open(output_destination + '/res_test_{}.txt'.format(split), 'w') as f:
+                    print("epoch:", epoch, file=f)
+                    print(test_acc1, file=f)
+                    print(test_classification, file=f)
+                    print(test_confusion_matrix, file=f)
+            if is_best_all:
+                with open(output_destination + '/res_test.txt', 'w') as f:
+                    print("split:", split, file = f)
+                    print("epoch:", epoch, file = f)
+                    print(test_acc1, file=f)
+                    print(test_classification, file=f)
+                    print(test_confusion_matrix, file=f)
 
 """
 Name: train
@@ -332,19 +353,15 @@ def validate(val_loader, model, criterion, args, testing_type):
             if i % args.print_freq == 0:
                 progress.print(i)
 
-        # TODO: this should also be done with the ProgressMeter
         print(' * Acc {top1.avg:.3f}'
               .format(top1=top1))
 
     report = classification_report(y_true, y_pred)
     print("classification report:")
     print(report)
-    print_cm(y_true, y_pred)
-    return top1.avg, report
-
-#
-#
-
+    confusion_matrix = confusion_matix_string(y_true, y_pred)
+    print(confusion_matrix)
+    return top1.avg, report, confusion_matrix
 """
 Name: save_checkpoint   
 Function: Saves a checkpoint of all model params in the file 'checkpoint.pth.tar' located in the destination folder. 
@@ -353,10 +370,12 @@ Input: Model parameters (state), is_best (boolean value), destinantion (PATH)
 Output: Saves checkpoint as checkpoint.pth.tar', if is_best = True copies it to the right destination with name model_best_{k value in crossvalidation}.pth.tar
 Source: https://github.com/pytorch/examples/blob/master/imagenet/main.py
 """
-def save_checkpoint(state, is_best, split, destination ,filename='/checkpoint.pth.tar'):
+def save_checkpoint(state, is_best, is_best_all, split, destination ,filename='/checkpoint.pth.tar'):
     torch.save(state, destination + filename)
     if is_best:
         shutil.copyfile(destination + filename, destination + '/model_best_{}.pth.tar'.format(split))
+    if is_best_all:
+        shutil.copyfile(destination + filename, destination + '/model_best.pth.tar')
 
 """
 Name: AverageMeter  
@@ -451,31 +470,29 @@ Input: True and predicted labels
 Output: print in  terminal 
 Source: https://gist.github.com/zachguo/10296432
 """
-def print_cm(y_true, y_pred, labels= [0,1,2,3],
-             hide_zeroes=False, hide_diagonal=False, hide_threshold=None):
+def confusion_matix_string(y_true, y_pred, labels= [0,1,2,3],hide_zeroes=False, hide_diagonal=False, hide_threshold=None):
+    cm_string = "confusion matrix:\n"
     cm = confusion_matrix(y_true, y_pred, labels=labels)
     """pretty print for confusion matrixes"""
-    print("confusion matrix:")
     columnwidth = max([len(str(x)) for x in labels] + [5])  # 5 is value length
     empty_cell = " " * columnwidth
-    # Print header
-    print(empty_cell + " t\p", end=" ")
+    cm_string += empty_cell + " t\p "
     for label in labels:
-        print("%{0}s".format(columnwidth) % label, end=" ")
-    print()
-    # Print rows
+        cm_string += "%{0}s ".format(columnwidth) % label
+    cm_string += "\n"
     for i, label1 in enumerate(labels):
-        print("    %{0}s".format(columnwidth) % label1, end=" ")
+        cm_string += "   %{0}s  ".format(columnwidth) % label1
         for j in range(len(labels)):
-            cell = "%{0}.0f".format(columnwidth) % cm[i, j]
+            cell = "%{0}.0f ".format(columnwidth) % cm[i, j]
             if hide_zeroes:
                 cell = cell if float(cm[i, j]) != 0 else empty_cell
             if hide_diagonal:
                 cell = cell if i != j else empty_cell
             if hide_threshold:
                 cell = cell if cm[i, j] > hide_threshold else empty_cell
-            print(cell, end=" ")
-        print()
+            cm_string += cell
+        cm_string += "\n"
+    return cm_string
 
 if __name__ == '__main__':
     main()

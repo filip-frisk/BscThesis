@@ -256,8 +256,9 @@ def main():
 
     split_counter = 0
     # Generates indices and data split into training and test set
+
     for train, val in skf.split(train_images, train_labels):
-        print("split: ",split_counter)
+        print("split:",split_counter)
         # Creates weights for run_model
         num_item_per_class = [len([i for i, x in enumerate([train_labels[j] for j in train]) if x == n]) for n in range(num_classes)]
         print(num_item_per_class)

@@ -1,0 +1,19 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=61944&from=1618334199000
+/tmp/slurmd/job61944/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job61944/slurm_script: line 17: start: command not found
+Starting at Tue Apr 13 19:16:39 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis2-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+usage: ensemble.py [-h] [--data DIR] [-a ARCH] [-j N] [--epochs N]
+                   [--start-epoch N] [-b N] [--lr LR] [--momentum M] [--wd W]
+                   [-p N] [--resume PATH] [-e] [-val] [--pretrained]
+                   [--feature_extract] [--seed SEED] [--gpu GPU]
+                   [--image_size IMAGE_SIZE] [--advprop] [--upsample]
+                   [--filter FILTER] [--outdest OUTDEST]
+                   [--model_paths MODEL_PATHS]
+ensemble.py: error: unrecognized arguments: --model_paths_1 Iteration_1/Output_Macenko/,Iteration_1/Output_No_filter/,Iteration_1/Output_Reinhard/,Iteration_1/Output_SCD/
+Program finished with exit code 2 at: Tue Apr 13 19:16:41 CEST 2021
+done

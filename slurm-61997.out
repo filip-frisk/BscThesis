@@ -1,0 +1,196 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=61997&from=1618343283000
+/tmp/slurmd/job61997/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job61997/slurm_script: line 17: start: command not found
+Starting at Tue Apr 13 21:48:03 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis2-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+['Iteration_2/Output_No_filter/', 'Iteration_2/Output_Macenko/', 'Iteration_2/Output_Reinhard/', 'Iteration_2/Output_SCD/']
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  4.034 ( 4.034)	Loss 1.2510e+00 (1.2510e+00)	Acc@1  56.25 ( 56.25)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  56.25 ( 56.25)
+Test: [100/354]	Time  0.061 ( 0.101)	Loss 4.5578e+00 (2.3384e+00)	Acc@1  18.75 ( 54.83)	Acc C1  12.50 ( 17.81)	Acc C2  22.22 ( 33.33)	Acc C3  20.00 ( 32.23)	Acc C4   0.00 ( 76.52)
+Test: [200/354]	Time  0.061 ( 0.081)	Loss 2.9741e+00 (2.3012e+00)	Acc@1  62.50 ( 58.49)	Acc C1   0.00 ( 17.06)	Acc C2  73.91 ( 27.03)	Acc C3  75.00 ( 35.18)	Acc C4   0.00 ( 83.97)
+Test: [300/354]	Time  0.061 ( 0.074)	Loss 6.4856e-01 (2.4702e+00)	Acc@1  87.50 ( 56.77)	Acc C1   0.00 ( 13.95)	Acc C2   0.00 ( 31.54)	Acc C3  38.89 ( 40.48)	Acc C4  90.32 ( 85.40)
+ * Acc 55.390
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.20      0.14      0.17      1141
+           1       0.35      0.33      0.34      2324
+           2       0.52      0.42      0.47      3196
+           3       0.70      0.86      0.77      4657
+
+    accuracy                           0.55     11318
+   macro avg       0.44      0.44      0.44     11318
+weighted avg       0.53      0.55      0.53     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+       0    164   363   396   218 
+       1    247   762   513   802 
+       2    289   849  1343   715 
+       3    133   214   310  4000 
+
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.838 ( 3.838)	Loss 3.2751e+00 (3.2751e+00)	Acc@1  43.75 ( 43.75)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  43.75 ( 43.75)
+Test: [100/354]	Time  0.061 ( 0.099)	Loss 3.0229e+00 (3.0246e+00)	Acc@1  50.00 ( 51.14)	Acc C1   0.00 ( 10.96)	Acc C2  66.67 ( 45.30)	Acc C3  66.67 ( 48.55)	Acc C4   0.00 ( 60.13)
+Test: [200/354]	Time  0.061 ( 0.080)	Loss 2.2133e+00 (2.3975e+00)	Acc@1  40.62 ( 59.31)	Acc C1   0.00 (  9.50)	Acc C2  52.17 ( 52.17)	Acc C3  25.00 ( 48.64)	Acc C4   0.00 ( 73.37)
+Test: [300/354]	Time  0.061 ( 0.074)	Loss 1.8757e+00 (2.4867e+00)	Acc@1  65.62 ( 56.87)	Acc C1   0.00 (  8.87)	Acc C2   0.00 ( 50.08)	Acc C3  50.00 ( 46.43)	Acc C4  67.74 ( 74.84)
+ * Acc 54.126
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.17      0.08      0.11      1141
+           1       0.37      0.48      0.42      2324
+           2       0.50      0.44      0.47      3196
+           3       0.71      0.76      0.73      4657
+
+    accuracy                           0.54     11318
+   macro avg       0.44      0.44      0.43     11318
+weighted avg       0.52      0.54      0.53     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+       0     88   453   310   290 
+       1    226  1107   573   418 
+       2    126   912  1410   748 
+       3     73   521   542  3521 
+
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.796 ( 3.796)	Loss 2.2526e+00 (2.2526e+00)	Acc@1  25.00 ( 25.00)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  25.00 ( 25.00)
+Test: [100/354]	Time  0.062 ( 0.099)	Loss 2.1247e+00 (2.5666e+00)	Acc@1  68.75 ( 54.39)	Acc C1  25.00 (  8.22)	Acc C2  77.78 ( 29.91)	Acc C3  86.67 ( 63.95)	Acc C4   0.00 ( 60.13)
+Test: [200/354]	Time  0.061 ( 0.080)	Loss 5.1307e+00 (2.1773e+00)	Acc@1  21.88 ( 58.22)	Acc C1   0.00 (  7.78)	Acc C2  17.39 ( 34.08)	Acc C3  75.00 ( 64.30)	Acc C4   0.00 ( 68.08)
+Test: [300/354]	Time  0.062 ( 0.074)	Loss 6.7397e-01 (2.2376e+00)	Acc@1  84.38 ( 56.20)	Acc C1   0.00 (  6.65)	Acc C2   0.00 ( 30.04)	Acc C3  38.89 ( 63.76)	Acc C4  87.10 ( 71.57)
+ * Acc 53.631
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.19      0.08      0.11      1141
+           1       0.33      0.28      0.30      2324
+           2       0.47      0.62      0.54      3196
+           3       0.72      0.72      0.72      4657
+
+    accuracy                           0.54     11318
+   macro avg       0.43      0.42      0.42     11318
+weighted avg       0.52      0.54      0.52     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+       0     87   243   596   215 
+       1     94   652  1058   520 
+       2    128   498  1997   573 
+       3    155   566   602  3334 
+
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [  0/354]	Time  3.906 ( 3.906)	Loss 3.7315e-01 (3.7315e-01)	Acc@1  87.50 ( 87.50)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  87.50 ( 87.50)
+Test: [100/354]	Time  0.062 ( 0.100)	Loss 3.2475e+00 (1.9316e+00)	Acc@1  59.38 ( 69.59)	Acc C1   0.00 (  7.53)	Acc C2  77.78 ( 47.44)	Acc C3  80.00 ( 58.47)	Acc C4   0.00 ( 89.18)
+Test: [200/354]	Time  0.062 ( 0.081)	Loss 2.2172e+00 (1.8086e+00)	Acc@1  56.25 ( 69.67)	Acc C1   0.00 (  6.91)	Acc C2  73.91 ( 39.48)	Acc C3  25.00 ( 63.95)	Acc C4   0.00 ( 88.75)
+Test: [300/354]	Time  0.062 ( 0.074)	Loss 1.5780e-01 (2.0925e+00)	Acc@1  96.88 ( 64.91)	Acc C1   0.00 (  5.35)	Acc C2   0.00 ( 37.08)	Acc C3  50.00 ( 61.35)	Acc C4 100.00 ( 89.71)
+ * Acc 62.069
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.21      0.05      0.08      1141
+           1       0.50      0.37      0.43      2324
+           2       0.59      0.60      0.59      3196
+           3       0.69      0.90      0.78      4657
+
+    accuracy                           0.62     11318
+   macro avg       0.50      0.48      0.47     11318
+weighted avg       0.57      0.62      0.58     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+       0     55   266   468   352 
+       1     47   870   573   834 
+       2    125   479  1912   680 
+       3     40   120   309  4188 
+
+Ensemble:
+classification report:
+              precision    recall  f1-score   support
+
+           0       0.28      0.06      0.10      1141
+           1       0.45      0.40      0.42      2324
+           2       0.59      0.62      0.60      3196
+           3       0.73      0.88      0.80      4657
+
+    accuracy                           0.63     11318
+   macro avg       0.51      0.49      0.48     11318
+weighted avg       0.59      0.63      0.60     11318
+
+confusion matrix:
+      t\p     0     1     2     3 
+       0     71   316   488   266 
+       1     64   924   663   673 
+       2     76   558  1977   585 
+       3     46   244   248  4119 
+
+Program finished with exit code 0 at: Tue Apr 13 21:51:18 CEST 2021
+done

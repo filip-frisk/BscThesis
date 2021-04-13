@@ -1,0 +1,56 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=61958&from=1618340268000
+/tmp/slurmd/job61958/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job61958/slurm_script: line 17: start: command not found
+Starting at Tue Apr 13 20:57:48 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis2-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+['Iteration_2/Output_Macenko/', 'Iteration_2/Output_No_filter/', 'Iteration_2/Output_Reinhard/', 'Iteration_2/Output_SCD/']
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+Loaded pretrained weights for efficientnet-b0
+=> using pre-trained model 'efficientnet-b0'
+[W CudaIPCTypes.cpp:22] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]
+Test: [   0/1415]	Time  3.946 ( 3.946)	Loss 1.0610e+00 (1.0610e+00)	Acc@1  75.00 ( 75.00)	Acc C1   0.00 (  0.00)	Acc C2   0.00 (  0.00)	Acc C3   0.00 (  0.00)	Acc C4  75.00 ( 75.00)
+Test: [ 100/1415]	Time  0.018 ( 0.057)	Loss 5.8610e-01 (1.1968e+00)	Acc@1  75.00 ( 69.43)	Acc C1   0.00 (  0.00)	Acc C2  50.00 ( 23.08)	Acc C3  75.00 ( 30.00)	Acc C4  75.00 ( 72.06)
+Test: [ 200/1415]	Time  0.018 ( 0.038)	Loss 5.4322e-01 (2.0935e+00)	Acc@1  62.50 ( 56.28)	Acc C1   0.00 ( 16.00)	Acc C2  50.00 ( 45.45)	Acc C3  66.67 ( 40.28)	Acc C4  62.50 ( 64.37)
+Test: [ 300/1415]	Time  0.019 ( 0.032)	Loss 3.3969e+00 (2.4261e+00)	Acc@1  12.50 ( 51.58)	Acc C1   0.00 ( 13.11)	Acc C2   0.00 ( 41.67)	Acc C3   0.00 ( 35.93)	Acc C4  50.00 ( 62.59)
+Test: [ 400/1415]	Time  0.019 ( 0.028)	Loss 3.6774e+00 (2.8313e+00)	Acc@1  50.00 ( 47.97)	Acc C1   0.00 (  8.77)	Acc C2   0.00 ( 41.41)	Acc C3  80.00 ( 39.98)	Acc C4 100.00 ( 59.67)
+Test: [ 500/1415]	Time  0.019 ( 0.026)	Loss 6.9755e+00 (2.9758e+00)	Acc@1  25.00 ( 47.70)	Acc C1   0.00 (  9.43)	Acc C2 100.00 ( 46.22)	Acc C3  20.00 ( 40.29)	Acc C4  83.33 ( 61.40)
+Test: [ 600/1415]	Time  0.018 ( 0.025)	Loss 2.2181e+00 (2.9004e+00)	Acc@1  50.00 ( 46.90)	Acc C1   0.00 (  9.64)	Acc C2  62.50 ( 56.65)	Acc C3  50.00 ( 38.19)	Acc C4  50.00 ( 58.69)
+Test: [ 700/1415]	Time  0.018 ( 0.024)	Loss 1.1167e+00 (2.8092e+00)	Acc@1  75.00 ( 46.01)	Acc C1   0.00 (  9.64)	Acc C2  62.50 ( 56.65)	Acc C3  50.00 ( 38.19)	Acc C4  75.00 ( 53.81)
+Test: [ 800/1415]	Time  0.018 ( 0.023)	Loss 1.9341e+00 (2.7072e+00)	Acc@1  62.50 ( 46.00)	Acc C1   0.00 (  9.61)	Acc C2  62.50 ( 62.32)	Acc C3   0.00 ( 37.46)	Acc C4   0.00 ( 51.25)
+Test: [ 900/1415]	Time  0.019 ( 0.023)	Loss 3.8688e-01 (2.6593e+00)	Acc@1  87.50 ( 46.68)	Acc C1   0.00 (  9.70)	Acc C2  87.50 ( 65.16)	Acc C3  25.00 ( 35.54)	Acc C4   0.00 ( 51.24)
+Test: [1000/1415]	Time  0.018 ( 0.022)	Loss 3.4471e+00 (2.6049e+00)	Acc@1  25.00 ( 47.32)	Acc C1   0.00 (  9.58)	Acc C2 100.00 ( 66.54)	Acc C3 100.00 ( 34.71)	Acc C4  14.29 ( 51.52)
+Test: [1100/1415]	Time  0.019 ( 0.022)	Loss 6.7399e+00 (2.7028e+00)	Acc@1  12.50 ( 46.12)	Acc C1   0.00 (  9.21)	Acc C2 100.00 ( 66.80)	Acc C3  14.29 ( 32.33)	Acc C4   0.00 ( 51.11)
+Test: [1200/1415]	Time  0.019 ( 0.022)	Loss 3.0335e+00 (2.7605e+00)	Acc@1  50.00 ( 45.07)	Acc C1   0.00 ( 10.30)	Acc C2   0.00 ( 67.47)	Acc C3  42.86 ( 30.80)	Acc C4  50.00 ( 50.50)
+Test: [1300/1415]	Time  0.019 ( 0.022)	Loss 1.5382e+00 (2.7867e+00)	Acc@1  62.50 ( 44.65)	Acc C1   0.00 ( 10.75)	Acc C2  83.33 ( 68.02)	Acc C3   0.00 ( 28.81)	Acc C4   0.00 ( 50.43)
+Test: [1400/1415]	Time  0.019 ( 0.021)	Loss 3.2296e+00 (2.8724e+00)	Acc@1  25.00 ( 43.76)	Acc C1 100.00 ( 12.07)	Acc C2  60.00 ( 67.74)	Acc C3  50.00 ( 28.82)	Acc C4  14.29 ( 49.89)
+ * Acc 43.638
+Testing set : 
+Traceback (most recent call last):
+  File "ensemble.py", line 280, in <module>
+    main()
+  File "ensemble.py", line 118, in main
+    class_names=class_names, set_name="Testing set")
+  File "/cephyr/users/filipfri/Alvis/BscProject/parseData.py", line 45, in parseData
+    im = Image.open(image)
+  File "/cephyr/users/filipfri/Alvis/clusterEnv/lib/python3.6/site-packages/PIL/Image.py", line 2904, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'KI-dataset-4-types/All_Slices/N10_1_1Macenko.tif'
+Program finished with exit code 1 at: Tue Apr 13 20:58:45 CEST 2021
+done

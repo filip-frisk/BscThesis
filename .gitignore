@@ -10,6 +10,8 @@
 !parseData.py
 !parseData.ipynb
 !run_model.py
+!ensemble.py
+!ensemble.ipynb
 !run_model.ipynb
 !CustomDataset.py
 !CustomDataset.ipynb

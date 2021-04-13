@@ -1,0 +1,17 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=61921&from=1618331847000
+/tmp/slurmd/job61921/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job61921/slurm_script: line 17: start: command not found
+Starting at Tue Apr 13 18:37:27 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis2-01
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+mkdir: missing operand
+Try 'mkdir --help' for more information.
+  File "ensemble.py", line 165
+    y_pred_per_filter("True") = y_true
+    ^
+SyntaxError: can't assign to function call
+Program finished with exit code 1 at: Tue Apr 13 18:37:28 CEST 2021
+done
