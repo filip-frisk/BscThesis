@@ -1,7 +1,7 @@
 % Clears all previous data
 clc, clear all, close all;
 
-% Installs the toolbox
+% Installs the Warwick toolbox https://warwick.ac.uk/fac/cross_fac/tia/software/sntoolbox/ 
 run install.m
 
 % Acceses the correct folder
