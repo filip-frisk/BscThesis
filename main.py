@@ -177,10 +177,9 @@ def main():
     # Training set has data augmentation transforms while validation set does not
     train_tsfm = transforms.Compose([
         transforms.ToPILImage(),
-        transforms.Resize(image_size+math.floor(0.1*image_size), interpolation=PIL.Image.BICUBIC), # increases size by 1%, new pixels are interpolated (estimated) bicubicly
+        transforms.Resize(image_size+math.floor(0.1*image_size), interpolation=PIL.Image.BICUBIC),
+        # we resize the image to imafe_size + math.floor(0.1*image_size), and new pixels are interpolated using bicubic interpolation
         transforms.RandomResizedCrop(image_size), # takes a random crop from the new larger image
-        #transforms.RandomHorizontalFlip(),
-        #transforms.RandomVerticalFlip(),
         transforms.ToTensor(),
         AddGaussianNoise(0., 0.1) # adds Gaussian noise
         #normalize,

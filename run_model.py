@@ -23,6 +23,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from efficientnet_pytorch import EfficientNet
 from CustomDataset import CustomDataset
+import matplotlib.pyplot as plt
 
 """
 Name: run_model
@@ -158,12 +159,17 @@ def main_worker(loaders, split, gpu, ngpus, args, num_item_per_class):
             if c < 213:
                 param.requires_grad = False
 
+    # Defines losses and accuracy to later be used for plotting the loss and accuracy curves
+    epochs = [epoch for epoch in range(args.start_epoch, args.epochs)]
+    losses = []
+    accs = []
+
     # Trains and validate in all epochs
-    for epoch in range(args.start_epoch, args.epochs):
+    for epoch in epochs:
         adjust_learning_rate(optimizer, epoch, args.lr)
 
         # train for one epoch
-        train(loaders['train'], model, criterion, optimizer, epoch, args)
+        train(loaders['train'], model, criterion, optimizer, epoch, args, losses, accs)
 
         # evaluate on validation set
         acc1, val_classification, val_confusion_matrix = validate(loaders['val'], model, criterion, args,'Validation: ')
@@ -218,6 +224,13 @@ def main_worker(loaders, split, gpu, ngpus, args, num_item_per_class):
                     print(test_classification, file=f)
                     print(test_confusion_matrix, file=f)
 
+    with open(output_destination + '/losses_vs_epochs_{}.txt'.format(split), 'w') as f:
+        print(losses, file = f)
+        print(epochs, file = f)
+    with open(output_destination + '/acc_vs_epochs_{}.txt'.format(split), 'w') as f:
+        print(accs, file = f)
+        print(epochs, file = f)
+
 """
 Name: train
 Function: trains the model with the given loader, model, criterion and optimizer 
@@ -228,8 +241,7 @@ Each epoch consists of a fixed number of batches depending on args.batch_size pa
 Number of batxhes in epoch = roof(Dataset size (labels) / batch size)
 
 """
-def train(train_loader, model, criterion, optimizer, epoch, args):
-
+def train(train_loader, model, criterion, optimizer, epoch, args, losses_vec, accs_vec):
     # Epoch and batch count / Time per batch / Data loading time for batch
     batch_time = AverageMeter('Time', ':6.3f') # Training time per batch
     data_time = AverageMeter('Data loading time', ':6.3f') # Data loading time from python iteration computation
@@ -242,6 +254,8 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
     model.train()
 
     end = time.time()
+
+    running_loss = 0.0
     for i, (images, target) in enumerate(train_loader):
         # measure data loading time
         data_time.update(time.time() - end)
@@ -272,6 +286,9 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
 
         if i % args.print_freq == 0:
             progress.print(i)
+
+    losses_vec.append(losses.avg)
+    accs_vec.append(top1.avg)
 """
 Name: validate
 Function: validate or tests the model with the given loader, model, criterion 

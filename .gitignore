@@ -3,21 +3,18 @@
 *
 # Ignore all subdirectories
 */
+
 # Files to not ignore
 !.gitignore
-!main.py
 !main.ipynb
-!parseData.py
 !parseData.ipynb
-!run_model.py
-!ensemble.py
 !ensemble.ipynb
 !run_model.ipynb
-!CustomDataset.py
 !CustomDataset.ipynb
+
 # Directories to not ignore
-!/First_Iteration/
-!First_Iteration/*
-!/Slurm_and_log_files/
-!Slurm_and_log_files/*
-!*.out
+!Iteration_1/*
+!Iteration_2/*
+!Iteration_3/*
+!Iteration_4/*
+!Slurm_and_log_files/*.out

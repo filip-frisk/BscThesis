@@ -76,6 +76,7 @@ class_names = ['inflammatory', 'lymphocyte', 'fibroblast and endothelial',
                'epithelial', 'apoptosis / civiatte body']
 filters = ["","_Macenko","_Reinhard","_SCD"]
 y_pred_per_filter = {"True" : []}
+p_pred_per_filter = {}
 test_label_paths = [
     "N10_1_1",
     "N10_1_2",
@@ -104,8 +105,14 @@ def main():
     mp.set_start_method('spawn')
 
     for filter, path in zip(filters, model_paths):
+
+        # prints the current filter to the terminal
+        if filter: print(filter.strip('_'))
+        else: print("No_filter")
+
         #Hardcoded destination from this project repository
-        filename = "model_best_{}.pth.tar".format(k)
+        #filename = "model_best_{}.pth.tar".format(k)
+        filename = "model_best.pth.tar"
 
         test_images, test_labels = parseData(basePath=args.data, filter_name=filter, label_paths=test_label_paths,
                                              class_names=class_names, set_name="Testing set")
@@ -177,7 +184,7 @@ def main():
         # Enables the inbuilt cudnn auto-tuner to find the best algorithm to use for the hardware
         cudnn.benchmark = True
 
-        y_pred, y_true = getpred(test_loader, model, criterion, args, 'Test: ')
+        y_pred, y_true, p_pred = getpred(test_loader, model, criterion, args, 'Test: ')
 
         get_reporting(y_pred, y_true)
 
@@ -193,22 +200,48 @@ def main():
         else:
             y_pred_per_filter["No_filter"] = y_pred
 
-    print("Ensemble:")
-    get_reporting(majority_voting(y_pred_per_filter), y_true)
+        # Saves the prediction probabilites in the dictionary
+        if filter:
+            p_pred_per_filter[filter] = p_pred
+        else:
+            p_pred_per_filter["No_filter"] = p_pred
+
+    print("Ensemble Top 1 majority voting:")
+    get_reporting(ensemble_majority_voting(y_pred_per_filter), y_true)
+    f = open( args.outdest + "top1_majority_voting_predictions.txt", "w")
+    f.write(str(y_pred_per_filter))
+    f.close()
+
+    print("Ensemble Pontalba majority voting:")
+    get_reporting(ensemble_pontalba(p_pred_per_filter), y_true)
+    f = open(args.outdest + "pontalba_majority_voting_predictions.txt", "w")
+    f.write(str(p_pred_per_filter))
+    f.close()
+
+    save_reporting(y_pred, y_true, filter)
 
 
-def majority_voting(y_pred_per_filter):
+def ensemble_majority_voting(y_pred_per_filter):
     all = [y_pred_per_filter["No_filter"], y_pred_per_filter["_Macenko"], y_pred_per_filter["_Reinhard"], y_pred_per_filter["_SCD"]]
     all = np.array(all).transpose()
     return [np.random.choice(np.flatnonzero(np.bincount(v) == np.bincount(v).max())) for v in all]
 
+def ensemble_pontalba(p_pred_per_filter):
+    all = [p_pred_per_filter["No_filter"], p_pred_per_filter["_Macenko"], p_pred_per_filter["_Reinhard"], p_pred_per_filter["_SCD"]]
+    all = np.sum(np.array(all), axis=0) / all.shape[0]
+    return [v.argmax() for v in all]
+
 
 def get_reporting(y_pred,y_true):
-    report = classification_report(y_true, y_pred)
     print("classification report:")
-    print(report)
-    confusion_matrix = confusion_matix_string(y_true, y_pred)
-    print(confusion_matrix)
+    print(classification_report(y_true, y_pred))
+    print(confusion_matix_string(y_true, y_pred))
+
+def save_reporting(y_pred,y_true,filter):
+    f = open(args.outdest + "classification_report.txt", "w")
+    f.write('-------',str(filter),'-------')
+    f.write(str(classification_report(y_true, y_pred, output_dict=True)))
+    f.close()
 
 
 def getpred(val_loader, model, criterion, args, testing_type):
@@ -226,9 +259,11 @@ def getpred(val_loader, model, criterion, args, testing_type):
     model.eval()
 
     y_true, y_pred = [], []
+    p_pred = []
     # Source https://github.com/DingXiaoH/RepVGG/blob/main/train.py
     with torch.no_grad(): #All new tensors do not require gradient (requires_grad=False)
         end = time.time()
+        # iterates over all batches
         for i, (images, target) in enumerate(val_loader):
             if args.gpu is not None:
                 images = images.cuda(args.gpu, non_blocking=True)
@@ -248,8 +283,13 @@ def getpred(val_loader, model, criterion, args, testing_type):
             _, pred = output.topk(1, 1, True, True)
             pred = pred.t()
 
+            # extend y_true and y_pred with the prediction and true class
             y_true.extend(target.detach().cpu().numpy())
             y_pred.extend(pred.detach().cpu().numpy()[0])
+
+            # extend p_pred with the softmaxed predictions accuracies
+            softmax = nn.Softmax(dim=1)
+            p_pred.extend(softmax(output).detach().cpu().numpy())
 
             C1indices = [index for index, element in enumerate(target) if element == 0]
             if len(C1indices) > 0:
@@ -275,13 +315,12 @@ def getpred(val_loader, model, criterion, args, testing_type):
             batch_time.update(time.time() - end)
             end = time.time()
 
-            if i % args.print_freq == 0:
-                progress.print(i)
+            #if i % args.print_freq == 0:
+            #   progress.print(i)
 
-        # TODO: this should also be done with the ProgressMeter
-        print(' * Acc {top1.avg:.3f}'.format(top1=top1))
+        #print(' * Acc {top1.avg:.3f}'.format(top1=top1))
 
-    return y_pred,y_true
+    return y_pred, y_true, p_pred
 
 
 
