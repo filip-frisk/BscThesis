@@ -1,0 +1,81 @@
+This job can be monitored from: https://scruffy.c3se.chalmers.se/d/alvis-job/alvis-job?var-jobid=65777&from=1619524480000
+/tmp/slurmd/job65777/slurm_script: line 10: deactivate: command not found
+/tmp/slurmd/job65777/slurm_script: line 19: start: command not found
+Starting at Tue Apr 27 13:54:40 CEST 2021
+Job Name - EffNet
+Running on hosts: alvis1-10
+Running on 1 nodes.
+Running 1 tasks.
+Current working directory is /cephyr/users/filipfri/Alvis/BscProject
+10.2
+tensor([1.], device='cuda:0')
+Using image size:  224
+Using filter:  
+Training set : 
+Successfully loaded: P19_1_1
+Successfully loaded: P19_1_2
+Successfully loaded: P19_2_1
+Successfully loaded: P19_2_2
+Successfully loaded: P19_3_1
+Successfully loaded: P19_3_2
+Successfully loaded: P20_1_3
+Successfully loaded: P20_1_4
+Successfully loaded: P20_2_2
+Successfully loaded: P20_2_3
+Successfully loaded: P20_2_4
+Successfully loaded: P20_3_1
+Successfully loaded: P20_3_2
+Successfully loaded: P20_3_3
+Successfully loaded: P20_4_1
+Successfully loaded: P20_4_2
+Successfully loaded: P20_4_3
+Successfully loaded: P20_5_1
+Successfully loaded: P20_5_2
+Successfully loaded: P20_6_1
+Successfully loaded: P20_6_2
+Successfully loaded: P20_7_1
+Successfully loaded: P20_7_2
+Successfully loaded: P20_8_1
+Successfully loaded: P20_8_2
+Successfully loaded: P20_9_1
+Successfully loaded: P20_9_2
+Successfully loaded: P9_1_1
+Successfully loaded: P9_2_1
+Successfully loaded: P9_2_2
+Successfully loaded: P9_3_1
+Successfully loaded: P9_3_2
+Successfully loaded: P9_4_1
+Successfully loaded: P9_4_2
+Testing set : 
+Successfully loaded: N10_1_1
+Successfully loaded: N10_1_2
+Successfully loaded: N10_1_3
+Successfully loaded: N10_2_1
+Successfully loaded: N10_2_2
+Successfully loaded: P13_1_1
+Successfully loaded: P13_1_2
+Successfully loaded: P13_2_1
+Successfully loaded: P13_2_2
+Successfully loaded: P28_7_5
+Successfully loaded: P28_8_5
+Successfully loaded: P28_10_4
+Successfully loaded: P28_10_5
+split: 0
+[572, 1573, 3382, 6965]
+inflammatory appears 572 times in the non augmented training and validation set
+inflammatory appears 5148 times in the augmented training and validation set
+lymphocyte appears 1573 times in the non augmented training and validation set
+lymphocyte appears 7865 times in the augmented training and validation set
+fibroblast and endothelial appears 3382 times in the non augmented training and validation set
+fibroblast and endothelial appears 6764 times in the augmented training and validation set
+epithelial appears 6965 times in the non augmented training and validation set
+epithelial appears 13930 times in the augmented training and validation set
+Traceback (most recent call last):
+  File "main2.py", line 348, in <module>
+    main()
+  File "main2.py", line 285, in main
+    tensor_val_images = torch.tensor([train_images[i] for i in val], dtype=torch.float32, device=device)
+TypeError: 'int' object is not iterable
+--------------------------- NEXT TRAINING SESSION ---------------------------
+Program finished with exit code 0 at: Tue Apr 27 13:55:49 CEST 2021
+done
