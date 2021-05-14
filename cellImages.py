@@ -3,12 +3,11 @@ import numpy as np
 import xml.etree.ElementTree as ET
 import random as rd
 
-# Taking in TIF, normalize the Image without taking white parts into account
-# Cropping 32x32 images around the center of the cells
-# All images are stored in the array "images "and the labels are stored in array labels
+# Taking in TIF, cropping 32x32 images around the center of the cells
+# Store images are stored in the array "images " and the labels are stored in array labels 
+# Then creates an images of mutiple cells of each cell type with name "cell type view.png"
 
 """
-
 Structure in .xml file from labelIMG python library used by KI: 
     <object>
     <name>epithelial</name>
