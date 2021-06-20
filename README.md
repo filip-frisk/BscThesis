@@ -1,5 +1,6 @@
 # About
 A repo for documentation Filip &amp; Albert
+A sheet detailing all experiments is available at this [link](https://docs.google.com/spreadsheets/d/1_sOiXOl1qm0wKVom49XMOGXiADfrzJuXoAEin4kzkko/edit#gid=1874826242)
 
 # Setup 
 (1) Document everything in the python-files (.py)  and (2) use a Jupiter Notebook parser library (https://pypi.org/project/p2j/) convert .py to .ipynb and (3) push changes to git.
