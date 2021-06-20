@@ -3,6 +3,9 @@
 
 Link to paper: https://drive.google.com/file/d/1k7QPwhpSuLVFdCFWhwGi5ycd2u-1sLhX/view 
 
+# Acknowledgements
+The computations and data handling were enabled by resources provided by the Swedish National Infrastructure for Computing (SNIC) at C3SE Chalmers University of Technol- ogy partially funded by the Swedish Research Council through grant agreement no. 2020/33-67. Research funding was also provided by ALF Medicine and SOF Clinical Odontological Research Funding. The authors would like to thank Karl Meinke and Rachael Sugars with team for their continued support and guidance during this project. 
+
 # About
 A repo for documentation Filip &amp; Albert.
 
