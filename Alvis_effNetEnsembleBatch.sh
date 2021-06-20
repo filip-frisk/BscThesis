@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH -A SNIC2020-33-67 -p alvis
 #SBATCH -n 1
-#SBATCH --time=00:10:00
+#SBATCH --time=02:00:00
 #SBATCH --gpus-per-node=T4:1
-#SBATCH -J filip_albert_Ensembling_Iteration3
+#SBATCH -J filip_albert_Ensembling_All_iterations
 
 # Clear the environment from any previously loaded modules
 module purge > /dev/null 2>&1
@@ -28,9 +28,132 @@ echo "Current working directory is `pwd`"
 
 export PYTHONPATH=$PYTHONPATH:~/clusterEnv/lib/python3.6/site-packages/
 
-#
-python3 ensemble.py --pretrained --wd 5e-5 --lr 0.01 --image_size 224 --batch-size 32 --outdest "Iteration_3/" --momentum 0.9 -p 100 --model_paths "Iteration_3/Output_No_filter/,Iteration_3/Output_Macenko/,Iteration_3/Output_Reinhard/,Iteration_3/Output_SCD/"
+python3 ensemble.py --pretrained --wd 5e-5 --lr 0.01 --image_size 224 --batch-size 32 --outdest "." --momentum 0.9 -p 100 --model_paths "Iteration_10/Output_No_filter/model_best_4.pth.tar
+Iteration_8/Output_Macenko/model_best_3.pth.tar
+Iteration_6/Output_Reinhard/model_best_3.pth.tar
+Iteration_9/Output_SCD/model_best_3.pth.tar
+Iteration_5/Output_No_filter/model_best_0.pth.tar
+Iteration_5/Output_No_filter/model_best_1.pth.tar
+Iteration_5/Output_No_filter/model_best_2.pth.tar
+Iteration_5/Output_No_filter/model_best_3.pth.tar
+Iteration_5/Output_No_filter/model_best_4.pth.tar
+Iteration_5/Output_Macenko/model_best_0.pth.tar
+Iteration_5/Output_Macenko/model_best_1.pth.tar
+Iteration_5/Output_Macenko/model_best_2.pth.tar
+Iteration_5/Output_Macenko/model_best_3.pth.tar
+Iteration_5/Output_Macenko/model_best_4.pth.tar
+Iteration_5/Output_Reinhard/model_best_0.pth.tar
+Iteration_5/Output_Reinhard/model_best_1.pth.tar
+Iteration_5/Output_Reinhard/model_best_2.pth.tar
+Iteration_5/Output_Reinhard/model_best_3.pth.tar
+Iteration_5/Output_Reinhard/model_best_4.pth.tar
+Iteration_5/Output_SCD/model_best_0.pth.tar
+Iteration_5/Output_SCD/model_best_1.pth.tar
+Iteration_5/Output_SCD/model_best_2.pth.tar
+Iteration_5/Output_SCD/model_best_3.pth.tar
+Iteration_5/Output_SCD/model_best_4.pth.tar
+Iteration_6/Output_No_filter/model_best_0.pth.tar
+Iteration_6/Output_No_filter/model_best_1.pth.tar
+Iteration_6/Output_No_filter/model_best_2.pth.tar
+Iteration_6/Output_No_filter/model_best_3.pth.tar
+Iteration_6/Output_No_filter/model_best_4.pth.tar
+Iteration_6/Output_Macenko/model_best_0.pth.tar
+Iteration_6/Output_Macenko/model_best_1.pth.tar
+Iteration_6/Output_Macenko/model_best_2.pth.tar
+Iteration_6/Output_Macenko/model_best_3.pth.tar
+Iteration_6/Output_Macenko/model_best_4.pth.tar
+Iteration_6/Output_Reinhard/model_best_0.pth.tar
+Iteration_6/Output_Reinhard/model_best_1.pth.tar
+Iteration_6/Output_Reinhard/model_best_2.pth.tar
+Iteration_6/Output_Reinhard/model_best_3.pth.tar
+Iteration_6/Output_Reinhard/model_best_4.pth.tar
+Iteration_6/Output_SCD/model_best_0.pth.tar
+Iteration_6/Output_SCD/model_best_1.pth.tar
+Iteration_6/Output_SCD/model_best_2.pth.tar
+Iteration_6/Output_SCD/model_best_3.pth.tar
+Iteration_6/Output_SCD/model_best_4.pth.tar
+Iteration_7/Output_No_filter/model_best_0.pth.tar
+Iteration_7/Output_No_filter/model_best_1.pth.tar
+Iteration_7/Output_No_filter/model_best_2.pth.tar
+Iteration_7/Output_No_filter/model_best_3.pth.tar
+Iteration_7/Output_No_filter/model_best_4.pth.tar
+Iteration_7/Output_Macenko/model_best_0.pth.tar
+Iteration_7/Output_Macenko/model_best_1.pth.tar
+Iteration_7/Output_Macenko/model_best_2.pth.tar
+Iteration_7/Output_Macenko/model_best_3.pth.tar
+Iteration_7/Output_Macenko/model_best_4.pth.tar
+Iteration_7/Output_Reinhard/model_best_0.pth.tar
+Iteration_7/Output_Reinhard/model_best_1.pth.tar
+Iteration_7/Output_Reinhard/model_best_2.pth.tar
+Iteration_7/Output_Reinhard/model_best_3.pth.tar
+Iteration_7/Output_Reinhard/model_best_4.pth.tar
+Iteration_7/Output_SCD/model_best_0.pth.tar
+Iteration_7/Output_SCD/model_best_1.pth.tar
+Iteration_7/Output_SCD/model_best_2.pth.tar
+Iteration_7/Output_SCD/model_best_3.pth.tar
+Iteration_7/Output_SCD/model_best_4.pth.tar
+Iteration_8/Output_No_filter/model_best_0.pth.tar
+Iteration_8/Output_No_filter/model_best_1.pth.tar
+Iteration_8/Output_No_filter/model_best_2.pth.tar
+Iteration_8/Output_No_filter/model_best_3.pth.tar
+Iteration_8/Output_No_filter/model_best_4.pth.tar
+Iteration_8/Output_Macenko/model_best_0.pth.tar
+Iteration_8/Output_Macenko/model_best_1.pth.tar
+Iteration_8/Output_Macenko/model_best_2.pth.tar
+Iteration_8/Output_Macenko/model_best_3.pth.tar
+Iteration_8/Output_Macenko/model_best_4.pth.tar
+Iteration_8/Output_Reinhard/model_best_0.pth.tar
+Iteration_8/Output_Reinhard/model_best_1.pth.tar
+Iteration_8/Output_Reinhard/model_best_2.pth.tar
+Iteration_8/Output_Reinhard/model_best_3.pth.tar
+Iteration_8/Output_Reinhard/model_best_4.pth.tar
+Iteration_8/Output_SCD/model_best_0.pth.tar
+Iteration_8/Output_SCD/model_best_1.pth.tar
+Iteration_8/Output_SCD/model_best_2.pth.tar
+Iteration_8/Output_SCD/model_best_3.pth.tar
+Iteration_8/Output_SCD/model_best_4.pth.tar
+Iteration_9/Output_No_filter/model_best_0.pth.tar
+Iteration_9/Output_No_filter/model_best_1.pth.tar
+Iteration_9/Output_No_filter/model_best_2.pth.tar
+Iteration_9/Output_No_filter/model_best_3.pth.tar
+Iteration_9/Output_No_filter/model_best_4.pth.tar
+Iteration_9/Output_Macenko/model_best_0.pth.tar
+Iteration_9/Output_Macenko/model_best_1.pth.tar
+Iteration_9/Output_Macenko/model_best_2.pth.tar
+Iteration_9/Output_Macenko/model_best_3.pth.tar
+Iteration_9/Output_Macenko/model_best_4.pth.tar
+Iteration_9/Output_Reinhard/model_best_0.pth.tar
+Iteration_9/Output_Reinhard/model_best_1.pth.tar
+Iteration_9/Output_Reinhard/model_best_2.pth.tar
+Iteration_9/Output_Reinhard/model_best_3.pth.tar
+Iteration_9/Output_Reinhard/model_best_4.pth.tar
+Iteration_9/Output_SCD/model_best_0.pth.tar
+Iteration_9/Output_SCD/model_best_1.pth.tar
+Iteration_9/Output_SCD/model_best_2.pth.tar
+Iteration_9/Output_SCD/model_best_3.pth.tar
+Iteration_9/Output_SCD/model_best_4.pth.tar
+Iteration_10/Output_No_filter/model_best_0.pth.tar
+Iteration_10/Output_No_filter/model_best_1.pth.tar
+Iteration_10/Output_No_filter/model_best_2.pth.tar
+Iteration_10/Output_No_filter/model_best_3.pth.tar
+Iteration_10/Output_No_filter/model_best_4.pth.tar
+Iteration_10/Output_Macenko/model_best_0.pth.tar
+Iteration_10/Output_Macenko/model_best_1.pth.tar
+Iteration_10/Output_Macenko/model_best_2.pth.tar
+Iteration_10/Output_Macenko/model_best_3.pth.tar
+Iteration_10/Output_Macenko/model_best_4.pth.tar
+Iteration_10/Output_Reinhard/model_best_0.pth.tar
+Iteration_10/Output_Reinhard/model_best_1.pth.tar
+Iteration_10/Output_Reinhard/model_best_2.pth.tar
+Iteration_10/Output_Reinhard/model_best_3.pth.tar
+Iteration_10/Output_Reinhard/model_best_4.pth.tar
+Iteration_10/Output_SCD/model_best_0.pth.tar
+Iteration_10/Output_SCD/model_best_1.pth.tar
+Iteration_10/Output_SCD/model_best_2.pth.tar
+Iteration_10/Output_SCD/model_best_3.pth.tar
+Iteration_10/Output_SCD/model_best_4.pth.tar"
+
 
 echo "Program finished with exit code $? at: `date`"
 
-echo "done"
+echo "Marco scare"
